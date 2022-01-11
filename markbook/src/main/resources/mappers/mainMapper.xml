@@ -5,4 +5,11 @@
   
    <mapper namespace="com.markbook.mapper.mainMapper">
    
+   <select id="borrbest" resultType="mk_bookVO">
+   select * from book
+   order by b_count 
+   limit 6;
+   
+   </select>
+   
    </mapper>
