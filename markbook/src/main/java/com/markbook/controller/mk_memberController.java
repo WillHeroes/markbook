@@ -208,6 +208,12 @@ public class mk_memberController {
         
 	}
 	
+	@RequestMapping(value="passChk", method=RequestMethod.GET)
+	public void chkPass() throws Exception {
+		
+		System.out.println("비밀번호 확인 (본인 인증)");
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="passChk", method=RequestMethod.POST)
 	public boolean passChk(mk_memberVO mvo, HttpSession session) throws Exception {

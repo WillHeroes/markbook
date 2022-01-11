@@ -12,18 +12,12 @@
 		where m_id = #{m_id}
 	</select>
 	
-	<!-- 회원번호 검색 -->
-	<select id="maxNum" resultType="String">
-		select max(m_num)
-		from member_info
-	</select>
-	
 	<!-- 회원가입 -->
 	<insert id="insertMember">
 		insert into member_info 
-		values (#{m_num}, #{m_id}, #{m_pw}, #{m_addr1}, #{m_addr2}, 
+		values (#{m_id}, #{m_pw}, #{m_addr1}, #{m_addr2}, 
 		#{m_email}, #{m_phone}, #{m_image}, now(), #{m_idnum1}, #{m_idnum2}, 
-		0, 0, #{m_name})
+		0, 0, #{m_name}, 0)
 	</insert>
 	
 	<!-- 로그인 체크 -->
@@ -40,14 +34,14 @@
 	
 	<!-- 네이버 로그인 : 이력없으면 회원가입 -->
 	<insert id="insertNaver">
-	insert into member_info(m_num,m_id,m_name,m_email,m_phone) values
-	(#{m_num},#{m_id},#{m_name},#{m_email},#{m_phone})
+		insert into member_info(m_id,m_name,m_email,m_phone) values
+		(#{m_id},#{m_name},#{m_email},#{m_phone})
 	</insert>
 	
 	<!-- 비밀번호 찾기 중 입력한 이메일과 일치하는 아이디 불러오기 -->
 	<select id="readMember" resultType="mk_memberVO">
-	select * from member_info
-	where m_id = #{m_id}
+		select * from member_info
+		where m_id = #{m_id}
 	</select>
 	
 	<!-- 비밀번호 변경 -->

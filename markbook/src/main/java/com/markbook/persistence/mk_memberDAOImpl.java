@@ -24,14 +24,8 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 	@Override
 	public void memberInsert(mk_memberVO mvo) throws Exception {
 		
-		String tmp = sqlSession.selectOne(namespace + ".maxNum");
-		int max = 999;
-		if (tmp != null) max = Integer.parseInt(tmp);
-		
-		System.out.println("최대값 : "+max);
-		mvo.setM_num(++max);
-		
 		sqlSession.insert(namespace + ".insertMember", mvo);
+		
 	}
 
 	@Override
@@ -63,13 +57,7 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 
 	@Override
 	public void naverJoin(mk_memberVO mvo) throws Exception {
-		String tmp = sqlSession.selectOne(namespace + ".maxNum");
-		int max = 999;
-		if (tmp != null) max = Integer.parseInt(tmp);
-		
-		System.out.println("최대값 : "+max);
-		mvo.setM_num(++max);
-		
+				
 		sqlSession.insert(namespace+".insertNaver", mvo);
 	}
 
@@ -87,6 +75,7 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 	public mk_memberVO readMember(String m_id) throws Exception {
 		
 		mk_memberVO mvo = sqlSession.selectOne(namespace+".readMember", m_id);
+		
 		return mvo;
 	}
 

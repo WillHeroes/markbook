@@ -26,3 +26,15 @@ function cal_open() {
 	
 	window.open("/markbook/mk_calendar/calendar", "_blank", specs);
 }
+
+function chkPass(data) {
+	
+	var width = 400;
+	var height = 200;
+	var left = width_calc(width);
+	
+	var specs = "toolbar=no,scrollbars=no,resizable=no,top=50px,left="+left+",width="+width+",height="+height;
+	
+	window.open("/markbook/mk_member/chkPass?m_id="+data, "_blank", specs);
+	
+}

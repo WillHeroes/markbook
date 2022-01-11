@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
+<script src="${pageContext.request.contextPath }/resources//assets/js/index.js"></script>
 
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
 		<div class="register-form text-center">
