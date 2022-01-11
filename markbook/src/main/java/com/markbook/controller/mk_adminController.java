@@ -1,6 +1,7 @@
 package com.markbook.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -137,7 +138,7 @@ public class mk_adminController {
 	// 전체 회원 목록 조회 (GET)
 	// http://localhost:8088/markbook/mk_admin/memberList
 	@RequestMapping(value = "/memberList", method = RequestMethod.GET)
-	public String memberListAllGET(Criteria cri, Model model) throws Exception {
+	public String memberListAllGET(Model model, String m_id, Criteria cri) throws Exception {
 
 		// 페이징처리 정보생성
 		pageMaker pm = new pageMaker();
@@ -145,7 +146,9 @@ public class mk_adminController {
 		pm.setTotalCount(service.countMember(cri));
 
 		// 서비스 동작 호출
-		model.addAttribute("memberList", service.countMember(cri));
+		// model.addAttribute("memberList", mService.profile(m_id));
+		model.addAttribute("memberList", service.mListCri(cri));
+		
 		// Criteria 객체 정보 저장 (pageStart/pageSize)
 		model.addAttribute("pm", pm);
 

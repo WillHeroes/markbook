@@ -36,9 +36,6 @@ public interface mk_adminDAO {
 	// 회원 데이터 입력
 	public void insertMember(mk_memberVO mvo) throws Exception;
 	
-	// 전체 회원 목록 조회
-	public List<mk_memberVO> getMList(String m_id) throws Exception;
-	
 	// 전체 회원 목록 페이징 처리 조회
 	public List<mk_memberVO> mListCri(Criteria cri) throws Exception;
 	

@@ -105,15 +105,6 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 		
 	}
 
-	// 전체 회원 목록 조회
-	@Override
-	public List<mk_memberVO> getMList(String m_id) throws Exception {
-
-		List<mk_memberVO> memberList = sqlSession.selectList(namespace+"memberList", m_id);
-		
-		return memberList;
-	}
-
 
 	// 전체 회원 목록 갯수 조회
 	@Override

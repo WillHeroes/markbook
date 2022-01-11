@@ -32,7 +32,7 @@
                             <tr>
                                 <th class="font-weight-semi-bold border-top-0 py-2">No</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Name</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Email</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">ID</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Phone</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">연체일</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">대출도서권수</th>

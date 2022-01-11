@@ -86,18 +86,15 @@ public class mk_adminServiceImpl implements mk_adminService {
 		return bvo;
 	}
 
-
 	
-	// 전체 회원 목록 조회
+	// 회원 목록 페이징처리
 	@Override
-	public List<mk_memberVO> getMList(String m_id) throws Exception {
+	public List<mk_memberVO> mListCri(Criteria cri) throws Exception {
 		
-		List<mk_memberVO> memberList = madao.getMList(m_id);
-		
-		return memberList;
+		return madao.mListCri(cri);
 	}
 
-
+	
 	// 전체 회원 목록 갯수 조회
 	@Override
 	public int countMember(Criteria cri) throws Exception {
@@ -130,6 +127,7 @@ public class mk_adminServiceImpl implements mk_adminService {
 
 		madao.deleteMember(m_id);
 	}
+
 	
 	
 	
