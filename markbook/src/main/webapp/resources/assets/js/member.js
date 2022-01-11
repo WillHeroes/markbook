@@ -280,3 +280,32 @@ function idChk() {
 		})
 	}
 }
+
+function chkPass(data) {
+	
+	var pw = document.getElementById('pw').value;
+	if (pw == "") alert("비밀번호를 입력해주세요.");
+	else {
+		$.ajax({
+			
+		});
+	}
+	/*
+	$.ajax({
+		url: "/markbook/mk_member/passChk",
+		type: "post",
+		dataType: "json",
+		data: {"m_pw" : pw},
+		success: function(result) {
+			// 자신의 비밀번호가 맞다면
+			if (result) {
+				location.href="/markbook/mk_member/myProfileEdit?id="+data;
+			}
+			else {
+				alert("비밀번호가 틀립니다.");
+			}
+		}
+	})
+	*/
+}
+
