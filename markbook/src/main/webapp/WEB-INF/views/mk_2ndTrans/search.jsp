@@ -108,7 +108,7 @@
 							</div>
 							<!-- select-Categories End -->
 						<button type="button" 
-								class="button button-contactForm boxed-btn" onclick="Search();">검색하기</button>
+								class="button button-contactForm boxed-btn" onclick="getSearch();">검색하기</button>
 						</div>
 					</div>
 					<!-- Category Listing End -->
@@ -126,13 +126,13 @@
 									</select>
 									<div class="nice-select" tabindex="0">
 										<c:choose>
-											<c:when test="${searchOption == 'lowprice'}">
+											<c:when test="${option == 'lowprice'}">
 												<span class="current">낮은가격순</span>
 											</c:when>
-											<c:when test="${searchOption == 'highprice'}">
+											<c:when test="${option == 'highprice'}">
 												<span class="current">높은가격순</span>
 											</c:when>
-											<c:when test="${searchOption == 'date'}">
+											<c:when test="${option == 'date'}">
 												<span class="current">과거등록순</span>
 											</c:when>
 											<c:otherwise>
@@ -186,7 +186,7 @@
                             	<!-- 이전  -->
                                 <c:if test="${pm.prev }">
 	                                <li class="page-item">
-	                                    <a href="search?searchOption=${searchOption }&keyword=${keyword }&pageNum=${pm.startPage-1 }" class="page-link">
+	                                    <a href="search?option=${option }&pageNum=${pm.startPage-1 }" class="page-link">
 	                                        <i class="ti-angle-left"></i>
 	                                    </a>
 	                                </li>
@@ -194,13 +194,13 @@
                                 <!-- 페이지 번호  -->
                                 <c:forEach begin="${pm.startPage }" end="${pm.endPage }" var="idx">
                                 	<li class="page-item <c:out value="${pm.cri.pageNum == idx? 'class = active ':''}"/>" > 
-				                     	<a class="page-link" href="search?searchOption=${searchOption }&keyword=${keyword }&pageNum=${idx }">${idx }</a>
+				                     	<a class="page-link" href="search?option=${option }&pageNum=${idx }">${idx }</a>
                                 	</li>
                                 </c:forEach>
                                 <!--다음  -->
                                 <c:if test="${pm.next && pm.endPage > 0 }">
 	                                <li class="page-item">
-	                                    <a href="search?searchOption=${searchOption }&keyword=${keyword }&pageNum=${pm.endPage + 1}" class="page-link" aria-label="Next">
+	                                    <a href="search?option=${option }&pageNum=${pm.endPage + 1}" class="page-link" aria-label="Next">
 	                                        <i class="ti-angle-right"></i>
 	                                    </a>
 	                                </li>

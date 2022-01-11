@@ -43,11 +43,17 @@ public interface mk_2ndtransDAO {
 	// 주문정보 등록
 	public void bookchechout(book_orderVO bvo) throws Exception;
 	
-	// 서치 리스트
+	// 위쪽 서치바 검색 리스트
 	public List<mk_2ndhand_bookVO> searchListAll(SearchVO svo, sjCriteria cri) throws Exception;
 	
-	// 서치 레코드 갯수
+	// 위쪽 서치바 레코드 갯수
 	public int countSearch(SearchVO svo) throws Exception;
+	
+	// 왼쪽 카테고리 서치 리스트
+	public List<mk_2ndhand_bookVO> cateList(SearchVO svo, sjCriteria cri) throws Exception;
+		
+	// 카테고리 레코드 갯수
+	public int countCate(SearchVO svo) throws Exception;
 	
 
 }

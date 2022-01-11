@@ -13,9 +13,11 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.markbook.domain.SearchVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
@@ -312,16 +315,38 @@ public class mk_2ndtransController {
 	}
 	
 	// 중고책 검색결과 - 카테고리 선택별
-	@ResponseBody
-	@RequestMapping(value = "/cateSearch", method = RequestMethod.POST)
-	public String cateSearch (@RequestParam String data) throws Exception {
+	@RequestMapping(value = "/catesearch", method = RequestMethod.GET)
+	public String cateSearch (String b2_category, String b2_bookstatus, String b2_sellstatus, sjCriteria cri, Model model) throws Exception {
 		
-		logger.info("C: catesearch() 호출");
-		logger.info(data);
-	
+		logger.info("C: getcatesearch() 호출");
+		
+		System.out.println(b2_category);
+		System.out.println(b2_bookstatus);
+		System.out.println(b2_sellstatus);
+		
+		SearchVO svo = new SearchVO();
+		svo.setB2_category(b2_category);
+		svo.setB2_bookstatus(b2_bookstatus);
+		svo.setB2_sellstatus(b2_sellstatus);
+		
+		System.out.println(svo);
+		
+		// 페이징 처리 정보 생성 
+		sjPageMaker pm = new sjPageMaker(); 
+		pm.setCri(cri);
+		pm.setTotalCount(service.countCate(svo));
+		
+		System.out.println(pm);
+		  
+		System.out.println(service.countCate(svo));
+		System.out.println(service.cateList(svo, cri));
+		  
+		// Criteria 객체 정보 저장(pageStart/pageSize) 			
+		model.addAttribute("bookList", service.cateList(svo, cri)); 
+		model.addAttribute("pm", pm);
+		model.addAttribute("count", service.countCate(svo));
+		  			 
 		return "/mk_2ndTrans/search";				
 	}
-	
-
 
 }

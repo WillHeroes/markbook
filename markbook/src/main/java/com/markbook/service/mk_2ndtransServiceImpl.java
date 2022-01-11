@@ -163,5 +163,23 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 
 		return tdao.countSearch(svo);
 	}
+	
+	// 카테고리 검색결과리스트
+	@Override
+	public List<mk_2ndhand_bookVO> cateList(SearchVO svo, sjCriteria cri) throws Exception {
+		
+		logger.info(" S : cateList() 호출 !");
+
+		return tdao.cateList(svo, cri);
+	}
+	
+	// 카테고리 검색 카운트
+	@Override
+	public int countCate(SearchVO svo) throws Exception {
+		
+		logger.info(" S : countCate() 호출 !");
+
+		return tdao.countCate(svo);
+	}
 
 }

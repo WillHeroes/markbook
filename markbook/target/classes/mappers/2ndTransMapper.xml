@@ -98,17 +98,34 @@
 		values(#{order_id}, #{order_b2_num}, #{order_name}, #{order_phone}, #{order_addr1}, #{order_addr2}, #{order_msg})
 	</insert>
 	
-	<!-- 리스트 선택 결과 페이징  -->
+	<!-- 상위 메뉴 선택 결과 페이징  -->
 	<select id="searchlist" parameterType="hashmap" resultType="mk_2ndhand_bookVO">
 		select * from 2ndhand_book 
 		<include refid="search"></include>
 		limit #{skip},#{pageAmount}
 	</select>
 	
-	<!-- 검색 결과 갯수  -->
+	<!-- 상위 메뉴 검색 결과 갯수  -->
 	<select id="countsearch" resultType="int">
 		select count(*) from 2ndhand_book 
 		<include refid="search"></include>
+	</select>
+	
+	<!-- 왼쪽 카테고리 선택 결과 페이징  -->
+	<select id="catelist" resultType="mk_2ndhand_bookVO">
+		select * from 2ndhand_book 
+		where b2_category = #{b2_category} or 
+			  b2_bookstatus = #{b2_bookstatus} or 
+			  b2_sellstatus = #{b2_sellstatus}   
+		limit #{skip},#{pageAmount}
+	</select>
+	
+	<!-- 상위 메뉴 검색 결과 갯수  -->
+	<select id="countcate" resultType="int">
+		select count(*) from 2ndhand_book 
+		where b2_category = #{b2_category} or
+			  b2_bookstatus = #{b2_bookstatus} or 
+			  b2_sellstatus = #{b2_sellstatus}  
 	</select>
 	
 	<!-- 검색 sql문  -->
@@ -128,5 +145,7 @@
 			</otherwise>
 		</choose>
 	</sql>
+	
+	
 
 </mapper>

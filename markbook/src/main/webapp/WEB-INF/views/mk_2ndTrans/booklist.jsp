@@ -108,7 +108,7 @@
 							</div>
 							<!-- select-Categories End -->
 						<button type="button" 
-								class="button button-contactForm boxed-btn" onclick="Search();">검색하기</button>
+								class="button button-contactForm boxed-btn" onclick="getSearch();">검색하기</button>
 						</div>
 					</div>
 					<!-- Category Listing End -->

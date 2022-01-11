@@ -150,7 +150,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		logger.info(" DAO : 주문 입력완료");
 	}
 	
-	// 조회 결과 리스트
+	// 상단검색바 조회 결과 리스트
 	@Override
 	public List<mk_2ndhand_bookVO> searchListAll(SearchVO svo, sjCriteria cri) throws Exception {
 		
@@ -165,13 +165,49 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		return sqlSession.selectList(namespace + ".searchlist", map);
 	}
 	
-	// 서치 카운트
+	// 상단 검색 서치 카운트
 	@Override
 	public int countSearch(SearchVO svo) throws Exception {
 		
 		logger.info(" DAO : countSearch() 호출 ");
 		
 		return sqlSession.selectOne(namespace + ".countsearch", svo);
+	}
+	
+	// 왼쪽 카테고리 검색 결과 리스트
+	@Override
+	public List<mk_2ndhand_bookVO> cateList(SearchVO svo, sjCriteria cri) throws Exception {
+		
+		logger.info(" DAO : cateList() 호출 ");
+	
+		// 검색옵션과 페이징 값을 맵에 저장
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("b2_category", svo.getB2_category());
+		map.put("b2_bookstatus", svo.getB2_bookstatus());
+		map.put("b2_sellstatus", svo.getB2_sellstatus());
+		map.put("skip", cri.getSkip());
+		map.put("pageAmount", cri.getPageAmount());
+		
+		System.out.println(map);
+				
+		return sqlSession.selectList(namespace + ".catelist", map);
+	}
+	
+	// 왼쪽 카테고리 검색 결과 리스트 갯수
+	@Override
+	public int countCate(SearchVO svo) throws Exception {
+		
+		logger.info(" DAO : countCate() 호출 ");
+		
+		// 검색옵션 저장
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("b2_category", svo.getB2_category());
+		map.put("b2_bookstatus", svo.getB2_bookstatus());
+		map.put("b2_sellstatus", svo.getB2_sellstatus());
+		
+		System.out.println(map);
+		
+		return sqlSession.selectOne(namespace + ".countcate", map);
 	}
 
 	
