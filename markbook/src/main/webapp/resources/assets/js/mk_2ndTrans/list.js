@@ -40,10 +40,10 @@ $(document).ready(function() {
 	});
 });
 
-/* 검색버튼 작동2 */
-function getSearch() {
+/* 검색버튼 작동 */
+function Search() {
 	
-	alert(" get 작동");
+	alert(" get 작동 수정");
 
 	var b2_category = $('input[type="checkbox"][name="b2_category"]:checked').val();
 	var b2_bookstatus = $('input[type="checkbox"][name="b2_bookstatus"]:checked').val();

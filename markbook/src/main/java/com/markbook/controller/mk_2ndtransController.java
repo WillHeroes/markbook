@@ -304,7 +304,7 @@ public class mk_2ndtransController {
 		sjPageMaker pm = new sjPageMaker(); 
 		pm.setCri(cri);
 		pm.setTotalCount(service.countSearch(svo));
-		  
+		
 		// Criteria 객체 정보 저장(pageStart/pageSize) 
 		model.addAttribute("bookList", service.searchListAll(svo, cri)); 
 		model.addAttribute("pm", pm);
@@ -320,10 +320,6 @@ public class mk_2ndtransController {
 		
 		logger.info("C: getcatesearch() 호출");
 		
-		System.out.println(b2_category);
-		System.out.println(b2_bookstatus);
-		System.out.println(b2_sellstatus);
-		
 		SearchVO svo = new SearchVO();
 		svo.setB2_category(b2_category);
 		svo.setB2_bookstatus(b2_bookstatus);
@@ -336,10 +332,9 @@ public class mk_2ndtransController {
 		pm.setCri(cri);
 		pm.setTotalCount(service.countCate(svo));
 		
-		System.out.println(pm);
-		  
-		System.out.println(service.countCate(svo));
-		System.out.println(service.cateList(svo, cri));
+		System.out.println("c: 카테리스트 결과값" + service.cateList(svo, cri));
+		System.out.println("c: pm" + pm);
+		System.out.println("c: 카테리스트 갯수" +service.countCate(svo));
 		  
 		// Criteria 객체 정보 저장(pageStart/pageSize) 			
 		model.addAttribute("bookList", service.cateList(svo, cri)); 

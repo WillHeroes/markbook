@@ -150,7 +150,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	public List<mk_2ndhand_bookVO> searchListAll(SearchVO svo, sjCriteria cri) throws Exception {
 		
 		logger.info(" S : searchListAll() 호출 !");
-
+		
 		return tdao.searchListAll(svo, cri);
 
 	}
@@ -169,6 +169,8 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	public List<mk_2ndhand_bookVO> cateList(SearchVO svo, sjCriteria cri) throws Exception {
 		
 		logger.info(" S : cateList() 호출 !");
+		
+		System.out.println("s : catelist " + tdao.cateList(svo, cri));
 
 		return tdao.cateList(svo, cri);
 	}
@@ -178,6 +180,8 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	public int countCate(SearchVO svo) throws Exception {
 		
 		logger.info(" S : countCate() 호출 !");
+		
+		System.out.println("s : countcate " + tdao.countCate(svo));
 
 		return tdao.countCate(svo);
 	}

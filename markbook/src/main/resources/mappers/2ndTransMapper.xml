@@ -111,24 +111,7 @@
 		<include refid="search"></include>
 	</select>
 	
-	<!-- 왼쪽 카테고리 선택 결과 페이징  -->
-	<select id="catelist" resultType="mk_2ndhand_bookVO">
-		select * from 2ndhand_book 
-		where b2_category = #{b2_category} or 
-			  b2_bookstatus = #{b2_bookstatus} or 
-			  b2_sellstatus = #{b2_sellstatus}   
-		limit #{skip},#{pageAmount}
-	</select>
-	
-	<!-- 상위 메뉴 검색 결과 갯수  -->
-	<select id="countcate" resultType="int">
-		select count(*) from 2ndhand_book 
-		where b2_category = #{b2_category} or
-			  b2_bookstatus = #{b2_bookstatus} or 
-			  b2_sellstatus = #{b2_sellstatus}  
-	</select>
-	
-	<!-- 검색 sql문  -->
+	<!-- 상단 메뉴 검색 sql문  -->
 	<sql id="search">
 		<choose>
 			<when test="option == 'lowprice'">
@@ -146,6 +129,25 @@
 		</choose>
 	</sql>
 	
+	<!-- 카테고리 메뉴 선택 결과 페이징  -->
+	<select id="catelist" parameterType="hashmap" resultType="mk_2ndhand_bookVO">
+		select * from 2ndhand_book 
+		<include refid="searchC"></include>
+		limit #{skip},#{pageAmount}
+	</select>
 	
-
+	<!-- 카테고리 메뉴 검색 결과 갯수  -->
+	<select id="countcate" resultType="int">
+		select count(*) from 2ndhand_book 
+		<include refid="searchC"></include> 
+	</select>
+	
+	<!-- 카테고리 메뉴 검색 sql문  -->
+	<sql id="searchC">
+		where 
+		b2_category = #{b2_category} and 
+		b2_bookstatus = #{b2_bookstatus} and  
+		b2_sellstatus = #{b2_sellstatus}   
+	</sql>
+	
 </mapper>
