@@ -20,13 +20,9 @@
 
 
 
-<style>
-table{
-border:5px solid red;
 
-}
 
-</style>
+
 
 <meta charset="UTF-8">
 <title>책 검색</title>
@@ -53,7 +49,25 @@ border:5px solid red;
 <!--     <button id="search">검색</button> -->
  
 <br>
-    <div id="here"></div>
+<!--     <div id="here"></div> -->
+
+<div class="progress-table-wrap">
+												<div class="progress-table">
+													<div class="table-head">
+														<div class="serial">#</div>
+														<div class="country">도서명</div>
+														<div class="visit">저자</div>
+														<div class="percentage">출판일</div>
+													</div>
+													
+													
+													<div class="table-row">
+														<div id="newst"></div>
+
+													</div>
+													</div>
+												</div>
+
 
 
 
@@ -102,7 +116,7 @@ border:5px solid red;
             var pageNum = 1;
  
             $("#search").click(function () {
-                $("#here").html("");
+                $("#newst").html("");
  
                 $.ajax({
                     method: "GET",
@@ -115,7 +129,7 @@ border:5px solid red;
                     console.log(msg);
                     
                     for (var i = 0; i < 10; i++){
-                
+                                           
                     	var title =msg.documents[i].title;
                     	var publisher =msg.documents[i].publisher;
                     	var price =msg.documents[i].price;
@@ -124,41 +138,25 @@ border:5px solid red;
                     	var thumbnail=msg.documents[i].thumbnail;
                     	
 //                     	$("div").append('<a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+');\">'+title +"</a>");
-                        $("#here").append("<table>");
-                        $("#here").append("<tr>");
-                        $("#here").append("<th>");
-                    	$("#here").append('<a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\">'+ title +"</a>");
-                        $("#here").append("</th>");
-                        $("#here").append("<th rowspan='4'");
-                        $("#here").append("<img src='" + thumbnail + "' /><br>");
-                        $("#here").append("</th>");
-                        $("#here").append("</tr>");
-                        
-                        $("#here").append("<tr>");
-                        $("#here").append("<td>");
-                        $("#here").append("<strong>출판사:</strong> " + publisher + "<br>");
-                        $("#here").append("</td>");
-                        $("#here").append("<td>");
-                        $("#here").append("</td>");                       
-                        $("#here").append("</tr>");
+
+                        $("#newst").append("<img src='" + thumbnail + "' /><br>");
+                    	$("#newst").append('<div class="country"> <a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\">'+ title +'</a> </div>');
+
+                        $("#newst").append('<div class="visit">'+publisher+'</div>');
+
+                        $("#newst").append('<div class="percentage">'+authors+'</div>');
+
                     	
-                        $("#here").append("<tr>");
-                        $("#here").append("<td>");
-                        $("#here").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
-                        $("#here").append("</td>");
-                        $("#here").append("<td>");
-                        $("#here").append("</td>");   
-                        $("#here").append("</tr>");
+//                         $("#here").append("<tr>");
+//                         $("#here").append("<td>");
+//                         $("#here").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
+//                         $("#here").append("</td>");
+
+//                         $("#here").append("</tr>");
                         
-                        $("#here").append("<tr>");
-                        $("#here").append("<td>");
-                        $("#here").append("<strong>ISBN:</strong> " + msg.documents[i].isbn + "...<br>");
-                        $("#here").append("</td>");       
-                        $("#here").append("<td>");
-                        $("#here").append("</td>");   
-                        $("#here").append("</tr>");
+
                         
-                        $("#here").append("</table>");
+
                         
                     }
                 });

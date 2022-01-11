@@ -14,7 +14,7 @@ import com.markbook.domain.Page;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Update;
 
 @Repository
-public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
+public class mk_couponDAOImpl implements mk_requestBoardDAO{
 	//디비연결
 	@Inject
 	private SqlSession sqlSession;
