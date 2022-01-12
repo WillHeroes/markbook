@@ -73,7 +73,7 @@
   
  <div class="col-sm-10" >
   <div class="form-group">
-      <label>책 이름</label>
+      <label>도서명</label>
 <table>
 <tr>
 <td>
@@ -89,7 +89,7 @@
 
 <div class="col-sm-6">
   <div class="form-group">
-      <label>작가명</label>
+      <label>저자</label>
    <input class="form-control" id="r_writer" name="r_writer" placeholder="작가이름" readonly="readonly">
  </div>
 </div>

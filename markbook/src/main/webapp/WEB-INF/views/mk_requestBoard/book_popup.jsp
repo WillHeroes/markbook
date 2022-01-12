@@ -20,7 +20,18 @@
 
 
 
+<style>
+hr {
+    color: #222222;    /* IE */
+    border-color: #222222;  /* 사파리 */
+    background-color: #222222;   /* 크롬, 모질라 등, 기타 브라우저 */
+    width: 2000px;
+}
+a{
+color: black;
 
+}
+</style>
 
 
 
@@ -48,23 +59,26 @@
 <!--     <input type="text" id="query" name="Search"> -->
 <!--     <button id="search">검색</button> -->
  
-<br>
+
 <!--     <div id="here"></div> -->
 
 <div class="progress-table-wrap">
+<div id="count"></div>
 												<div class="progress-table">
 													<div class="table-head">
-														<div class="serial">#</div>
+														<div class="serial" >표지</div>
 														<div class="country">도서명</div>
 														<div class="visit">저자</div>
 														<div class="percentage">출판일</div>
 													</div>
-													
-													
+
+					
 													<div class="table-row">
 														<div id="newst"></div>
+														검색결과가 없습니다.
 
 													</div>
+
 													</div>
 												</div>
 
@@ -128,8 +142,10 @@
                 .done(function (msg) {
                     console.log(msg);
                     
+                      var num=msg.meta.total_count;
+                        $("#count").append('<b>총</b>'+num+'<b>개</b>');
+                        
                     for (var i = 0; i < 10; i++){
-                                           
                     	var title =msg.documents[i].title;
                     	var publisher =msg.documents[i].publisher;
                     	var price =msg.documents[i].price;
@@ -139,12 +155,14 @@
                     	
 //                     	$("div").append('<a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+');\">'+title +"</a>");
 
-                        $("#newst").append("<img src='" + thumbnail + "' /><br>");
-                    	$("#newst").append('<div class="country"> <a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\">'+ title +'</a> </div>');
+                        $("#newst").append("<div class='serial'> <img src='" + thumbnail + "'  width='60px' height='90px'/></div><br>");
+                    	$("#newst").append(' <div class="country"> <a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\">'+ title +'</a> </div>');
 
                         $("#newst").append('<div class="visit">'+publisher+'</div>');
 
                         $("#newst").append('<div class="percentage">'+authors+'</div>');
+
+                        $("#newst").append('<hr>');
 
                     	
 //                         $("#here").append("<tr>");
@@ -186,11 +204,14 @@
                         	var thumbnail=msg.documents[i].thumbnail
                         	
                         	
-                          	 $("#here").append("<h2><a  href=\'javascript:data("+ title +");\'>"+ title +"</a></h2>");
-                            $("#here").append("<strong>출판사:</strong> " + publisher + "<br>");
-                            $("#here").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
-                            $("#here").append("<img src='" + thumbnail + "' /><br>");
-                            $("#here").append("<img src='" + thumbnail + "' /><br>");
+
+                            $("#newst").append("<img src='" + thumbnail + "' /><br>");
+                        	$("#newst").append('<div class="country"> <a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\" >'+ title +'</a> </div>');
+
+                            $("#newst").append('<div class="visit">'+publisher+'</div>');
+
+                            $("#newst").append('<div class="percentage">'+authors+'</div>');
+
                         }
                     });
  
