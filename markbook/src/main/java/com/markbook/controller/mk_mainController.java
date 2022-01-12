@@ -22,11 +22,18 @@ public class mk_mainController {
 	@RequestMapping(value="index",method=RequestMethod.GET)
 	public void mainGet(Model model) throws Exception{
 		System.out.println("메인도착");
-		List<mk_bookVO> list = service.borrBest();
-		System.out.println(list);
-		model.addAttribute("list",list);
+		List<mk_bookVO> listall = service.borrBest();
+		System.out.println(listall);
+		model.addAttribute("listall",listall);
 		System.out.println("borrBest 실행");
+//		List<mk_bookVO> list1 = service.borrBest1();
 		
+	}
+	
+	@RequestMapping(value="index",method=RequestMethod.POST)
+	public void mainPOST(String category) throws Exception{
+	
+		System.out.println("category:"+category);
 	}
 	
 	

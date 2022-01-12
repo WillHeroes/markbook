@@ -39,3 +39,4 @@ function chkPass(data) {
 	window.open("/markbook/mk_member/chkPass?id="+data, "_blank", specs);
 	
 }
+

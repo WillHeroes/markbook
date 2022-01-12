@@ -2,8 +2,27 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <%@ include file="include/header.jsp" %>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+function all(){
+	alert("확인");
+// 	var all = document.getElementById('all').value;
+// 	$.ajax({
+// 		url: "/markbook/index",
+// 		type: "post",
+// 		dataType: "json",
+// 		data: {"category" : all},
+// 		success: function() {
+// 			alert("확인");
+// 		},error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+//             alert("통신 실패.")
+//         }
+// 	})
+}
+
+</script>
+
 <main>
     <!-- slider Area Start-->
     <div class="slider-area">
@@ -364,11 +383,12 @@
                     <!--Nav Button  -->
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" href="#nav-one" role="tab" aria-controls="nav-one" aria-selected="true">All</a>
-                            <a class="nav-link" id="nav-two-tab" data-bs-toggle="tab" href="#nav-two" role="tab" aria-controls="nav-two" aria-selected="false">Horror</a>
-                            <a class="nav-link" id="nav-three-tab" data-bs-toggle="tab" href="#nav-three" role="tab" aria-controls="nav-three" aria-selected="false">Thriller</a>
-                            <a class="nav-link" id="nav-four-tab" data-bs-toggle="tab" href="#nav-four" role="tab" aria-controls="nav-four" aria-selected="false">Science Fiction</a>
-                            <a class="nav-link" id="nav-five-tab" data-bs-toggle="tab" href="#nav-five" role="tab" aria-controls="nav-five" aria-selected="false">History</a>
+                            <a href="javascript:all();">여기</a>
+                            <a class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" href="#nav-one" role="tab" aria-controls="nav-one" aria-selected="true" onclick="all();">All</a>
+                            <a class="nav-link" id="nav-two-tab" data-bs-toggle="tab" href="#nav-two" role="tab" aria-controls="nav-two" aria-selected="false" value="novel" name="novel" onclick="one();">문학</a>
+                            <a class="nav-link" id="nav-three-tab" data-bs-toggle="tab" href="#nav-three" role="tab" aria-controls="nav-three" aria-selected="false" value="unnovel" name="unnovel" onclick="two();">비문학</a>
+                            <a class="nav-link" id="nav-four-tab" data-bs-toggle="tab" href="#nav-four" role="tab" aria-controls="nav-four" aria-selected="false" value="selfhelf" name="selfhelf" onclick="three();">자기계발서</a>
+                            <a class="nav-link" id="nav-five-tab" data-bs-toggle="tab" href="#nav-five" role="tab" aria-controls="nav-five" aria-selected="false" value="study" name="study" onclick="four();">수험서</a>
                         </div>
                     </nav>
                     <!--End Nav Button  -->
@@ -382,7 +402,7 @@
             <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
                 <!-- Tab 1 -->  
                 <div class="row">
-                <c:forEach items="${list}" var="list" >
+                <c:forEach items="${listall}" var="listall" >
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="properties pb-30">
                             <div class="properties-card">
@@ -1163,6 +1183,7 @@
 <div id="back-top" >
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
+
 
 
 <%@ include file="include/footer.jsp" %>
