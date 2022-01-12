@@ -49,11 +49,5 @@ public interface mk_2ndtransDAO {
 	// 위쪽 서치바 레코드 갯수
 	public int countSearch(SearchVO svo) throws Exception;
 	
-	// 왼쪽 카테고리 서치 리스트
-	public List<mk_2ndhand_bookVO> cateList(SearchVO svo, sjCriteria cri) throws Exception;
-		
-	// 카테고리 레코드 갯수
-	public int countCate(SearchVO svo) throws Exception;
-	
 
 }

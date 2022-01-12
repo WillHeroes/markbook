@@ -313,35 +313,5 @@ public class mk_2ndtransController {
 		 
 		return "/mk_2ndTrans/search";				
 	}
-	
-	// 중고책 검색결과 - 카테고리 선택별
-	@RequestMapping(value = "/catesearch", method = RequestMethod.GET)
-	public String cateSearch (String b2_category, String b2_bookstatus, String b2_sellstatus, sjCriteria cri, Model model) throws Exception {
-		
-		logger.info("C: getcatesearch() 호출");
-		
-		SearchVO svo = new SearchVO();
-		svo.setB2_category(b2_category);
-		svo.setB2_bookstatus(b2_bookstatus);
-		svo.setB2_sellstatus(b2_sellstatus);
-		
-		System.out.println(svo);
-		
-		// 페이징 처리 정보 생성 
-		sjPageMaker pm = new sjPageMaker(); 
-		pm.setCri(cri);
-		pm.setTotalCount(service.countCate(svo));
-		
-		System.out.println("c: 카테리스트 결과값" + service.cateList(svo, cri));
-		System.out.println("c: pm" + pm);
-		System.out.println("c: 카테리스트 갯수" +service.countCate(svo));
-		  
-		// Criteria 객체 정보 저장(pageStart/pageSize) 			
-		model.addAttribute("bookList", service.cateList(svo, cri)); 
-		model.addAttribute("pm", pm);
-		model.addAttribute("count", service.countCate(svo));
-		  			 
-		return "/mk_2ndTrans/search";				
-	}
 
 }
