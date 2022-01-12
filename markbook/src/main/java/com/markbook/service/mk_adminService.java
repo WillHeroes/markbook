@@ -30,6 +30,9 @@ public interface mk_adminService {
 	// 도서 삭제
 	public void deleteBook(Integer b_num) throws Exception;
 	
+	// 전체 회원 목록 
+	public List<mk_memberVO> getMList() throws Exception;
+	
 	// 회원 목록 페이징처리
 	public List<mk_memberVO> mListCri(Criteria cri) throws Exception;
 	

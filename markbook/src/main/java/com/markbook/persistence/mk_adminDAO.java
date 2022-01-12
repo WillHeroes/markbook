@@ -11,10 +11,10 @@ public interface mk_adminDAO {
 	// 도서 등록
 	public void bookRegister(mk_bookVO bvo) throws Exception;
 	
-	// 도서 목록
+	// 도서 목록 조회
 	public List<mk_bookVO> getBookList() throws Exception;
 	
-	// 도서 목록 페이징 처리
+	// 도서 목록 페이징 처리 조회
 	//public List<BoardVO> listCri(int pageStart,int pageSize) throws Exception;
 	public List<mk_bookVO> bListCri(Criteria cri) throws Exception; // 객체만들어서 객체를 통해서 정보전달
 	
@@ -35,6 +35,9 @@ public interface mk_adminDAO {
 	
 	// 회원 데이터 입력
 	public void insertMember(mk_memberVO mvo) throws Exception;
+	
+	// 전체 회원 목록
+	public List<mk_memberVO> getMList() throws Exception;
 	
 	// 전체 회원 목록 페이징 처리 조회
 	public List<mk_memberVO> mListCri(Criteria cri) throws Exception;

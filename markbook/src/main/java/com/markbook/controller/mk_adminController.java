@@ -29,8 +29,9 @@ public class mk_adminController {
 	@Inject
 	private mk_adminService service;
 
-	@Inject 
-	private mk_memberService mService;
+	/*
+	 * @Inject private mk_memberService mService;
+	 */
 	
 
 	// 관리자 메인 페이지 (GET)
@@ -80,8 +81,8 @@ public class mk_adminController {
 		pm.setTotalCount(service.countBook(cri));
 
 		// 서비스 동작 호출
-		model.addAttribute("bookList", service.getBookList());
 		// Criteria 객체 정보 저장 (pageStart/pageSize)
+		model.addAttribute("bookList", service.getBookList());
 		model.addAttribute("pm", pm);
 
 		return "/mk_admin/bookList";
@@ -91,7 +92,10 @@ public class mk_adminController {
 	@RequestMapping(value = "/bookDetail", method = RequestMethod.GET)
 	public String bookInfoGET(Integer b_num, Model model) throws Exception {
 
+		mk_bookVO bvo = service.getBInfo(b_num);
+		
 		model.addAttribute("bvo", service.getBInfo(b_num));
+		model.addAttribute("bvo", bvo);
 
 		return "/mk_admin/bookDetail";
 	}
@@ -99,10 +103,12 @@ public class mk_adminController {
 	// 도서 수정 (GET)
 	// http://localhost:8088/markbook/mk_admin/bookUpdate
 	@RequestMapping(value = "/bookUpdate", method = RequestMethod.GET)
-	public String bookUpdateGET(Integer b_num, Model model) throws Exception {
+	public String bookUpdateGET(HttpSession session, Integer b_num, Model model) throws Exception {
 
 		System.out.println(" C : bookUpdateGET() 호출 ");
 
+		// String admin_id = (String) session.getAttribute("m_id");
+		
 		// model 객체에 저장
 		model.addAttribute("bvo", service.getBInfo(b_num));
 
@@ -146,7 +152,6 @@ public class mk_adminController {
 		pm.setTotalCount(service.countMember(cri));
 
 		// 서비스 동작 호출
-		// model.addAttribute("memberList", mService.profile(m_id));
 		model.addAttribute("memberList", service.mListCri(cri));
 		
 		// Criteria 객체 정보 저장 (pageStart/pageSize)

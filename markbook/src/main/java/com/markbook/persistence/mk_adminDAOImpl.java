@@ -54,7 +54,7 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 		
 		System.out.println(" DAO : bListCri(Criteria cri) 호출 ");
 		
-		return sqlSession.selectList(namespace+".listCri",cri);
+		return sqlSession.selectList(namespace+".bListCri",cri);
 	}
 	
 	// 도서 목록 전체 갯수 조회 
@@ -105,6 +105,14 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 		
 	}
 
+	// 전체 회원 목록
+	@Override
+	public List<mk_memberVO> getMList() throws Exception {
+		
+		List<mk_memberVO> memberList = sqlSession.selectList(namespace+".memberList");
+		
+		return memberList;
+	}
 
 	// 전체 회원 목록 갯수 조회
 	@Override
@@ -143,6 +151,8 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 
 		sqlSession.delete(namespace+".mDelete", m_id);
 	}
+
+
 
 
 

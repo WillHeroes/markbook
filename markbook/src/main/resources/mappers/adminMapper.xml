@@ -21,10 +21,8 @@
  	</select>
  
  	<!-- 도서 목록 페이징 처리 list -->
- 	<select id="listCri" resultType="mk_bookVO">
+ 	<select id="bListCri" resultType="mk_bookVO">
  		select * from book 
- 		where b_num = 0 
- 		order by b_num desc 
  		limit #{pageStart},#{pageSize} <!-- 크기를 받아가서 저장 -->
  	</select>
  	

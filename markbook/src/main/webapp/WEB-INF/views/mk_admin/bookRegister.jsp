@@ -29,7 +29,6 @@
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
 
 								<form action="./bookRegister" method="post" name="">
-									<input type="hidden" value="${b_name }" name="b_name">
 									<input type="hidden" value="0" name="b_able">
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->

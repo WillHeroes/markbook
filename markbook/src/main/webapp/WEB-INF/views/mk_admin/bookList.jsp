@@ -56,6 +56,7 @@ function fun23(num){
                                     <tbody>
                                     <c:forEach var="bvo" items="${bookList }">
                                     
+                                    
                                     <tr>
                                         <td class="py-3">${bvo.b_num}</td>
                                         <td>
