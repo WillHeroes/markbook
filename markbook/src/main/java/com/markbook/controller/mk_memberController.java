@@ -208,10 +208,12 @@ public class mk_memberController {
         
 	}
 	
-	@RequestMapping(value="passChk", method=RequestMethod.GET)
-	public void chkPass() throws Exception {
+	@RequestMapping(value="chkPass", method=RequestMethod.GET)
+	public void chkPass(@RequestParam("id") String m_id, Model model) throws Exception {
 		
-		System.out.println("비밀번호 확인 (본인 인증)");
+		System.out.println("비밀번호 확인 (본인 인증) : "+m_id);
+		
+		model.addAttribute("m_id", m_id);
 	}
 	
 	@ResponseBody
