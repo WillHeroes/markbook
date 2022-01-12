@@ -1,10 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/member.css">
 <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var email = '<c:out value="${memberInfo.m_email}"/>';
+		var social = '<c:out value="${social}"/>';
+		var idx = email.indexOf("@");
+		
+		$('input[name=emailAddr]').attr('value', email.substring(0, idx));
+		
+		if (social == "google") {
+			alert("ㄴㄴ");
+			$('#domain').val('gmail.com').prop("selected", true);
+		}
+	}
+</script>
 
 <form method="post" action="/markbook/mk_member/myProfileEdit" name="editFr" onsubmit="return editChk();">
 	<input type="hidden" name="realID" value="${memberInfo.m_id }"/>
@@ -16,7 +31,7 @@
 			<div class="input-box">
 				<div class="single-input-fields">
 					<label>아이디</label>
-					<input type="text" name="m_id" value="${memberInfo.m_id}">
+					<input type="text" name="m_id" value="${memberInfo.m_id}" disabled>
 				</div>
 				<div class="single-input-fields">
 					<label>이름</label>
@@ -27,10 +42,10 @@
 					<table style="width:100%">
                    		<tr>
                    			<td style="width:50%">
-	                        	<input type="text" name="emailAddr" value="${memberInfo.m_email}">
+	                        	<input type="text" name="emailAddr" value="">
 	                        </td>
 	                        <td style="width:50%">
-			                    <select style="display:none;" name="domain">
+			                    <select style="display:none;" name="domain" id="domain">
 			                    	<option value="none">선택하세요</option>
 			                        <option value="naver.com">@naver.com</option>
 			                        <option value="daum.net">@daum.net</option>
@@ -39,10 +54,10 @@
 			                    <div class="nice-select" tabindex="0" style="margin-top:8px; border-radius:0px; height:50px; color:rgb(139,139,139)">
 				                    <span class="current">선택하세요</span>
 				                    <ul class="list">
-					                    <li data-value="none" class="option selected focus">선택하세요</li>
+					                    <li data-value="none" class="option">선택하세요</li>
 					                    <li data-value="naver.com" class="option">@naver.com</li>
 					                    <li data-value="daum.net" class="option">@daum.net</li>
-					                    <li data-value="gmail.com" class="option">@gmail.com</li>
+					                    <li data-value="gmail.com" class="option selected">@gmail.com</li>
 				                    </ul>
 			                    </div>
 		                    </td>
@@ -77,8 +92,15 @@
 				</div>
 				<input type="hidden" name="m_email" id="in" value=""/> 
 				<div class="register-footer" style="margin-top:30px;">
-	                <p> Do you want to change your password? <a href="javascript:void(0);" onclick="changePass();">Change</a> here</p>
-					<button class="submit-btn3">Edit</button>
+				<table style="text-align:left;">
+					<tr>
+						<td><p> Do you want to change your password? <a href="javascript:void(0);" onclick="changePass();">Change</a> here</p></td>
+					</tr>
+					<tr>
+						<td><p> Are you sure you want to leave your account? <a href="#">Click</a> here</p></td>
+					</tr>
+				</table>
+				<button class="submit-btn3">Edit</button>
 				</div>
 			</div>
 		</div>

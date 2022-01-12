@@ -68,11 +68,16 @@
 				url: "/markbook/mk_member/gg_login",
 				type: "post",
 				dataType: "json",
-				data: {"m_id" : m_id, "m_name" : m_name, "m_email" : m_email}
+				data: {"m_id" : m_id, "m_name" : m_name, "m_email" : m_email},
+				success: function(data) {
+					if(!data) {
+						alert("프로필에서 나머지 정보들을 입력해주세요");
+						location.href="/markbook/mk_member/myProfileEdit?social=google&id="+m_id;
+					}
+					else location.href="/markbook/index";
+				}
 			})
 			
-			location.href="/markbook/index";
- 			
 		})
 		.fail(function(e){
 			console.log(e);

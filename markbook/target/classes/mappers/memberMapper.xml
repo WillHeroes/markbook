@@ -67,4 +67,12 @@
 		where m_id = #{m_id} and m_pw = #{m_pw}
 	</select>
 	
+	<!-- 프로필 수정 -->
+	<update id="editPro">
+		update member_info set m_name = #{m_name}, m_email = #{m_email}, 
+		m_addr1 = #{m_addr1}, m_addr2 = #{m_addr2}, m_phone = #{m_phone}, 
+		m_idnum1 = #{m_idnum1}, m_idnum2 = #{m_idnum2} 
+		where m_id = #{m_id}
+	</update>
+	
  </mapper>

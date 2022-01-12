@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 
 public class mk_memberVO {
 	
-	private int m_num;
 	private String m_id;
 	private String m_pw;
 	private String m_addr1;
@@ -18,13 +17,7 @@ public class mk_memberVO {
 	private int m_count;
 	private int m_over;
 	private String m_name;
-	
-	public int getM_num() {
-		return m_num;
-	}
-	public void setM_num(int m_num) {
-		this.m_num = m_num;
-	}
+	private int m_status;
 	public String getM_id() {
 		return m_id;
 	}
@@ -103,13 +96,18 @@ public class mk_memberVO {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
-	
+	public int getM_status() {
+		return m_status;
+	}
+	public void setM_status(int m_status) {
+		this.m_status = m_status;
+	}
 	@Override
 	public String toString() {
-		return "mk_memberVO [m_num=" + m_num + ", m_id=" + m_id + ", m_pw=" + m_pw + ", m_addr1=" + m_addr1
-				+ ", m_addr2=" + m_addr2 + ", m_email=" + m_email + ", m_phone=" + m_phone + ", m_image=" + m_image
-				+ ", m_regdate=" + m_regdate + ", m_idnum1=" + m_idnum1 + ", m_idnum2=" + m_idnum2 + ", m_count="
-				+ m_count + ", m_over=" + m_over + ", m_name=" + m_name + "]";
+		return "mk_memberVO [m_id=" + m_id + ", m_pw=" + m_pw + ", m_addr1=" + m_addr1 + ", m_addr2=" + m_addr2
+				+ ", m_email=" + m_email + ", m_phone=" + m_phone + ", m_image=" + m_image + ", m_regdate=" + m_regdate
+				+ ", m_idnum1=" + m_idnum1 + ", m_idnum2=" + m_idnum2 + ", m_count=" + m_count + ", m_over=" + m_over
+				+ ", m_name=" + m_name + ", m_status=" + m_status + "]";
 	}
 	
 }

@@ -239,6 +239,7 @@ function editChk() {
 		
 	document.editFr.m_email.value = realEmail;	
 	
+	/*
 	if(document.editFr.m_id.value != document.editFr.realID.value) {
 		$.ajax({
 			url: "/markbook/mk_member/idchk",
@@ -255,6 +256,7 @@ function editChk() {
 	}
 
 	if (m_id == '0') return false;
+	*/
 }
 
 function idChk() {
@@ -284,28 +286,23 @@ function idChk() {
 function chkPass(data) {
 	
 	var pw = document.getElementById('pw').value;
+	
 	if (pw == "") alert("비밀번호를 입력해주세요.");
 	else {
 		$.ajax({
-			
-		});
+			url: "/markbook/mk_member/passChk",
+			type: "post",
+			data: {"m_pw" : pw},
+			success: function(result) {
+				if (result) {
+					opener.parent.location = "/markbook/mk_member/myProfileEdit?id="+data;
+					window.close();
+				}
+				else {
+					alert("비밀번호가 틀립니다.");
+				}
+			}
+		})
 	}
-	/*
-	$.ajax({
-		url: "/markbook/mk_member/passChk",
-		type: "post",
-		dataType: "json",
-		data: {"m_pw" : pw},
-		success: function(result) {
-			// 자신의 비밀번호가 맞다면
-			if (result) {
-				location.href="/markbook/mk_member/myProfileEdit?id="+data;
-			}
-			else {
-				alert("비밀번호가 틀립니다.");
-			}
-		}
-	})
-	*/
 }
 

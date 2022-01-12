@@ -37,16 +37,18 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 	}
 
 	@Override
-	public void socialCheck(mk_memberVO mvo) throws Exception {
+	public boolean socialCheck(mk_memberVO mvo) throws Exception {
 		
 		boolean isJoin = sqlSession.selectOne(namespace + ".socialChk", mvo);
 		
 		if (!isJoin) {
 			memberInsert(mvo);
 			System.out.println("회원가입 완료");
+			return false;
 		}
 		else {
 			System.out.println("이미 존재하는 아이디입니다.");
+			return true;
 		}
 	}
 
@@ -89,6 +91,12 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 	public boolean passChk(mk_memberVO mvo) throws Exception {
 		
 		return sqlSession.selectOne(namespace + ".passChk", mvo);
+	}
+
+	@Override
+	public void editPro(mk_memberVO mvo) throws Exception {
+		
+		sqlSession.update(namespace + ".editPro", mvo);
 	}
 
 

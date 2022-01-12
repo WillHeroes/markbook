@@ -43,9 +43,9 @@ public class mk_memberServiceImpl implements mk_memberService {
 	}
 
 	@Override
-	public void socialCheck(mk_memberVO mvo) throws Exception {
+	public boolean socialCheck(mk_memberVO mvo) throws Exception {
 		
-		mdao.socialCheck(mvo);
+		return mdao.socialCheck(mvo);
 	}
 
 	@Override
@@ -146,6 +146,12 @@ public class mk_memberServiceImpl implements mk_memberService {
 	public boolean passChk(mk_memberVO mvo) throws Exception {
 	
 		return mdao.passChk(mvo);
+	}
+
+	@Override
+	public void editPro(mk_memberVO mvo) throws Exception {
+		
+		mdao.editPro(mvo);
 	}
 
 

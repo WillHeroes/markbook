@@ -16,7 +16,7 @@ public interface mk_memberDAO {
 	public boolean memberLoginChk(mk_memberVO mvo) throws Exception;
 	
 	// 소셜 가입 체크
-	public void socialCheck(mk_memberVO mvo) throws Exception;
+	public boolean socialCheck(mk_memberVO mvo) throws Exception;
 	
 	//소셜 회원가입(네이버)
 	public void naverJoin(mk_memberVO mvo) throws Exception;
@@ -35,4 +35,7 @@ public interface mk_memberDAO {
 	
 	// 비밀번호 확인
 	public boolean passChk(mk_memberVO mvo) throws Exception;
+	
+	// 프로필 수정
+	public void editPro(mk_memberVO mvo) throws Exception;
 }

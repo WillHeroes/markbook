@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 확인</title>
+<script src="${pageContext.request.contextPath }/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
 <style>
 	.content{ position: relative; top: 50px; text-align:center;}

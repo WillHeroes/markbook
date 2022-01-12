@@ -16,7 +16,7 @@ public interface mk_memberService {
 	public boolean memberLoginChk(mk_memberVO mvo) throws Exception;
 	
 	// 소셜 가입 체크(구글)
-	public void socialCheck(mk_memberVO mvo) throws Exception;
+	public boolean socialCheck(mk_memberVO mvo) throws Exception;
 	
 	//소셜 가입 체크(네이버-아이디) -> 아이디 중복체크 메소드 활용
 	
@@ -37,4 +37,7 @@ public interface mk_memberService {
 	
 	// 비밀번호 확인
 	public boolean passChk(mk_memberVO mvo) throws Exception;
+	
+	// 프로필 수정
+	public void editPro(mk_memberVO mvo) throws Exception;
 }

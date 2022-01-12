@@ -46,7 +46,7 @@ public class mk_memberController {
 		
 		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */ 
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
-		System.out.println("네이버:" + naverAuthUrl);
+		// System.out.println("네이버:" + naverAuthUrl);
 		
 		//네이버 
 		model.addAttribute("url", naverAuthUrl);
@@ -86,13 +86,16 @@ public class mk_memberController {
 		out.flush();
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/gg_login", method = { RequestMethod.GET, RequestMethod.POST })
-	public void memberGgloginPOST(mk_memberVO mvo, HttpSession session) throws Exception {
+	public boolean memberGgloginPOST(mk_memberVO mvo, HttpSession session) throws Exception {
 		System.out.println("소셜 로그인 진행중 : " +mvo.getM_id());
 		
-		service.socialCheck(mvo);
+		boolean flag = service.socialCheck(mvo);
+
 		session.setAttribute("m_id", mvo.getM_id());
 		
+		return flag;
 	}
 	
 	@RequestMapping(value="/naver_login", method = { RequestMethod.GET, RequestMethod.POST })
@@ -211,7 +214,7 @@ public class mk_memberController {
 	@RequestMapping(value="chkPass", method=RequestMethod.GET)
 	public void chkPass(@RequestParam("id") String m_id, Model model) throws Exception {
 		
-		System.out.println("비밀번호 확인 (본인 인증) : "+m_id);
+		System.out.println("비밀번호 확인 get  : "+m_id);
 		
 		model.addAttribute("m_id", m_id);
 	}
@@ -222,7 +225,7 @@ public class mk_memberController {
 		
 		mvo.setM_id((String)session.getAttribute("m_id"));
 		
-		System.out.println("비밀번호 확인 : "+mvo.getM_pw());
+		System.out.println("비밀번호 확인 post : "+mvo.getM_pw());
 				
 		return service.passChk(mvo);
 	}
@@ -238,11 +241,29 @@ public class mk_memberController {
 	}
 	
 	@RequestMapping(value="/myProfileEdit", method=RequestMethod.GET)
-	public void myProEditGET(@RequestParam("id") String m_id, Model model) throws Exception {
+	public void myProEditGET(@RequestParam("id") String m_id, @RequestParam(required = false, value = "social") String social, Model model) throws Exception {
 		
 		System.out.println("프로필 수정");
 		
 		model.addAttribute("memberInfo", service.profile(m_id));
+		
+		if (social != null) {
+			model.addAttribute("social","google");
+		}
+	}
+	
+	@RequestMapping(value="/myProfileEdit", method=RequestMethod.POST)
+	public void myProEditPOST(mk_memberVO mvo, HttpServletResponse response) throws Exception {
+		
+		System.out.println("프로필 수정 진행중");
+		
+		service.editPro(mvo);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.print("<script>alert('프로필 수정이 완료되었습니다'); location.href='/markbook/index';</script>");
+		out.flush();
 	}
 
 }
