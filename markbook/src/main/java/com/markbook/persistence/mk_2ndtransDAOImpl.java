@@ -158,6 +158,9 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		// 검색옵션과 페이징 값을 맵에 저장
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("option", svo.getOption());
+		map.put("b2_category", svo.getB2_category());
+		map.put("b2_bookstatus", svo.getB2_bookstatus());
+		map.put("b2_sellstatus", svo.getB2_sellstatus());
 		map.put("skip", cri.getSkip());
 		map.put("pageAmount", cri.getPageAmount());
 

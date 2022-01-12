@@ -108,7 +108,7 @@
 							</div>
 							<!-- select-Categories End -->
 						<button type="button" 
-								class="button button-contactForm boxed-btn" onclick="Search();">검색하기</button>
+								class="button button-contactForm boxed-btn" onclick="cateSearch();">검색하기</button>
 						</div>
 					</div>
 					<!-- Category Listing End -->
@@ -211,7 +211,6 @@
 
 <!-- footer 등록  -->
 <%@ include file="../include/footer.jsp"%>
-
 <!-- 자바 스크립트 파일 연결 -->
 <script
 	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/list.js"></script>

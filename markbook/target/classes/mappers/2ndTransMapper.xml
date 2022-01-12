@@ -98,14 +98,14 @@
 		values(#{order_id}, #{order_b2_num}, #{order_name}, #{order_phone}, #{order_addr1}, #{order_addr2}, #{order_msg})
 	</insert>
 	
-	<!-- 상위 메뉴 선택 결과 페이징  -->
+	<!-- 카테고리 선택 결과 페이징  -->
 	<select id="searchlist" parameterType="hashmap" resultType="mk_2ndhand_bookVO">
 		select * from 2ndhand_book 
 		<include refid="search"></include>
 		limit #{skip},#{pageAmount}
 	</select>
 	
-	<!-- 상위 메뉴 검색 결과 갯수  -->
+	<!-- 카테고리 선택 결과 갯수  -->
 	<select id="countsearch" resultType="int">
 		select count(*) from 2ndhand_book 
 		<include refid="search"></include>
@@ -122,9 +122,17 @@
 				where b2_sellstatus = 0
 				order by b2_highestprice desc
 			</when>
-			<otherwise>
+			<when test="option == 'date'">
 				where b2_sellstatus = 0
 				order by b2_startdate
+			</when>
+			<when test="option == 'category'">
+				where b2_category = ${b2_category} and 
+					  b2_bookstatus = ${b2_bookstatus} and 
+					  b2_sellstatus = ${b2_sellstatus} 
+				order by b2_startdate
+			</when>
+			<otherwise>
 			</otherwise>
 		</choose>
 	</sql>

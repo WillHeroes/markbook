@@ -291,14 +291,11 @@ public class mk_2ndtransController {
 		return "redirect:/mk_2ndTrans/booklist";
 	}
 	
-	// 중고책 검색결과 - 낮은가격순, 높은가격순, 과거등록순
+	// 중고책 카테고리 검색
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchlist (String option, sjCriteria cri, Model model) throws Exception {
+	public String searchlist (SearchVO svo, sjCriteria cri, Model model) throws Exception {
 		
 		logger.info("C: searchlist() 호출");
-		
-		SearchVO svo = new SearchVO();
-		svo.setOption(option);
 		
 		// 페이징 처리 정보 생성 
 		sjPageMaker pm = new sjPageMaker(); 
@@ -309,8 +306,13 @@ public class mk_2ndtransController {
 		model.addAttribute("bookList", service.searchListAll(svo, cri)); 
 		model.addAttribute("pm", pm);
 		model.addAttribute("option", svo.getOption()); 
+		model.addAttribute("b2_bookstatus", svo.getB2_bookstatus()); 
+		model.addAttribute("b2_category", svo.getB2_category()); 
+		model.addAttribute("b2_sellstatus", svo.getB2_sellstatus()); 
 		model.addAttribute("count", service.countSearch(svo));
-		 
+		
+		System.out.println(svo.getB2_sellstatus());
+
 		return "/mk_2ndTrans/search";				
 	}
 

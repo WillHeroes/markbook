@@ -108,7 +108,7 @@
 							</div>
 							<!-- select-Categories End -->
 						<button type="button" 
-								class="button button-contactForm boxed-btn" onclick="getSearch();">검색하기</button>
+								class="button button-contactForm boxed-btn" onclick="cateSearch();">검색하기</button>
 						</div>
 					</div>
 					<!-- Category Listing End -->
@@ -150,8 +150,23 @@
 							</div>
 						</div>
 					</div>
+					<h6> 현재 검색값 - 카테고리 : ${b2_category}, 책 상태: ${b2_bookstatus}, 판매 상태:
+						<c:choose>
+							<c:when test="${b2_sellstatus == '0'}"> 
+								'경매 중'
+							</c:when>
+							<c:otherwise>
+								'판매완료'
+							</c:otherwise>
+						</c:choose>
+					</h6>
 					<div class="best-selling p-0">
 						<div class="row">
+							<c:if test="${ empty bookList }">
+								<div class="text-center mt-30">
+									<h2> 검색결과가 없습니다.</h2>
+								</div>
+							</c:if>
 							<c:forEach var="bvo" items="${bookList }">
 								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-6">
 									<div class="properties pb-30">
