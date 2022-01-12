@@ -29,7 +29,7 @@ function cal_open() {
 
 function chkPass(data) {
 	
-	var width = 400;
+	var width = 600;
 	var height = 200;
 	var left = width_calc(width);
 
