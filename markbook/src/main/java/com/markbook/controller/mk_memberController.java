@@ -94,6 +94,7 @@ public class mk_memberController {
 		boolean flag = service.socialCheck(mvo);
 
 		session.setAttribute("m_id", mvo.getM_id());
+		session.setAttribute("social", "google");
 		
 		return flag;
 	}
@@ -237,25 +238,25 @@ public class mk_memberController {
 		
 		String m_id = (String)session.getAttribute("m_id");
 				
-		model.addAttribute("memberInfo", service.profile(m_id));
+		mk_memberVO mvo = service.profile(m_id);
+		if (mvo.getM_pw() == null) mvo.setM_pw("00000000");
+		
+		model.addAttribute("memberInfo", mvo);
 	}
 	
 	@RequestMapping(value="/myProfileEdit", method=RequestMethod.GET)
-	public void myProEditGET(@RequestParam("id") String m_id, @RequestParam(required = false, value = "social") String social, Model model) throws Exception {
+	public void myProEditGET(@RequestParam("id") String m_id, Model model) throws Exception {
 		
 		System.out.println("프로필 수정");
 		
 		model.addAttribute("memberInfo", service.profile(m_id));
 		
-		if (social != null) {
-			model.addAttribute("social","google");
-		}
 	}
 	
 	@RequestMapping(value="/myProfileEdit", method=RequestMethod.POST)
 	public void myProEditPOST(mk_memberVO mvo, HttpServletResponse response) throws Exception {
 		
-		System.out.println("프로필 수정 진행중");
+		System.out.println("프로필 수정 진행중 "+mvo);
 		
 		service.editPro(mvo);
 		

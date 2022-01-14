@@ -9,16 +9,16 @@
 <script type="text/javascript">
 	window.onload = function() {
 		var email = '<c:out value="${memberInfo.m_email}"/>';
-		var social = '<c:out value="${social}"/>';
+		
 		var idx = email.indexOf("@");
 		
 		$('input[name=emailAddr]').attr('value', email.substring(0, idx));
-		
-		if (social == "google") {
-			alert("ㄴㄴ");
-			$('#domain').val('gmail.com').prop("selected", true);
-		}
 	}
+	$(document).ready(function(){
+		$('#profile').click(function (e) {
+			$('#proImg').click();
+		});
+	});
 </script>
 
 <form method="post" action="/markbook/mk_member/myProfileEdit" name="editFr" onsubmit="return editChk();">
@@ -26,12 +26,15 @@
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
 		<div class="register-form text-center">
 			<div>
-				<img src="${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png" style="width:225px; height:225px;"/>
+				<img src="${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png" id="profile" style="width:225px; height:225px; cursor:pointer;"/>
 			</div>
+			<input type="file" id="proImg" name="proImg" style="display:none">
+			<span style="color:rgb(180,180,180);">Only jpeg, jpg, png</span>
 			<div class="input-box">
 				<div class="single-input-fields">
 					<label>아이디</label>
-					<input type="text" name="m_id" value="${memberInfo.m_id}" disabled>
+					<input type="text" value="${memberInfo.m_id}" disabled>	
+					<input type="hidden" name="m_id" value="${memberInfo.m_id}"/>
 				</div>
 				<div class="single-input-fields">
 					<label>이름</label>
@@ -44,22 +47,22 @@
                    			<td style="width:50%">
 	                        	<input type="text" name="emailAddr" value="">
 	                        </td>
-	                        <td style="width:50%">
-			                    <select style="display:none;" name="domain" id="domain">
-			                    	<option value="none">선택하세요</option>
-			                        <option value="naver.com">@naver.com</option>
-			                        <option value="daum.net">@daum.net</option>
-			                        <option value="gmail.com">@gmail.com</option>
-			                    </select>
-			                    <div class="nice-select" tabindex="0" style="margin-top:8px; border-radius:0px; height:50px; color:rgb(139,139,139)">
-				                    <span class="current">선택하세요</span>
-				                    <ul class="list">
-					                    <li data-value="none" class="option">선택하세요</li>
-					                    <li data-value="naver.com" class="option">@naver.com</li>
-					                    <li data-value="daum.net" class="option">@daum.net</li>
-					                    <li data-value="gmail.com" class="option selected">@gmail.com</li>
-				                    </ul>
-			                    </div>
+	                       <td style="width:50%;">
+		                        <div class="default-select" id="default-select">
+									<select name="domain" id="domain">
+										<option value="none">선택하세요</option>
+				                        <option value="naver.com">@naver.com</option>
+				                        <option value="daum.net">@daum.net</option>
+				                        <c:choose>
+				                        	<c:when test="${social eq 'google' }">
+				                        		<option value="gmail.com" selected>@gmail.com</option>	
+				                        	</c:when>
+				                        	<c:otherwise>
+				                        		<option value="gmail.com">@gmail.com</option>
+				                        	</c:otherwise>
+				                        </c:choose>
+									</select>
+								</div>						
 		                    </td>
 	                    </tr>
                     </table>

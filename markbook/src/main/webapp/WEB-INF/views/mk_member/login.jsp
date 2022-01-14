@@ -72,7 +72,7 @@
 				success: function(data) {
 					if(!data) {
 						alert("프로필에서 나머지 정보들을 입력해주세요");
-						location.href="/markbook/mk_member/myProfileEdit?social=google&id="+m_id;
+						location.href="/markbook/mk_member/myProfileEdit?id="+m_id;
 					}
 					else location.href="/markbook/index";
 				}

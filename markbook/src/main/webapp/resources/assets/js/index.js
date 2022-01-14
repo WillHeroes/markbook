@@ -40,3 +40,6 @@ function chkPass(data) {
 	
 }
 
+function social(data) {
+	location.href="/markbook/mk_member/myProfileEdit?id="+data;
+}

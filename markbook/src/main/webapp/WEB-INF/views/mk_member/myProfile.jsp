@@ -3,7 +3,6 @@
 <%@ include file="../include/header.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="${pageContext.request.contextPath }/resources//assets/js/index.js"></script>
-
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
 		<div class="register-form text-center">
 			<div>
@@ -50,7 +49,14 @@
 				</div>
 				<div class="register-footer" style="margin-top:30px;">
 				 	<p></p>
-					<button type="button" onclick="chkPass('${memberInfo.m_id}');" class="submit-btn3">Edit Profile</button>
+				 	<c:choose>
+				 		<c:when test="${social eq 'google' }">
+				 			<button type="button" onclick="social('${memberInfo.m_id}');" class="submit-btn3">Edit Profile</button>
+				 		</c:when>
+				 		<c:otherwise>
+				 			<button type="button" onclick="chkPass('${memberInfo.m_id}');" class="submit-btn3">Edit Profile</button>	
+				 		</c:otherwise>
+				 	</c:choose>
 				</div>
 			</div>
 		</div>
