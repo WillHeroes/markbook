@@ -34,8 +34,8 @@
 
                         
 
-<a href="#" class="genric-btn primary e-large" style="width:45%; height: 20%; ">희망도서 신청 안내</a>
-<a href="./add" class="genric-btn primary-border e-large" style="width:45%; height: 20%;">희망도서 신청 </a>
+<a href="#" class="genric-btn primary e-large" style="width:45%; height: 60px; ">희망도서 신청 안내</a>
+<a href="./add" class="genric-btn primary-border e-large" style="width:45%; height: 60px;">희망도서 신청 </a>
 </div>
 </div>
 <br>

@@ -34,7 +34,7 @@
 					<div class="slider-area">
 						<div class="slider-height2 slider-bg5 d-flex align-items-center justify-content-center">
 							<div class="hero-caption hero-caption2">
-								<h2>Apply for the desired book</h2>
+<!-- 								<h2>Apply for the desired book</h2> -->
 							</div>
 						</div>
 					</div>
@@ -49,17 +49,16 @@
 <div class="comment-form">
 <div class="middle">
 
+<!-- <a href="#" class="genric-btn danger circle" style="width:50%; height:80px; font-size: 2em;text-align: center; line-height: -90%;  ">희망도서 신청 안내</a>                         -->
+<a href="./notice" class="genric-btn primary-border e-large" style="width:45%; height: 60px; ">희망도서 신청 안내</a>
 
-                        
-<a href="./notice" class="genric-btn primary-border e-large" style="width:45%; ">희망도서 신청 안내</a>
-
-<a href="#" class="genric-btn primary e-large" style="width:45%; ">희망도서 신청</a>
+<a href="#" class="genric-btn primary e-large" style="width:45%;height: 60px; ">희망도서 신청</a>
 </div>
-<br>
+<hr>
 <!-- ================ end button area ================= -->
 
 <!-- <div class="comment-form"> -->
- <h2>희망도서 신청</h2>
+ <h2 style="text-align: center;">희망도서 신청</h2>
  <form class="form-contact comment_form" action="./add" id="commentForm" method="post" name="RForm" onsubmit="return check()">
  <input type="hidden" value="${r_num} " name="r_num">
   <input type="hidden" value="0" name="r_result">
@@ -71,12 +70,12 @@
     </div>
     </div>
   
- <div class="col-sm-10" >
+
   <div class="form-group">
       <label>도서명</label>
 <table>
 <tr>
-<td>
+<td style="width:80%;">
    <input class="form-control" id="r_name"name="r_name" type="text" placeholder="책 이름" onclick="Popup()" readonly="readonly">
    </td>
    <td>
@@ -85,7 +84,7 @@
 </tr>
 </table>
  </div>
-</div>
+
 
 <div class="col-sm-6">
   <div class="form-group">
