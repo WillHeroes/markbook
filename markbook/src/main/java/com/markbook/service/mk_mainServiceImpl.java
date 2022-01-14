@@ -23,5 +23,13 @@ public class mk_mainServiceImpl implements mk_mainService {
 		return list;
 	}
 
+	@Override
+	public List<mk_bookVO> borrBest(String category) throws Exception {
+		
+		List<mk_bookVO> list = madao.borrbest(category);
+		System.out.println("서비스 도착");
+		return list;
+	}
+
 
 }

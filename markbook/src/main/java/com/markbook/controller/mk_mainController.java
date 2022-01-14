@@ -22,15 +22,29 @@ public class mk_mainController {
 	@RequestMapping(value="index",method=RequestMethod.GET)
 	public void mainGet(Model model) throws Exception{
 		System.out.println("메인도착");
+		String novel = "novel";
+		String unnovel = "unnovel";
+		String essay = "essay";
+		String study = "study";
+		
 		List<mk_bookVO> listall = service.borrBest();
-		System.out.println(listall);
+		List<mk_bookVO> listnovel = service.borrBest(novel);
+		List<mk_bookVO> listunnovel = service.borrBest(unnovel);
+		List<mk_bookVO> listessay = service.borrBest(essay);
+		List<mk_bookVO> liststudy = service.borrBest(study);
+
 		model.addAttribute("listall",listall);
+		model.addAttribute("listnovel",listnovel);
+		model.addAttribute("listunnovel",listunnovel);
+		model.addAttribute("listessay",listessay);
+		model.addAttribute("liststudy",liststudy);
+		
 		System.out.println("borrBest 실행");
 //		List<mk_bookVO> list1 = service.borrBest1();
 		
 	}
 	
-	@RequestMapping(value="index",method=RequestMethod.POST)
+	@RequestMapping(value="index2",method=RequestMethod.GET)
 	public void mainPOST(String category) throws Exception{
 	
 		System.out.println("category:"+category);
