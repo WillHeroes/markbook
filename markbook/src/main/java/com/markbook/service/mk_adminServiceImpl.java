@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.markbook.controller.mk_adminController;
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
 import com.markbook.domain.mk_memberVO;
@@ -14,6 +17,8 @@ import com.markbook.persistence.mk_adminDAO;
 @Service
 public class mk_adminServiceImpl implements mk_adminService {
 
+	private static final Logger logger = LoggerFactory.getLogger(mk_adminController.class);
+	
 	@Inject
 	private mk_adminDAO madao;
 	
@@ -91,6 +96,8 @@ public class mk_adminServiceImpl implements mk_adminService {
 	@Override
 	public List<mk_memberVO> getMList() throws Exception {
 		
+		logger.info(" S : getMList() 호출");
+		
 		List<mk_memberVO> memberList = madao.getMList();
 		
 		return memberList;
@@ -125,9 +132,9 @@ public class mk_adminServiceImpl implements mk_adminService {
 
 	// 회원 개별 정보 수정
 	@Override
-	public void updateMember(mk_memberVO uvo) throws Exception {
+	public void updateMember(mk_memberVO mvo) throws Exception {
 
-		madao.updateMember(uvo);
+		madao.updateMember(mvo);
 	}
 
 	

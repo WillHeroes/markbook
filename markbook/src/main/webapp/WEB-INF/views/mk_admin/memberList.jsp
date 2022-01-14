@@ -36,7 +36,7 @@
                                 <th class="font-weight-semi-bold border-top-0 py-2">Phone</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">연체일</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">대출도서권수</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Edit / Delete</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Edit</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -45,10 +45,7 @@
                                     <tr>
                                         <td class="py-3">${mvo.m_num}</td>
                                         <td>
-                                        	<a href="/mk_admin/bookList?b_num=${mvo.m_num }" onclick="fun23(${mvo.m_num })" >${mvo.m_name }</a>
-                                            <div class="book-img">
-												<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/book.PNG" alt="Graindashboard" style="width: 55px; height: 55px;"></a>
-											</div>
+                                        	<a href="/mk_admin/memberList?m_num=${mvo.m_num }">${mvo.m_name }</a>
                                         </td>
                                         <td class="py-3">${mvo.m_email }</td>
                                         <td class="py-3">${mvo.m_phone }</td>
@@ -58,24 +55,9 @@
                                             <div class="position-relative">
                                                 <!-- <i class="gd-eraser text-primary"></i> -->
                                                 <!-- <i class="gd-trash"></i> -->
-                                                <a class="link-dark d-inline-block" href="./bookUpdate">
-                                            		<i class="gd-pencil icon-text"></i>
-                                        		</a> / 
-                                        		<a class="link-dark d-inline-block" href="./bookDelete">
-                                            		<i class="gd-trash icon-text"></i>
-                                        		</a>
-                                            </div>
-                                        </td>
-                                         <td class="py-3">
-                                            <div class="position-relative">
-                                                <!-- <i class="gd-eraser text-primary"></i> -->
-                                                <!-- <i class="gd-trash"></i> -->
                                                 <a class="link-dark d-inline-block" href="./memberUpdate">
                                             		<i class="gd-pencil icon-text"></i>
-                                        		</a> / 
-                                        		<a class="link-dark d-inline-block" href="./memberDelete">
-                                            		<i class="gd-trash icon-text"></i>
-                                        		</a>
+                                        		</a> 
                                             </div>
                                         </td>
                                     </tr>

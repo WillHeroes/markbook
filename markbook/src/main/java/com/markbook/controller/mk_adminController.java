@@ -146,13 +146,15 @@ public class mk_adminController {
 	@RequestMapping(value = "/memberList", method = RequestMethod.GET)
 	public String memberListAllGET(Model model, String m_id, Criteria cri) throws Exception {
 
+		logger.info("memberListAllGET() 호출");
+		
 		// 페이징처리 정보생성
 		pageMaker pm = new pageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(service.countMember(cri));
 
 		// 서비스 동작 호출
-		model.addAttribute("memberList", service.mListCri(cri));
+		model.addAttribute("memberList", service.getMList());
 		
 		// Criteria 객체 정보 저장 (pageStart/pageSize)
 		model.addAttribute("pm", pm);
@@ -163,8 +165,10 @@ public class mk_adminController {
 	// 회원 개별 정보 조회 (GET)
 	// http://localhost:8088/markbook/mk_admin/memberInfo
 	@RequestMapping(value = "/memberInfo", method = RequestMethod.GET)
-	public String memberInfoGET(String m_id, Model model) throws Exception {
+	public String memberInfoGET(HttpSession session, String m_id, Model model) throws Exception {
 
+		logger.info("memberInfo() 호출");
+		
 		mk_memberVO mvo = service.memberInfo(m_id);
 
 		model.addAttribute("mvo", mvo);
@@ -184,9 +188,9 @@ public class mk_adminController {
 
 	// 회원 개별 정보 수정 (POST)
 	@RequestMapping(value = "/memberUpdate", method = RequestMethod.POST)
-	public String memberUpdatePOST(mk_memberVO uvo) throws Exception {
+	public String memberUpdatePOsST(mk_memberVO mvo) throws Exception {
 
-		service.updateMember(uvo);
+		service.updateMember(mvo);
 
 		return "redirect:/mk_admin/memberList";
 	}

@@ -25,62 +25,55 @@
                         <div class="h3 mb-0">USER INFO</div>
                     </div>
 
-
                     <!-- Form -->
                     <div>
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" value="" id="name" name="name" value="${mvo.m_name }">
+                                    <input type="text" class="form-control" value="${mvo.m_name }">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="name">Password</label>
-                                    <input type="text" class="form-control" value="" id="name" name="name" value="${mvo.m_pw }">
+                                    <input type="text" class="form-control" value="${mvo.m_pw }">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password">address</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" value="${mvo.m_addr1 }">
+                                    <input type="password" class="form-control" value="${mvo.m_addr1 }">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password_confirm">address</label>
-                                    <input type="password" class="form-control" value="" id="password_confirm" name="password_confirm" value="${mvo.m_addr2 }">
+                                    <input type="password" class="form-control" value="${mvo.m_addr2 }">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password">Email</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" value="${mvo.m_email }">
+                                    <input type="password" class="form-control" value="${mvo.m_email }">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password_confirm">Phone</label>
-                                    <input type="password" class="form-control" value="" id="password_confirm" name="password_confirm" value="${mvo.m_phone }">
+                                    <input type="password" class="form-control" value="${mvo.m_phone }">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password">jumin</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" value="${mvo.m_idnum1 }">
+                                    <input type="password" class="form-control" value="${mvo.m_idnum1 }">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password_confirm">jumin</label>
-                                    <input type="password" class="form-control" value="" id="password_confirm" name="password_confirm" value="${mvo.m_idnum2 }">
+                                    <input type="password" class="form-control" value="${mvo.m_idnum2 }">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password">Image</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" value="${mvo.m_image }">
+                                    <input type="password" class="form-control" value="${mvo.m_image }">
                                 </div>
                             </div>
-                            
-                            <!-- <div class="custom-control custom-switch mb-2">
-                                <input type="checkbox" class="custom-control-input" id="randomPassword">
-                                <label class="custom-control-label" for="randomPassword">Set Random Password</label>
-                            </div> -->
-
                         </form>
                     </div>
                     <!-- End Form -->

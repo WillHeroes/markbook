@@ -43,7 +43,7 @@ public interface mk_adminService {
 	public mk_memberVO memberInfo(String m_id) throws Exception;
 	
 	// 회원 개별 정보 수정
-	public void updateMember(mk_memberVO uvo) throws Exception;
+	public void updateMember(mk_memberVO mvo) throws Exception;
 	
 	// 회원 개별 정보 삭제
 	public void deleteMember(String m_id) throws Exception;

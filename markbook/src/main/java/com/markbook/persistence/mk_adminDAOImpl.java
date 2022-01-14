@@ -109,9 +109,13 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	@Override
 	public List<mk_memberVO> getMList() throws Exception {
 		
-		List<mk_memberVO> memberList = sqlSession.selectList(namespace+".memberList");
+		logger.info(" DAO : getMList() -> mapper ");
 		
-		return memberList;
+		logger.info(" mapper -> S : getMList() ");
+		
+		//List<mk_memberVO> memberList = sqlSession.selectList(namespace+".memberList");
+		
+		return sqlSession.selectList(namespace+".memberList");
 	}
 
 	// 전체 회원 목록 갯수 조회
@@ -140,9 +144,9 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 
 	// 회원 개별 정보 수정
 	@Override
-	public void updateMember(mk_memberVO uvo) throws Exception {
+	public void updateMember(mk_memberVO mvo) throws Exception {
 
-		sqlSession.update(namespace+".mUpdate", uvo);
+		sqlSession.update(namespace+".mUpdate", mvo);
 	}
 
 	// 회원 개별 정보 삭제
