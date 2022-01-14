@@ -85,7 +85,6 @@
  	<select id="memberList" resultType="mk_memberVO">
  		select * 
  		from member_info 
- 		where m_id != #{m_id}
  	</select>
  	
  	<!-- 전체 회원 목록 페이징 처리 조회 -->
