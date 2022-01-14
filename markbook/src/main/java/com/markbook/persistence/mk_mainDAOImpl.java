@@ -24,4 +24,11 @@ public class mk_mainDAOImpl implements mk_mainDAO {
 		return list;
 	}
 
+	@Override
+	public List<mk_bookVO> borrbest(String category) throws Exception {
+		
+		List<mk_bookVO> list = sqlSession.selectList(namespace+".borrbest2",category);
+		return list;
+	}
+
 }

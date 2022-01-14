@@ -7,5 +7,6 @@ import com.markbook.domain.mk_bookVO;
 public interface mk_mainService {
 	
 	public List<mk_bookVO> borrBest() throws Exception;
+	public List<mk_bookVO> borrBest(String category) throws Exception;
 
 }
