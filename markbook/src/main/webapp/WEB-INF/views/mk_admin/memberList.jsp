@@ -30,7 +30,6 @@
                         <table class="table text-nowrap mb-0">
                             <thead>
                             <tr>
-                                <th class="font-weight-semi-bold border-top-0 py-2">No</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Name</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">ID</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Phone</th>
@@ -43,9 +42,8 @@
                                     <c:forEach var="mvo" items="${memberList }">
                                     
                                     <tr>
-                                        <td class="py-3">${mvo.m_num}</td>
                                         <td>
-                                        	<a href="/mk_admin/memberList?m_num=${mvo.m_num }">${mvo.m_name }</a>
+                                        	<a href="/mk_admin/memberList?m_id=${mvo.m_id }">${mvo.m_name }</a>
                                         </td>
                                         <td class="py-3">${mvo.m_email }</td>
                                         <td class="py-3">${mvo.m_phone }</td>
