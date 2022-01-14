@@ -311,7 +311,6 @@ public class mk_2ndtransController {
 		model.addAttribute("b2_sellstatus", svo.getB2_sellstatus()); 
 		model.addAttribute("count", service.countSearch(svo));
 		
-		System.out.println(svo.getB2_sellstatus());
 
 		return "/mk_2ndTrans/search";				
 	}

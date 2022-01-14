@@ -60,8 +60,15 @@
 		delete from 2ndhand_book
 		where b2_num = #{b2_num}
 	</delete>
+	
+	<!-- 입찰하기 정보 입력  -->
+<!-- 	<insert id="bid">
+		insert into bid_list 
+		(bid_num,bid_m_id,bid_price,bid_date,b2_num)
+		values(#{b2_num}, #{b2_seller_id}, #{b2_highestprice}, NOW(), 0)
+	</insert> -->
 
-	<!-- 중고거래 가격 입찰하기 -->
+	<!-- 중고거래 가격 입찰정보 업데이트 -->
 	<update id="priceupdate">
 		update 2ndhand_book
 		set

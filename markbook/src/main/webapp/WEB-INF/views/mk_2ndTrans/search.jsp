@@ -150,16 +150,6 @@
 							</div>
 						</div>
 					</div>
-					<h6> 현재 검색값 - 카테고리 : ${b2_category}, 책 상태: ${b2_bookstatus}, 판매 상태:
-						<c:choose>
-							<c:when test="${b2_sellstatus == '0'}"> 
-								'경매 중'
-							</c:when>
-							<c:otherwise>
-								'판매완료'
-							</c:otherwise>
-						</c:choose>
-					</h6>
 					<div class="best-selling p-0">
 						<div class="row">
 							<c:if test="${ empty bookList }">

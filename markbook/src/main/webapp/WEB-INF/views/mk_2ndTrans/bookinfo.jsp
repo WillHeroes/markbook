@@ -76,6 +76,7 @@
                             <div class="nav nav-tabs " id="nav-tab" role="tablist">
                                 <a class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" href="#nav-one" role="tab" aria-controls="nav-one" aria-selected="true">상품정보</a>
                                 <a class="nav-link" id="nav-two-tab" data-bs-toggle="tab" href="#nav-two" role="tab" aria-controls="nav-two" aria-selected="false">책내용</a>
+                                <a class="nav-link" id="nav-three-tab" data-bs-toggle="tab" href="#nav-three" role="tab" aria-controls="nav-three" aria-selected="false">입찰내역</a>
                             </div>
                         </nav>
                         <!--End Nav Button  -->
@@ -106,6 +107,14 @@
                     <div class="row">
                         <div class="offset-xl-1 col-lg-9">
                         <p>${bvo.b2_content }</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
+                    <!-- Tab 2 -->
+                    <div class="row">
+                        <div class="offset-xl-1 col-lg-9">
+                        <p>입찰내역</p>
                         </div>
                     </div>
                 </div>
