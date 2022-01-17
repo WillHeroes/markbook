@@ -9,6 +9,13 @@
 
 
 <script type="text/javascript">
+
+var id='<c:out value='${r_id}'/>';
+if(id == null){
+	alert("로그인을 해주세요");
+	location.href='../mk_member/login';
+}
+    
     var path = "${pageContext.request.contextPath }";
  
     $(function(){
@@ -22,8 +29,9 @@
 //         alert(document.RForm.booook.value);
         pop.focus();
     }
-
-
+    
+    
+    
         
 </script>
 
@@ -58,7 +66,7 @@
 <!-- ================ end button area ================= -->
 
 <!-- <div class="comment-form"> -->
- <h2 style="text-align: center;">희망도서 신청</h2>
+ <div style="text-align: center; font-size: 2em;">희망도서 신청</div>
  <form class="form-contact comment_form" action="./add" id="commentForm" method="post" name="RForm" onsubmit="return check()">
  <input type="hidden" value="${r_num} " name="r_num">
   <input type="hidden" value="0" name="r_result">
@@ -76,7 +84,7 @@
 <table>
 <tr>
 <td style="width:80%;">
-   <input class="form-control" id="r_name"name="r_name" type="text" placeholder="책 이름" onclick="Popup()" readonly="readonly">
+   <input class="form-control" id="r_name"name="r_name" type="text" placeholder="도서명" onclick="Popup()" readonly="readonly">
    </td>
    <td>
 <button type="button" class="genric-btn primary-border" onclick="Popup()" value="0" name="booook">책 검색</button>
@@ -89,7 +97,7 @@
 <div class="col-sm-6">
   <div class="form-group">
       <label>저자</label>
-   <input class="form-control" id="r_writer" name="r_writer" placeholder="작가이름" readonly="readonly">
+   <input class="form-control" id="r_writer" name="r_writer" placeholder="저자" readonly="readonly">
  </div>
 </div>
 

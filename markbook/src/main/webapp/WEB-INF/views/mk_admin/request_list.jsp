@@ -42,6 +42,13 @@ var keyword =  document.getElementsByName("keyword")[0].value;
 };
 
 
+var page ='<c:out value='${list}'/>';
+
+if(page == "[]"){
+	alert("결과가 없습니다.");
+	window.history.back();
+}
+
 
 
 
@@ -115,7 +122,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                             <thead>
                             <tr>
                                 <th class="font-weight-semi-bold border-top-0 py-2">No</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Name</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">title</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Book title</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">ID</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Date</th>

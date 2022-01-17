@@ -9,6 +9,7 @@ function go() {
 	location.href="./request_list?pgnum=${pgnum}&result=${result}";
 }
 
+
 </script>
 
 
@@ -23,18 +24,13 @@ function go() {
 					<div class="border-bottom pb-3 mb-6">
 					<table>
 					<tr>
-			<td  style="width:92%; ">
-						<h2 class="h4">
+			<td>
+						<h2 class="h4" style="text-align: center;">
 							요청게시판 
         </h2>
 			</td>
-			<td style="width:10%; ">
-			                         <c:choose >
-                                    		<c:when test="${page.r_result == 0}"> <span class="btn btn-success mb-3 mr-3">신청중</span></c:when>
-                                    		<c:when test="${page.r_result  == 1 }"> <span class="btn btn-info mb-3 mr-3">처리중</span></c:when>
-                                    		<c:when test="${page.r_result  == 2 }"> <span class="btn btn-danger mb-3 mr-3">취소됨</span></c:when>
-                                    		<c:when test="${page.r_result  == 3 }"> <span class="btn btn-light mb-3 mr-3">완료</span></c:when>
-                                    </c:choose>
+			<td >
+
         </td>
         </tr>
         </table>
@@ -47,6 +43,18 @@ function go() {
                                                 <tr>
                                                     <th scope="row">제목</th>
                                                     <td>${page.r_title}</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">진행상태</th>
+                                                    <td>
+                                              <c:choose >
+                                    		<c:when test="${page.r_result == 0}"> <span class="btn btn-success mb-3 mr-3" style=" height:23px; line-height: 40%;">신청중</span></c:when>
+                                    		<c:when test="${page.r_result  == 1 }"> <span class="btn btn-info mb-3 mr-3" style=" height:23px; line-height: 40%;">처리중</span></c:when>
+                                    		<c:when test="${page.r_result  == 2 }"> <span class="btn btn-danger mb-3 mr-3" style=" height:23px; line-height: 40%;">취소됨</span></c:when>
+                                    		<c:when test="${page.r_result  == 3 }"> <span class="btn btn-light mb-3 mr-3" style=" height:23px; line-height: 40%;">완료</span></c:when>
+                                             </c:choose>
+                                             </td>
 
                                                 </tr>
                                                 <tr>

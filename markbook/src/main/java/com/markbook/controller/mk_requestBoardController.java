@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,10 @@ public class mk_requestBoardController {
 	   
 	//http://localhost:8088/markbook/mk_requestBoard/add
 	@RequestMapping(value="/mk_requestBoard/add",method = RequestMethod.GET)
-	public void addGET(Model model) throws Exception{
+	public void addGET(Model model,HttpSession session) throws Exception{
+		
+		String m_id = (String)session.getAttribute("m_id");
+		
 		int count=service.jcount();
 		
 		if(count == 0) {
@@ -43,6 +47,9 @@ public class mk_requestBoardController {
 			
 		}
 		model.addAttribute("r_num",count);
+		model.addAttribute("r_id",m_id);
+		
+		logger.info("아이디 확인"+m_id);
 		
 	}
 	
@@ -122,6 +129,7 @@ public class mk_requestBoardController {
 		model.addAttribute("select", pgnum);
 		model.addAttribute("result",result);
 		
+		logger.info("list값:"+ list);
 
 	}
 	

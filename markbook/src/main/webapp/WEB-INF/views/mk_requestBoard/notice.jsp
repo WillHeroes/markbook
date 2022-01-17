@@ -41,8 +41,7 @@
 <br>
 
 <!-- ================ end button area ================= -->
-
-<h2>비치희망도서신청 안내</h2>
+ <div style="text-align: center; font-size: 2em;">비치희망도서신청 안내</div>
 
 <br>
 

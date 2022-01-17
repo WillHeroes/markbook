@@ -63,7 +63,7 @@ color: black;
 <!--     <div id="here"></div> -->
 
 <div class="progress-table-wrap">
-<div id="count"></div>
+<div id="count">총 <b>0</b>개</div>
 												<div class="progress-table">
 													<div class="table-head">
 														<div class="serial" >표지</div>
@@ -73,15 +73,15 @@ color: black;
 													</div>
 
 					
-													<div class="table-row">
-														<div id="newst"></div>
-														검색결과가 없습니다.
-
+                                                        <div class="table-row">
+                                                        <div id="newst"> 검색된 결과가 없습니다.</div>
+                                                       
+														</div>
+				
 													</div>
 
 													</div>
-												</div>
-
+											
 
 
 
@@ -97,8 +97,8 @@ color: black;
 	function data(title,ISBN,publisher,authors,price){	
 			
 
-				// 비치희망도서
-				
+		// 비치희망도서
+		//부모창에 데이터전송		
 		 window.opener.RForm.r_price.value = price;
 		 window.opener.RForm.r_name.value = title;
 		 window.opener.RForm.r_ISBN.value = ISBN;
@@ -106,15 +106,6 @@ color: black;
 		 window.opener.RForm.r_publisher.value = publisher;
 		 window.opener.document.RForm.booook.value ="1";
 		 
-// 			  window.opener.document.getElementById('#r_price').value =price;
-// 				opener.$('#r_price').attr(price);
-// 				opener.$('#r_ISBN').attr("value", isbn);
-// 				opener.$('#r_writer').attr("value", author);
-// 				opener.$('#r_publisher').attr("value", pub);
-// 				pub_date = pub_date.substring(0, 4);
-// 				opener.$('#r_Publishing _date').attr("value", pub_date);
-// 				opener.$('#r_price').attr("value", price);
-// 		alert("되냐");
 		
 			window.close();
 
@@ -136,14 +127,14 @@ color: black;
                     method: "GET",
                     url: "https://dapi.kakao.com/v3/search/book?target=title",
                     data: { query: $("#query").val(), page: pageNum},
-                    headers: {Authorization: "KakaoAK a3c8ac81507b278f06987e14e2f8c821"} // ########부분에 본인의 REST API 키를 넣어주세요.
+                    headers: {Authorization: "KakaoAK a3c8ac81507b278f06987e14e2f8c821"}
  
                 })
                 .done(function (msg) {
                     console.log(msg);
                     
                       var num=msg.meta.total_count;
-                        $("#count").append('<b>총</b>'+num+'<b>개</b>');
+                        $("#count").html('총<b>'+num+'</b>개');
                         
                     for (var i = 0; i < 10; i++){
                     	var title =msg.documents[i].title;
@@ -153,29 +144,13 @@ color: black;
                     	var ISBN =msg.documents[i].isbn;
                     	var thumbnail=msg.documents[i].thumbnail;
                     	
-//                     	$("div").append('<a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+');\">'+title +"</a>");
 
                         $("#newst").append("<div class='serial'> <img src='" + thumbnail + "'  width='60px' height='90px'/></div><br>");
-                    	$("#newst").append(' <div class="country"> <a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\">'+ title +'</a> </div>');
-
+                        $("#newst").append('<div class="country"> <a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\" >'+ title +'</a> </div>');
                         $("#newst").append('<div class="visit">'+publisher+'</div>');
-
                         $("#newst").append('<div class="percentage">'+authors+'</div>');
 
                         $("#newst").append('<hr>');
-
-                    	
-//                         $("#here").append("<tr>");
-//                         $("#here").append("<td>");
-//                         $("#here").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
-//                         $("#here").append("</td>");
-
-//                         $("#here").append("</tr>");
-                        
-
-                        
-
-                        
                     }
                 });
             })
@@ -205,7 +180,7 @@ color: black;
                         	
                         	
 
-                            $("#newst").append("<img src='" + thumbnail + "' /><br>");
+//                             $("#newst").append("<img src='" + thumbnail + "' /><br>");
                         	$("#newst").append('<div class="country"> <a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\" >'+ title +'</a> </div>');
 
                             $("#newst").append('<div class="visit">'+publisher+'</div>');
