@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.markbook.domain.SearchVO;
+import com.markbook.domain.bidlistVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
@@ -21,13 +22,13 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 
 	@Inject
 	private mk_2ndtransDAO tdao;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(mk_2ndtransDAOImpl.class);
 
 	// 중고 책 리스트 페이징
 	@Override
 	public List<mk_2ndhand_bookVO> getlistCri(sjCriteria cri) throws Exception {
-		
+
 		logger.info(" S : getListCri(sjCriteria cri) 호출 !");
 
 		return tdao.getlistCri(cri);
@@ -36,7 +37,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	// 중고책 리스트 총 갯수
 	@Override
 	public int count(sjCriteria cri) throws Exception {
-		
+
 		logger.info(" S : count(sjCriteria cri) 호출 !");
 
 		return tdao.count(cri);
@@ -47,9 +48,9 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	public void bookRegister(mk_2ndhand_bookVO bvo) throws Exception {
 
 		logger.info(" S : bookRegister() 호출 !");
-		
+
 		tdao.bookRegister(bvo);
-		
+
 		logger.info(" S : bookRegister() 등록완료 !");
 
 	}
@@ -59,16 +60,27 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	public mk_2ndhand_bookVO getInfo(Integer b2_num) throws Exception {
 
 		logger.info(" S : getInfo() 호출 !");
-		
+
 		mk_2ndhand_bookVO bvo = tdao.getInfo(b2_num);
 
 		return bvo;
 	}
 
+	// 상세페이지 입찰내역 불러오기
+	@Override
+	public List<bidlistVO> getBid(Integer b2_num) throws Exception {
+		
+		logger.info(" S : getBid() 호출 !");
+
+		List<bidlistVO> blvo = tdao.getBid(b2_num);
+
+		return blvo;
+	}
+
 	// 중고책 상세 페이지 수정
 	@Override
 	public void bookModify(mk_2ndhand_bookVO bvo) throws Exception {
-		
+
 		logger.info(" S : bookModify() 호출 !");
 
 		tdao.bookModify(bvo);
@@ -100,6 +112,18 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 
 	}
 
+	// 중고책 입찰 가격 업데이트
+	@Override
+	public void bidUpdate(mk_2ndhand_bookVO bvo) throws Exception {
+
+		logger.info(" S : bidUpdate() 호출 !");
+
+		tdao.bidUpdate(bvo);
+
+		logger.info(" S : bidUpdate() 완료 !");
+
+	}
+
 	// 카트 조회
 	@Override
 	public List<mk_2ndhand_bookVO> getCart(String b2_buyer_id) throws Exception {
@@ -114,7 +138,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	// 결제창 멤버 정보 조회
 	@Override
 	public mk_memberVO getMember(String m_id) throws Exception {
-		
+
 		logger.info(" S : getMember() 호출 !");
 
 		mk_memberVO mvo = tdao.getMember(m_id);
@@ -125,7 +149,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	// 판매정보 업데이트
 	@Override
 	public void soldupdate(Integer b2_num) throws Exception {
-		
+
 		logger.info(" S : soldupdate() 호출 !");
 
 		tdao.soldupdate(b2_num);
@@ -137,7 +161,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	// 주문입력
 	@Override
 	public void bookchechout(book_orderVO bvo) throws Exception {
-		
+
 		logger.info(" S : bookchechout() 호출 !");
 
 		tdao.bookchechout(bvo);
@@ -148,9 +172,9 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	// 서치 리스트
 	@Override
 	public List<mk_2ndhand_bookVO> searchListAll(SearchVO svo, sjCriteria cri) throws Exception {
-		
+
 		logger.info(" S : searchListAll() 호출 !");
-		
+
 		return tdao.searchListAll(svo, cri);
 
 	}
@@ -158,7 +182,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	// 서치 카운트
 	@Override
 	public int countSearch(SearchVO svo) throws Exception {
-		
+
 		logger.info(" S : countSearch() 호출 !");
 
 		return tdao.countSearch(svo);

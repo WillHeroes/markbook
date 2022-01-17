@@ -62,11 +62,11 @@
 	</delete>
 	
 	<!-- 입찰하기 정보 입력  -->
-<!-- 	<insert id="bid">
+	<insert id="insertbid">
 		insert into bid_list 
-		(bid_num,bid_m_id,bid_price,bid_date,b2_num)
-		values(#{b2_num}, #{b2_seller_id}, #{b2_highestprice}, NOW(), 0)
-	</insert> -->
+		(bid_m_id,bid_price,bid_date,b2_num)
+		values(#{b2_buyer_id}, #{b2_highestprice}, NOW(), #{b2_num})
+	</insert>
 
 	<!-- 중고거래 가격 입찰정보 업데이트 -->
 	<update id="priceupdate">
@@ -76,6 +76,15 @@
 		b2_buyer_id = #{b2_buyer_id}
 		where b2_num = #{b2_num}
 	</update>
+	
+	<!-- 입찰 내역 불러오기 -->
+	<select id="getbid" resultType="bidlistVO">
+		select * 
+		from bid_list 
+		where b2_num = #{b2_num} 
+		order by bid_price desc 
+		limit 0,10
+	</select>
 
 	<!-- 중고거래 카트 페이지 조회 -->
 	<select id="getcart" resultType="mk_2ndhand_bookVO">

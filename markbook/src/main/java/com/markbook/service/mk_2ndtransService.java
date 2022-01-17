@@ -3,6 +3,7 @@ package com.markbook.service;
 import java.util.List;
 
 import com.markbook.domain.SearchVO;
+import com.markbook.domain.bidlistVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
@@ -22,6 +23,9 @@ public interface mk_2ndtransService {
 	// 중고거래 상세 페이지 조회
 	public mk_2ndhand_bookVO getInfo(Integer b2_num) throws Exception;
 	
+	// 중고거래 상세 페이지 내 입찰내역 조회
+	public List<bidlistVO> getBid(Integer b2_num) throws Exception;
+	
 	// 중고거래 상세 페이지 수정하기
 	public void bookModify(mk_2ndhand_bookVO bvo) throws Exception;
 	
@@ -30,6 +34,9 @@ public interface mk_2ndtransService {
 	
 	// 중고책 상품 입찰하기
 	public void bookBid(mk_2ndhand_bookVO bvo) throws Exception;
+	
+	// 중고책 입찰 후 가격 업데이트
+	public void bidUpdate(mk_2ndhand_bookVO bvo) throws Exception;
 	
 	// 카트 리스트 조회
 	public List<mk_2ndhand_bookVO> getCart(String b2_buyer_id) throws Exception;

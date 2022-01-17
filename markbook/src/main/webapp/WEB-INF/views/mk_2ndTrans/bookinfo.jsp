@@ -4,7 +4,7 @@
 <%@ include file="../include/header.jsp"%>
 <!-- css 연결  -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <main>
 	<!-- Hero area Start-->
 	<div class="container">
@@ -111,13 +111,35 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
-                    <!-- Tab 2 -->
-                    <div class="row">
-                        <div class="offset-xl-1 col-lg-9">
-                        <p>입찰내역</p>
-                        </div>
-                    </div>
-                </div>
+                    <!-- Tab 3 -->
+					<div class="row">
+						<div class="offset-xl-1 col-lg-10">
+							<div class="section-top-border text-center">
+								<h3 class="mb-30">입찰내역</h3>
+								<div class="progress-table-wrap" style="overflow:hidden">
+									<div class="progress-table">
+										<div class="table-head">
+											<div class="country">입찰자 id</div>
+											<div class="visit ml-30">입찰 가격</div>
+											<div class="percentage">입찰일자</div>
+										</div>
+										<c:forEach var="blvo" items="${bidList }">
+										<div class="table-row ml-100">
+											<div class="country ml-25">${blvo.bid_m_id }</div>
+											<div class="visit ml-5">
+											<fmt:formatNumber value="${blvo.bid_price }" type="currency" currencySymbol="￦"/>
+											</div>
+											<div class="percentage ml-80">
+											<fmt:formatDate value="${blvo.bid_date}" pattern="yyyy년 MM월 dd일"/>
+											</div>
+										</div>
+										</c:forEach>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
        <!-- button -->

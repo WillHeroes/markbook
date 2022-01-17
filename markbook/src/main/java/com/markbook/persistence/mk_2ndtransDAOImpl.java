@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.markbook.domain.SearchVO;
+import com.markbook.domain.bidlistVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
@@ -68,7 +69,18 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 
 		return bvo;
 	}
+	
+	// 입찰내역 불러오기
+	@Override
+	public List<bidlistVO> getBid(Integer b2_num) throws Exception {
+		
+		logger.info(" DAO : getBid() 호출 ");
 
+		List<bidlistVO> blvo = sqlSession.selectList(namespace + ".getbid", b2_num);
+
+		return blvo;
+	}
+	
 	// 상세 페이지 수정하기
 	@Override
 	public void bookModify(mk_2ndhand_bookVO bvo) throws Exception {
@@ -98,9 +110,22 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 
 		logger.info(" DAO : bookBid() 호출 ");
 
-		sqlSession.update(namespace + ".priceupdate", bvo);
+		// 입찰
+		sqlSession.insert(namespace + ".insertbid", bvo);
 
 		logger.info(" DAO : 입찰 완료");
+	}
+
+	// 입찰 가격 업데이트
+	@Override
+	public void bidUpdate(mk_2ndhand_bookVO bvo) throws Exception {
+
+		logger.info(" DAO : bidUpdate() 호출 ");
+
+		sqlSession.update(namespace + ".priceupdate", bvo);
+
+		logger.info(" DAO : 입찰 가격 업데이트 완료");
+
 	}
 
 	// 카트 리스트 조회
@@ -175,5 +200,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 
 		return sqlSession.selectOne(namespace + ".countsearch", svo);
 	}
+
+	
 
 }
