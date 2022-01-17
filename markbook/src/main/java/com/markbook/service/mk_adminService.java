@@ -8,7 +8,6 @@ import com.markbook.domain.mk_memberVO;
 
 public interface mk_adminService {
 	
-	
 	// 도서 등록
 	public void bookRegister(mk_bookVO bvo) throws Exception;
 	
@@ -48,7 +47,5 @@ public interface mk_adminService {
 	// 회원 개별 정보 삭제
 	public void deleteMember(String m_id) throws Exception;
 	
-	
-		
 
 }
