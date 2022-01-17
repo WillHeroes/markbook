@@ -58,12 +58,13 @@ function fun23(num){
                                     
                                     
                                     <tr>
-                                        <td class="py-3">${bvo.b_num}</td>
+                                    	<td>
+                                            <div class="book-img">
+												<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/${bvo.b_image}" alt="Graindashboard" style="width: 70px; height: 90px;">
+											</div>
+										</td>
                                         <td>
                                         	<a href="#" onclick="fun23(${bvo.b_num })" >${bvo.b_name }</a>
-                                            <div class="book-img">
-												<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/book.PNG" alt="Graindashboard" style="width: 55px; height: 55px;"></a>
-											</div>
                                         </td>
                                         <td class="py-3">${bvo.b_category }</td>
                                         <td class="py-3">${bvo.b_writer }</td>
@@ -78,10 +79,10 @@ function fun23(num){
                                             <div class="position-relative">
                                                 <!-- <i class="gd-eraser text-primary"></i> -->
                                                 <!-- <i class="gd-trash"></i> -->
-                                                <a class="link-dark d-inline-block" href="./bookUpdate">
+                                                <a class="link-dark d-inline-block" href="./bookUpdate?b_num=${bvo.b_num }">
                                             		<i class="gd-pencil icon-text"></i>
                                         		</a> / 
-                                        		<a class="link-dark d-inline-block" href="./bookDelete">
+                                        		<a class="link-dark d-inline-block" href="./bookDelete?b_num=${bvo.b_num }">
                                             		<i class="gd-trash icon-text"></i>
                                         		</a>
                                                 

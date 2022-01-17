@@ -10,6 +10,18 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-xl-12">
+				
+				<!-- Breadcrumb -->
+					<nav class="d-none d-md-block" aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">Books</a></li>
+							<li class="breadcrumb-item active" aria-current="page">book
+								edit</li>
+						</ol>
+					</nav>
+					<!-- End Breadcrumb -->
+				
+				
 					<div class="border-bottom pb-3 mb-6">
 						<h5 class="font-weight-semi-bold mb-0">EDIT</h5>
 						<div class="tab-content bg-lighter" id="pills-tabContent-2">
@@ -71,7 +83,7 @@
 
 									<div class="form-group">
 										<strong class="d-block mb-1">이미지</strong> <input type="file"
-											class="gd-image" id="exampleFormControlFile1">
+											class="" id="exampleFormControlFile1">
 									</div>
 
 
@@ -93,58 +105,38 @@
 									</div>
 
 									<div class="form-group">
-										<strong class="d-block mb-1">대출횟수</strong> <select
-											class="form-control" id="b_count" name="b_count">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
+										<strong class="d-block mb-1">대출횟수</strong>
+										<textarea class="form-control" id="b_count"
+											name="b_count" rows="1"></textarea>
 									</div>
+									
 									<div class="form-group">
-										<strong class="d-block mb-1">현재수량</strong> <select multiple
-											class="form-control" id="b_amount" name="b_amount">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
+										<strong class="d-block mb-1">현재수량</strong>
+										<textarea class="form-control" id="b_amount"
+											name="b_amount" rows="1"></textarea>
 									</div>
-
 
 									<div>
 										<strong class="d-block mb-1">대출여부</strong>
-
-										<div class="custom-control custom-switch">
-											<input type="checkbox" class="custom-control-input"
-												id="customSwitch1"> <label
-												class="custom-control-label" for="customSwitch1">가능</label>
-										</div>
-										<div class="custom-control custom-switch">
-											<input type="checkbox" class="custom-control-input"
-												id="customSwitch2"> <label
-												class="custom-control-label" for="customSwitch2">불가</label>
-										</div>
-
-										<!-- <div class="form-check position-relative mb-2">
-											<input type="checkbox" class="form-check-input d-none"
-												id="check1"> <label
-												class="checkbox checkbox-xxs form-check-label ml-1"
-												for="check1" data-icon="&#xe936">가능</label>
+										<div class="form-check position-relative mb-2">
+											<input type="radio" class="form-check-input d-none"
+												id="customRadioboxes8" name="b_able" value="가능"> <label
+												class="radio radio-xxs form-check-label ml-1"
+												for="customRadioboxes8" data-icon="">가능</label>
 										</div>
 
 										<div class="form-check position-relative mb-2">
-											<input type="checkbox" class="form-check-input d-none"
-												id="check1"> <label
-												class="checkbox checkbox-xxs form-check-label ml-1"
-												for="check1" data-icon="&#xe936">불가</label>
-										</div> -->
+											<input type="radio" class="form-check-input d-none"
+												id="customRadioboxes9" name="b_able" value="불가"> <label
+												class="radio radio-xxs form-check-label ml-1"
+												for="customRadioboxes9" data-icon="">불가</label>
+										</div>
+
 									</div>
 
 
-									<button type="submit" class="btn btn-warning mb-2 mr-2"
+
+									<button type="submit" class="btn btn-secondary active"
 										onclick="location.href='./bookList';">
 										<span class="align-middle">수정하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>

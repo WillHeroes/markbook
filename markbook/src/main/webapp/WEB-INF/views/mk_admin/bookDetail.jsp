@@ -11,28 +11,30 @@
 			<div class="card-body">
 				<div class="col-xl-12">
 					<div class="border-bottom pb-3 mb-6">
-						<h2 class="h4">
-							상세페이지 <a class="anchorjs-link" href="#form-controls"
-								aria-label="Anchor" data-anchorjs-icon="#"></a>
-						</h2>
 						<div class="tab-content bg-lighter" id="pills-tabContent-2">
 							<div class="tab-pane fade p-4 show active" id="pills-result-2"
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
 
-								<form action="" method="post" name="">
+								<table>
+									<thead>
+									<tr>
+										<th class="font-weight-semi-bold border-top-0 py-2">${bvo.b_name }</th>
+									</tr>
+									</thead>
+
+								
+								
+								</table>
+								<form action="" method="post" id="bookDetail" name="bookDetail">
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">책이름</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" value=${mk_bookVO.b_name }>
+									
+										<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/${bvo.b_image}" alt="Graindashboard" style="width: 180px; height: 230px;">
+
 									</div>
-	
-
-
-
 
 								</form>
-							</div>
+						
 						</div>
 					</div>
 				</div>

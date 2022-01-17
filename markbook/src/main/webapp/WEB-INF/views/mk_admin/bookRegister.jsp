@@ -10,18 +10,17 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-xl-12">
-				
+
 					<!-- Breadcrumb -->
-                    	<nav class="d-none d-md-block" aria-label="breadcrumb">
-                        	<ol class="breadcrumb">
-                            	<li class="breadcrumb-item">
-                                	<a href="#">Books</a>
-                            	</li>
-                            	<li class="breadcrumb-item active" aria-current="page">book register</li>
-                        	</ol>
-                    	</nav>
-                    <!-- End Breadcrumb -->
-                    
+					<nav class="d-none d-md-block" aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">Books</a></li>
+							<li class="breadcrumb-item active" aria-current="page">book
+								register</li>
+						</ol>
+					</nav>
+					<!-- End Breadcrumb -->
+
 					<div class="border-bottom pb-3 mb-6">
 						<h5 class="font-weight-semi-bold mb-0">BOOK REGISTER</h5>
 						<div class="tab-content bg-lighter" id="pills-tabContent-2">
@@ -33,7 +32,8 @@
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" placeholder="책이름">
+											class="form-control" id="b_name" name="b_name"
+											placeholder="책이름">
 									</div>
 
 									<!-- <div class="alert alert-primary alert-left-bordered border-primary alert-dismissible d-flex p-3 p-md-4 mb-0 fade show" role="alert">
@@ -85,8 +85,8 @@
 
 									<div class="form-group">
 										<!-- <label for="exampleFormControlFile1">이미지</label> -->
-										<strong class="d-block mb-1">이미지</strong> <input type="file"
-											class="gd-image" id="exampleFormControlFile1">
+										<strong class="d-block mb-1">이미지</strong> 
+										<input type="file" id="b_image" name="b_image" class="" >
 									</div>
 
 
@@ -103,14 +103,24 @@
 											rows="1" placeholder="작가"></textarea>
 									</div>
 									<div class="form-group">
-										<!-- <label for="exampleFormControlTextarea1">출판사</label> -->
 										<strong class="d-block mb-1">출판사</strong>
 										<textarea class="form-control" id="b_publisher"
 											name="b_publisher" rows="1" placeholder="출판사"></textarea>
 									</div>
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlSelect1">대출횟수</label> -->
+										<strong class="d-block mb-1">대출횟수</strong>
+										<textarea class="form-control" id="b_count"
+											name="b_count" rows="1"></textarea>
+									</div>
+									
+									<div class="form-group">
+										<strong class="d-block mb-1">현재수량</strong>
+										<textarea class="form-control" id="b_amount"
+											name="b_amount" rows="1"></textarea>
+									</div>
+
+									<!-- <div class="form-group">
 										<strong class="d-block mb-1">대출횟수</strong> <select
 											class="form-control" id="b_count" name="b_count">
 											<option>1</option>
@@ -119,48 +129,38 @@
 											<option>4</option>
 											<option>5</option>
 										</select>
-									</div>
-									<div class="form-group">
-										<!-- <label for="exampleFormControlSelect2">현재수량</label> -->
-										<strong class="d-block mb-1">현재수량</strong> <select multiple
-											class="form-control" id="b_amount" name="b_amount">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
-									</div>
-
-
+									</div> -->
+								
 									<div>
 										<strong class="d-block mb-1">대출여부</strong>
 
-										<select class="form-control" id="b_able" name="b_able">
+										<!-- <select class="form-control" id="b_able" name="b_able">
                                         		<option>대출여부</option>
                                         		<option>가능</option>
                                         		<option>불가</option>
-                                       	</select>
+                                       	</select> -->
 
-										<!-- <div class="form-check position-relative mb-2">
-											<input type="checkbox" class="form-check-input d-none"
-												id="check1"> <label
-												class="checkbox checkbox-xxs form-check-label ml-1"
-												for="check1" data-icon="&#xe936">가능</label>
+										<div class="form-check position-relative mb-2">
+											<input type="radio" class="form-check-input d-none"
+												id="customRadioboxes8" name="b_able" value="가능"> <label
+												class="radio radio-xxs form-check-label ml-1"
+												for="customRadioboxes8" data-icon="">가능</label>
 										</div>
 
 										<div class="form-check position-relative mb-2">
-											<input type="checkbox" class="form-check-input d-none"
-												id="check1"> <label
-												class="checkbox checkbox-xxs form-check-label ml-1"
-												for="check1" data-icon="&#xe936">불가</label>
-										</div> -->
+											<input type="radio" class="form-check-input d-none"
+												id="customRadioboxes9" name="b_able" value="불가"> <label
+												class="radio radio-xxs form-check-label ml-1"
+												for="customRadioboxes9" data-icon="">불가</label>
+										</div>
+
 									</div>
 
-									<button type="submit" class="btn btn-warning mb-2 mr-2" style="">
-										<span class="align-middle">add to list</span> <i
+									<button type="submit" class="btn btn-secondary active" style="text-align: center;">
+										<span class="align-middle">등록하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>
+
 
 								</form>
 							</div>
