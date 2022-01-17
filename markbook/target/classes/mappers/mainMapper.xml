@@ -12,4 +12,11 @@
    
    </select>
    
+   <select id="borrbest2" resultType="mk_bookVO">
+   select * from book
+   where b_category = #{b_category}
+   order by b_count 
+   limit 6;
+   </select>
+   
    </mapper>
