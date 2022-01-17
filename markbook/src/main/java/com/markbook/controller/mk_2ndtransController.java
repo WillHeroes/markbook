@@ -144,6 +144,7 @@ public class mk_2ndtransController {
 		m_id = "tempId";
 		
 		model.addAttribute("bvo", service.getInfo(b2_num));
+		model.addAttribute("bidList", service.getBid(b2_num));
 		model.addAttribute("m_id", m_id);
 		
 		return "/mk_2ndTrans/bookinfo";
@@ -230,6 +231,7 @@ public class mk_2ndtransController {
 		bvo.setB2_highestprice(Integer.parseInt(bid_price));
 		bvo.setB2_buyer_id(m_id);
 		service.bookBid(bvo);
+		service.bidUpdate(bvo);
 		
 		logger.info("입찰완료");
 		
