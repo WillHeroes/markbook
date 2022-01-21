@@ -238,9 +238,26 @@ public class mk_2ndtransController {
 		return "redirect:/mk_2ndTrans/booklist";
 	}
 	
+	// 카트 메인 페이지 호출(GET)
+	@RequestMapping(value = "/cart", method = RequestMethod.GET)
+	public String cartGET(HttpSession session, Model model) throws Exception {
+
+		logger.info("C: cartGET() 호출");
+		
+		String m_id= (String) session.getAttribute("m_id");
+		
+		m_id = "tempId";
+		
+		// 비회원 제어
+		// if (m_id == null) return "redirect:/login";
+		 
+				
+		return "/mk_2ndTrans/cart";
+	}
+	
 	// 중고책 판매 카트 페이지 호출 (GET)
 	@RequestMapping(value = "/bookcart", method = RequestMethod.GET)
-	public String cartGET(HttpSession session, Model model) throws Exception {
+	public String bookcartGET(HttpSession session, Model model) throws Exception {
 
 		logger.info("C: cartGET() 호출");
 		

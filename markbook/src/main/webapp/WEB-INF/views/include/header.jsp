@@ -68,7 +68,7 @@
 								<div class="header-info-right d-flex align-items-center">
 									<ul>
 										<li><a href="#">Track Order</a></li>
-										<li class="shopping-card"><a href="/markbook/mk_2ndTrans/bookcart"><img
+										<li class="shopping-card"><a href="/markbook/mk_2ndTrans/cart"><img
 												src="${pageContext.request.contextPath }/resources/assets/img/icon/cart.svg"
 												alt=""></a></li>
 										<li><c:choose>

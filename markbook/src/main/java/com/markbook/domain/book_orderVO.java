@@ -5,6 +5,7 @@ public class book_orderVO {
 	private int order_num;
 	private String order_id;
 	private int order_b2_num;
+	private int order_bor_num;
 	private String order_name;
 	private String order_phone;
 	private String order_addr1;
@@ -28,6 +29,12 @@ public class book_orderVO {
 	}
 	public void setOrder_b2_num(int order_b2_num) {
 		this.order_b2_num = order_b2_num;
+	}
+	public int getOrder_bor_num() {
+		return order_bor_num;
+	}
+	public void setOrder_bor_num(int order_bor_num) {
+		this.order_bor_num = order_bor_num;
 	}
 	public String getOrder_name() {
 		return order_name;
@@ -63,9 +70,10 @@ public class book_orderVO {
 	@Override
 	public String toString() {
 		return "book_orderVO [order_num=" + order_num + ", order_id=" + order_id + ", order_b2_num=" + order_b2_num
-				+ ", order_name=" + order_name + ", order_phone=" + order_phone + ", order_addr1=" + order_addr1
-				+ ", order_addr2=" + order_addr2 + ", order_msg=" + order_msg + "]";
+				+ ", order_bor_num=" + order_bor_num + ", order_name=" + order_name + ", order_phone=" + order_phone
+				+ ", order_addr1=" + order_addr1 + ", order_addr2=" + order_addr2 + ", order_msg=" + order_msg + "]";
 	}
+	
 	
 	
 	
