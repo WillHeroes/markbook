@@ -86,6 +86,11 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 	sqlSession.update(namespace+".requestUpdate",rvo);
 		
 	}
+	//요청게시판 특정회원의 요청목록
+	@Override
+	public List<mk_requestBoardVO> onelist(String r_m_id) {
+		return sqlSession.selectList(namespace+".onelist",r_m_id);
+	}
 
 
 	

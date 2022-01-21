@@ -23,6 +23,7 @@ margin: 5%;
   button{
   margin: 30%;
   
+  
   }
 </style>
 
@@ -39,7 +40,6 @@ margin: 5%;
                <option value="2" ${page.r_result =="2"?'selected=selected':''}> 취소</option>
                <option value="3" ${page.r_result =="3"?'selected=selected':''}> 완료</option>
                </select>
-               <hr>
     
     상세
                                          <c:choose >
@@ -48,8 +48,9 @@ margin: 5%;
 
 
                                     </c:choose>
+               <hr>
     
-                                                <button type="submit" class="btn btn-soft-warning mb-3 mr-3">저장</button>
+                                                <button type="submit" class="btn btn-soft-warning mb-3 mr-3" style="margin-left:220px; ">저장</button>
              
                                                 
                       
