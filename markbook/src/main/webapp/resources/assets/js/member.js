@@ -239,24 +239,18 @@ function editChk() {
 		
 	document.editFr.m_email.value = realEmail;	
 	
-	/*
-	if(document.editFr.m_id.value != document.editFr.realID.value) {
-		$.ajax({
-			url: "/markbook/mk_member/idchk",
-			type: "post",
-			dataType: "json",
-			data: {"m_id" : m_id},
-			async: false,
-			success: function(num) {
-				if(num > 0) {
-					m_id = idChk();
-				}
-			}
-		})
+	
+	var check = document.editfr.attrChk.value;
+	
+	if (check == "1") {
+		alert("jpeg, jpg, png 파일만 업로드 가능합니다.");
+		return false;
 	}
-
-	if (m_id == '0') return false;
-	*/
+	if (check == "2") {
+		alert("첨부파일 사이즈는 10MB 이내로 등록 가능합니다.");
+		return false;
+	}
+	
 }
 
 function idChk() {

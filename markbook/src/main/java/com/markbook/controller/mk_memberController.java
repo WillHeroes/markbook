@@ -1,11 +1,14 @@
 package com.markbook.controller;
 
 import java.io.PrintWriter;
+import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.markbook.domain.mk_memberVO;
@@ -249,15 +253,39 @@ public class mk_memberController {
 		
 		System.out.println("프로필 수정");
 		
-		model.addAttribute("memberInfo", service.profile(m_id));
+		mk_memberVO mvo = service.profile(m_id);
 		
+		model.addAttribute("memberInfo", mvo);
+		
+		String email = mvo.getM_email();
+		int idx1 = email.indexOf("@");
+		int idx2 = email.indexOf(".");
+		
+		model.addAttribute("domain", email.substring(idx1 + 1, idx2));
 	}
 	
 	@RequestMapping(value="/myProfileEdit", method=RequestMethod.POST)
-	public void myProEditPOST(mk_memberVO mvo, HttpServletResponse response) throws Exception {
+	public void myProEditPOST(mk_memberVO mvo, HttpServletResponse response, HttpServletRequest request) throws Exception {
 		
 		System.out.println("프로필 수정 진행중 "+mvo);
 		
+		/*
+		// 파일 업로드
+		String fileName = null;
+		MultipartFile uploadFile = mvo.getUploadFile();
+		
+		if (!uploadFile.isEmpty()) {
+			String originalFileName = uploadFile.getOriginalFilename();
+			String ext = FilenameUtils.getExtension(originalFileName);
+			UUID uuid = UUID.randomUUID();
+			
+			fileName = uuid + "." + ext;
+		}
+		*/
+		
+		String path = request.getSession().getServletContext().getRealPath("/");
+		System.out.println("path : "+path);
+		/*
 		service.editPro(mvo);
 		
 		response.setContentType("text/html; charset=utf-8");
@@ -265,6 +293,8 @@ public class mk_memberController {
 		
 		out.print("<script>alert('프로필 수정이 완료되었습니다'); location.href='/markbook/index';</script>");
 		out.flush();
+		*/
+
 	}
 
 }

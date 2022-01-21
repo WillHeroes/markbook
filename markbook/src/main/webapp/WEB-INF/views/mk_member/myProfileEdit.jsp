@@ -4,31 +4,65 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/member.css">
+<script src="${pageContext.request.contextPath }/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript">
-	window.onload = function() {
-		var email = '<c:out value="${memberInfo.m_email}"/>';
-		
-		var idx = email.indexOf("@");
-		
-		$('input[name=emailAddr]').attr('value', email.substring(0, idx));
-	}
+<script type="text/javascript">	
 	$(document).ready(function(){
+		
+		var email = '<c:out value="${memberInfo.m_email}"/>';
+		var idx = email.indexOf("@");
+
+		$('input[name=emailAddr]').attr('value', email.substring(0, idx));
+		
 		$('#profile').click(function (e) {
 			$('#proImg').click();
+		});
+		
+		$('#proImg').change(function() {
+			
+			
+ 			var fileVal = $('#proImg').val();
+			if (fileVal != "") {
+				// 확장자 분리 + 소문자로
+				var ext = fileVal.split('.').pop().toLowerCase() 
+				
+				if (ext != "jpeg" && ext != "jpg" && ext != "png") {
+					alert("jpeg, jpg, png 파일만 업로드 가능합니다.");
+					$('input[name=attrChk]').attr('value','1');
+					return false;
+				}
+			}
+			
+			var maxSize = 10 * 1024 * 1024;
+			var fileSize = $('#proImg')[0].files[0].size;
+			
+			if (maxSize < fileSize) {
+				alert("첨부파일 사이즈는 10MB 이내로 등록 가능합니다.");
+				$('input[name=attrChk]').attr('value','2');
+				return false;
+			}
+						
+			// img prev
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('#profile').attr('src', e.target.result);
+			}
+			reader.readAsDataURL($('#proImg')[0].files[0]);
+
 		});
 	});
 </script>
 
 <form method="post" action="/markbook/mk_member/myProfileEdit" name="editFr" onsubmit="return editChk();">
 	<input type="hidden" name="realID" value="${memberInfo.m_id }"/>
+	<input type="hidden" name="attrChk" value="0"/>
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
 		<div class="register-form text-center">
 			<div>
 				<img src="${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png" id="profile" style="width:225px; height:225px; cursor:pointer;"/>
 			</div>
-			<input type="file" id="proImg" name="proImg" style="display:none">
+			<input type="file" id="proImg" name="uploadFile" style="display:none">
 			<span style="color:rgb(180,180,180);">Only jpeg, jpg, png</span>
 			<div class="input-box">
 				<div class="single-input-fields">
@@ -49,16 +83,16 @@
 	                        </td>
 	                       <td style="width:50%;">
 		                        <div class="default-select" id="default-select">
-									<select name="domain" id="domain">
+									<select name="domain" id="domainss">
 										<option value="none">선택하세요</option>
-				                        <option value="naver.com">@naver.com</option>
-				                        <option value="daum.net">@daum.net</option>
+				                        <option value="naver.com" ${domain == 'naver' ? 'selected':''}>@naver.com</option>
+				                        <option value="daum.net" ${domain == 'daum' ? 'selected':''}>@daum.net</option>
 				                        <c:choose>
 				                        	<c:when test="${social eq 'google' }">
 				                        		<option value="gmail.com" selected>@gmail.com</option>	
 				                        	</c:when>
 				                        	<c:otherwise>
-				                        		<option value="gmail.com">@gmail.com</option>
+				                        		<option value="gmail.com" ${domain == 'gmail' ? 'selected':''}>@gmail.com</option>
 				                        	</c:otherwise>
 				                        </c:choose>
 									</select>

@@ -2,6 +2,8 @@ package com.markbook.domain;
 
 import java.sql.Timestamp;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class mk_memberVO {
 	
 	private String m_id;
@@ -18,6 +20,8 @@ public class mk_memberVO {
 	private int m_over;
 	private String m_name;
 	private int m_status;
+	//private MultipartFile uploadFile;
+	
 	public String getM_id() {
 		return m_id;
 	}
@@ -102,6 +106,11 @@ public class mk_memberVO {
 	public void setM_status(int m_status) {
 		this.m_status = m_status;
 	}
+
+	/*
+	 * public MultipartFile getUploadFile() { return uploadFile; } public void
+	 * setUploadFile(MultipartFile uploadFile) { this.uploadFile = uploadFile; }
+	 */
 	@Override
 	public String toString() {
 		return "mk_memberVO [m_id=" + m_id + ", m_pw=" + m_pw + ", m_addr1=" + m_addr1 + ", m_addr2=" + m_addr2
