@@ -26,7 +26,7 @@ public class mk_adminServiceImpl implements mk_adminService {
 	@Override
 	public void bookRegister(mk_bookVO bvo) throws Exception {
 		
-		System.out.println(" S : bookRegister(bookVO bvo) 호출 -> DAO - bookRegister(mk_bookVO bvo) 호출 ");
+		System.out.println(" S : bookRegister(mk_bookVO bvo) 호출 -> DAO - bookRegister(mk_bookVO bvo) 호출 ");
 		
 		madao.bookRegister(bvo);
 		
@@ -47,17 +47,17 @@ public class mk_adminServiceImpl implements mk_adminService {
 
 	// 도서 목록 페이징처리
 	@Override
-	public List<mk_bookVO> bListCri(Criteria cri) throws Exception {
-		System.out.println(" S : listCri(Criteria cri) 호출 ");
+	public List<mk_bookVO> listCriteria(Criteria criteria) throws Exception {
 		
-		return madao.bListCri(cri);
+		return madao.listCriteria(criteria);
 	}
+	
 	
 	// 도서 목록 전체 갯수 조회
 	@Override
-	public int countBook(Criteria cri) throws Exception {
+	public int countBook() throws Exception {
 		
-		return madao.countBook(cri);
+		return madao.countBook();
 	}
 
 	// 도서 수정
@@ -110,6 +110,8 @@ public class mk_adminServiceImpl implements mk_adminService {
 		
 		return madao.mListCri(cri);
 	}
+	
+	
 
 	
 	// 전체 회원 목록 갯수 조회
@@ -120,6 +122,8 @@ public class mk_adminServiceImpl implements mk_adminService {
 	}
 
 	
+
+
 	// 회원 개별 정보 조회
 	@Override
 	public mk_memberVO memberInfo(String m_id) throws Exception {
@@ -144,6 +148,13 @@ public class mk_adminServiceImpl implements mk_adminService {
 
 		madao.deleteMember(m_id);
 	}
+
+
+	/*
+	 * @Override public int countBook() throws Exception {
+	 * 
+	 * return madao.countBook(); }
+	 */
 
 
 

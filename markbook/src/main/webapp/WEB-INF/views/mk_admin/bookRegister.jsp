@@ -29,6 +29,7 @@
 
 								<form action="./bookRegister" method="post" name="">
 									<input type="hidden" value="0" name="b_able">
+									<input type="hidden" value="${b_num }" name="b_num">
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
@@ -156,7 +157,8 @@
 
 									</div>
 
-									<button type="submit" class="btn btn-secondary active" style="text-align: center;">
+									<button type="submit" class="btn btn-secondary active" style="text-align: center;" 
+											onclick="location.href='./bookList';">
 										<span class="align-middle">등록하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>

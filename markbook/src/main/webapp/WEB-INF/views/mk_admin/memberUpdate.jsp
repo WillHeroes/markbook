@@ -31,54 +31,58 @@
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" value="" id="name" name="name" value="${mvo.m_name }">
+                                    <label for="name">이름</label>
+                                    <input type="text" class="form-control" id="m_name" name="m_name" value="${mvo.m_name }">
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="name">ID</label>
+                                    <input type="text" class="form-control" id="m_id" name="m_id" value="${mvo.m_id }">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="name">Password</label>
-                                    <input type="text" class="form-control" value="" id="name" name="name" placeholder="New Password">
+                                    <label for="name">비밀번호</label>
+                                    <input type="text" class="form-control" id="m_pw" name="m_pw" value="${mvo.m_pw }">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="email">Password Confirm</label>
-                                    <input type="email" class="form-control" value="" id="email" name="email" placeholder="password_confirm">
+                                    <label for="email">비밀번호 확인</label>
+                                    <input type="email" class="form-control" id="" name="" placeholder="비밀번호 확인">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="password">address</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" placeholder="New Address">
+                                    <label for="password">주소</label>
+                                    <input type="password" class="form-control" id="m_addr1" name="m_addr1" value="${mvo.m_addr1 }">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="password_confirm">address</label>
-                                    <input type="password" class="form-control" value="" id="password_confirm" name="password_confirm" placeholder="New Address">
+                                    <label for="password_confirm">상세주소</label>
+                                    <input type="password" class="form-control" id="m_addr2" name="m_addr2" value="${mvo.m_addr2 }">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="password">Email</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" value="${mvo.m_email }">
+                                    <input type="password" class="form-control" id="m_email" name="m_email" value="${mvo.m_email }">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="password_confirm">Phone</label>
-                                    <input type="password" class="form-control" value="" id="password_confirm" name="password_confirm" value="${mvo.m_phone }">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="password">jumin</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" value="${mvo.m_idnum1 }">
-                                </div>
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="password_confirm">jumin</label>
-                                    <input type="password" class="form-control" value="" id="password_confirm" name="password_confirm" value="${mvo.m_idnum2 }">
+                                    <label for="password_confirm">휴대폰번호</label>
+                                    <input type="password" class="form-control" id="m_phone" name="m_phone" value="${mvo.m_phone }">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="password">Image</label>
-                                    <input type="password" class="form-control" value="" id="password" name="password" placeholder="New Image">
+                                    <label for="password">주민등록번호</label>
+                                    <input type="password" class="form-control" id="m_idnum1" name="m_idnum1" value="${mvo.m_idnum1 }">
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="password_confirm">주민등록번호</label>
+                                    <input type="password" class="form-control" id="m_idnum2" name="m_idnum2" value="${mvo.m_idnum2 }">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="password">프로필</label>
+                                    <input type="password" class="form-control" id="m_image" name="m_image" value="${mvo.m_image }" >
                                 </div>
                             </div>
                             

@@ -21,14 +21,30 @@
  	</select>
  
  	<!-- 도서 목록 페이징 처리 list -->
- 	<select id="bListCri" resultType="mk_bookVO">
- 		select * from book 
- 		limit #{pageStart},#{pageSize} <!-- 크기를 받아가서 저장 -->
+ 	<!-- <select id="listPaging" resultMap="bookResultMap">
+ 		<![CDATA[
+ 		select * 
+ 		from book 
+ 		where b_num > 0 
+ 		order by b_num desc, b_regdate desc 
+ 		limit #{page}, 10 
+ 		]]>
  	</select>
+ 	
+ 	<select id="listCriteria" resultMap="bookResultMap">
+ 		<![CDATA[
+ 		select * 
+ 		from book 
+ 		where b_num > 0 
+ 		order by b_num desc, b_regdate desc 
+ 		limit #{pageStart}, #{perPageNum}
+ 		]]>
+ 	</select> -->
+ 	
  	
  	<!-- 도서 목록 전체 갯수 조회 -->
  	<select id="countBook" resultType="int">
- 		select count(*) 
+ 		select count(b_num) 
  		from book
  	</select>
  	

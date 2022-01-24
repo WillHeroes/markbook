@@ -107,13 +107,13 @@
 									<div class="form-group">
 										<strong class="d-block mb-1">대출횟수</strong>
 										<textarea class="form-control" id="b_count"
-											name="b_count" rows="1"></textarea>
+											name="b_count" rows="1">${bvo.b_count }</textarea>
 									</div>
 									
 									<div class="form-group">
 										<strong class="d-block mb-1">현재수량</strong>
 										<textarea class="form-control" id="b_amount"
-											name="b_amount" rows="1"></textarea>
+											name="b_amount" rows="1">${bvo.b_amount }</textarea>
 									</div>
 
 									<div>

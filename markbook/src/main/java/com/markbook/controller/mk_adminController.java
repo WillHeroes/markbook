@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.markbook.domain.Criteria;
+import com.markbook.domain.PageMaker;
 import com.markbook.domain.mk_bookVO;
 import com.markbook.domain.mk_memberVO;
-import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_adminService;
 import com.markbook.service.mk_memberService;
 import com.mysql.cj.Session;
@@ -53,7 +53,13 @@ public class mk_adminController {
 	public String bookRegisterGET(Model model) throws Exception {
 
 		System.out.println(" bookRegisterGET() 호출 ");
-
+		
+		int count = service.countBook();
+	
+		count += 1;
+		
+		model.addAttribute("b_num", count);
+		
 		return "/mk_admin/bookRegister";
 	}
 
@@ -70,23 +76,33 @@ public class mk_adminController {
 
 	// 도서 목록 (GET) (페이징 처리)
 	// http://localhost:8088/markbook/mk_admin/bookList
-	@RequestMapping(value = "/bookList", method = RequestMethod.GET)
-	public String bookListGET(Criteria cri, Model model) throws Exception {
+	/*
+	 * @RequestMapping(value = "/bookList", method = RequestMethod.GET) public
+	 * String bookList(Criteria criteria, Model model) throws Exception {
+	 * 
+	 * System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
+	 * 
+	 * model.addAttribute("bookList", service.listCriteria(criteria));
+	 * 
+	 * return "/mk_admin/listCriteria"; }
+	 */
+	
+	/*
+	 * @RequestMapping(value = "/bookList", method = RequestMethod.GET) public
+	 * String listPaging(Model model, Criteria criteria) throws Exception {
+	 * 
+	 * PageMaker pageMaker = new PageMaker(); pageMaker.setCriteria(criteria);
+	 * pageMaker.setTotalCount(1000);
+	 * 
+	 * model.addAttribute("bookList", service.listCriteria(criteria));
+	 * model.addAttribute("pageMaker", pageMaker);
+	 * 
+	 * return "/mk_admin/bookList"; }
+	 */
 
-		System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
-
-		// 페이징처리 정보생성
-		pageMaker pm = new pageMaker();
-		pm.setCri(cri);
-		pm.setTotalCount(service.countBook(cri));
-
-		// 서비스 동작 호출
-		// Criteria 객체 정보 저장 (pageStart/pageSize)
-		model.addAttribute("bookList", service.getBookList());
-		model.addAttribute("pm", pm);
-
-		return "/mk_admin/bookList";
-	}
+	
+	
+	
 
 	// 도서 목록 개별 정보 조회 (GET)
 	@RequestMapping(value = "/bookDetail", method = RequestMethod.GET)
@@ -148,16 +164,9 @@ public class mk_adminController {
 
 		logger.info("memberListAllGET() 호출");
 		
-		// 페이징처리 정보생성
-		pageMaker pm = new pageMaker();
-		pm.setCri(cri);
-		pm.setTotalCount(service.countMember(cri));
-
 		// 서비스 동작 호출
 		model.addAttribute("memberList", service.getMList());
-		
-		// Criteria 객체 정보 저장 (pageStart/pageSize)
-		model.addAttribute("pm", pm);
+
 
 		return "/mk_admin/memberList";
 	}

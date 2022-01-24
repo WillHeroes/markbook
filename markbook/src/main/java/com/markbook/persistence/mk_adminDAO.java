@@ -16,10 +16,13 @@ public interface mk_adminDAO {
 	
 	// 도서 목록 페이징 처리 조회
 	//public List<BoardVO> listCri(int pageStart,int pageSize) throws Exception;
-	public List<mk_bookVO> bListCri(Criteria cri) throws Exception; // 객체만들어서 객체를 통해서 정보전달
+	public List<mk_bookVO> listPaging(int page) throws Exception; // 객체만들어서 객체를 통해서 정보전달
+	
+	List<mk_bookVO> listCriteria(Criteria criteria) throws Exception;
+	
 	
 	// 도서 목록 전체 갯수 조회
-	public int countBook(Criteria cri) throws Exception;
+	public int countBook() throws Exception;
 	
 	// 도서 목록 개별 정보 조회
 	public mk_bookVO getBInfo(Integer b_num) throws Exception;
@@ -55,7 +58,7 @@ public interface mk_adminDAO {
 	public void deleteMember(String m_id) throws Exception;
 	
 	
-	
+
 	
 	
 	

@@ -28,7 +28,7 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	@Override
 	public void bookRegister(mk_bookVO bvo) throws Exception {
 		
-		System.out.println(" bookRegister(mk_bookVO bvo) 호출 ");
+		System.out.println(" DAO - bookRegister(mk_bookVO bvo) 호출 ");
 		
 		sqlSession.insert(namespace+".bookRegister",bvo);
 		
@@ -50,20 +50,34 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	
 	// 도서 목록 페이징 처리
 	@Override
-	public List<mk_bookVO> bListCri(Criteria cri) throws Exception {
+	public List<mk_bookVO> listPaging(int page) throws Exception {
 		
-		System.out.println(" DAO : bListCri(Criteria cri) 호출 ");
+		System.out.println(" DAO : listPaging(int page) 호출 ");
 		
-		return sqlSession.selectList(namespace+".bListCri",cri);
+		if (page <= 0) {
+			page = 1;
+		}
+		
+		page = (page - 1) * 10;
+		
+		return sqlSession.selectList(namespace+".listPaging",page);
 	}
+	
+	@Override
+	public List<mk_bookVO> listCriteria(Criteria criteria) throws Exception {
+		
+		return sqlSession.selectList(namespace+".listCriteria", criteria);
+	}
+
+
 	
 	// 도서 목록 전체 갯수 조회 
 	@Override
-	public int countBook(Criteria cri) throws Exception {
+	public int countBook() throws Exception {
 		
 		System.out.println(" DAO : countBook(Criteria cri) 호출 ");
 		
-		return sqlSession.selectOne(namespace+".countBook",cri);
+		return sqlSession.selectOne(namespace+".countBook");
 	}
 	
 	// 도서 목록 개별 정보 조회 
@@ -155,6 +169,9 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 
 		sqlSession.delete(namespace+".mDelete", m_id);
 	}
+
+
+
 
 
 

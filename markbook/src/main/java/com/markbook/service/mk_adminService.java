@@ -16,10 +16,11 @@ public interface mk_adminService {
 	public List<mk_bookVO> getBookList() throws Exception;
 	
 	// 도서 목록 페이징처리 (Cri)
-	public List<mk_bookVO> bListCri(Criteria cri) throws Exception;
+	//public List<mk_bookVO> bListCri(Criteria cri) throws Exception;
+	List<mk_bookVO> listCriteria(Criteria criteria) throws Exception;
 	
 	// 도서 목록 전체 갯수 조회
-	public int countBook(Criteria cri) throws Exception;
+	public int countBook() throws Exception;
 	
 	// 도서 목록 개별 정보 조회 
 	public mk_bookVO getBInfo(Integer b_num) throws Exception;
@@ -47,6 +48,8 @@ public interface mk_adminService {
 	
 	// 회원 개별 정보 삭제
 	public void deleteMember(String m_id) throws Exception;
+
+	
 	
 	
 		
