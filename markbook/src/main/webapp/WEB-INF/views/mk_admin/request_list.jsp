@@ -20,17 +20,35 @@ margin-left: 30%;
 
 
 // @@@@@@@@@@@@  팝업창  @@@@@@@@@@@
+    //상태창 팝업
 function fun23(num){
+
 	var searchType = document.getElementsByName("searchType")[0].value;
 	var keyword =  document.getElementsByName("keyword")[0].value;
 
-    var pop = window.open("./request_adminpopup?r_num="+num+"&pgnum="+${select}+"&result="+${result}+ "&searchType=" + searchType + "&keyword=" + keyword,"신청결과","width=600,height=600, scrollbars=yes, resizable=yes"); 
+	var popupX = (document.body.offsetWidth / 2) - (550 / 2);
+	var popupY= (window.screen.height / 2) - (600 / 2);
+    var pop = window.open("./request_adminpopup?r_num="+num+"&pgnum="+${select}+"&result="+${result}+ "&searchType=" + searchType + "&keyword=" + keyword,"신청결과","width=600,height=500, scrollbars=yes, resizable=yes,left="+ popupX + ", top="+ popupY); 
 //     alert(document.RForm.booook.value);
 
     pop.focus();
     
     }
+    // 회원정보창 팝업
+function fun26(r_m_id){
 
+    	var searchType = document.getElementsByName("searchType")[0].value;
+	var keyword =  document.getElementsByName("keyword")[0].value;
+
+	var popupX = (document.body.offsetWidth / 2) - (550 / 2);
+	var popupY= (window.screen.height / 2) - (600 / 2);
+	
+    var pop = window.open("./request_memberinfo?r_m_id="+r_m_id+"&pgnum="+${select}+"&result="+${result}+ "&searchType=" + searchType + "&keyword=" + keyword,"신청결과","width=600,height=600, scrollbars=yes, resizable=yes,left="+ popupX + ", top="+ popupY); 
+//     alert(document.RForm.booook.value);
+
+    pop.focus();
+    
+    }
 //@@@@@@@@@@@@@  검색창   @@@@@@@@@@@@@
 function btn23(){
 
@@ -148,7 +166,7 @@ if(page == "[]"){
                                     </div>
                                 </td>
                                 <td class="py-3">${list.r_name }</td>
-                                <td class="py-3">${list.r_id_num }</td>
+                                <td class="py-3" onclick="fun26('${list.r_m_id}')" style="cursor:pointer;">${list.r_m_id }</td>
                                 <td class="py-3">${list.r_upload_date}</td>
 
                                 <td class="py-3">

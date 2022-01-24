@@ -11,10 +11,15 @@
 <script type="text/javascript">
 
 var id='<c:out value='${r_id}'/>';
-if(id == null){
-	alert("로그인을 해주세요");
+
+if(id == ""){
+	alert("로그인이 필요합니다.");
 	location.href='../mk_member/login';
+}else if(id=="admin"){
+	alert("관리자계정입니다.");
 }
+
+
     
     var path = "${pageContext.request.contextPath }";
  
@@ -69,6 +74,8 @@ if(id == null){
  <div style="text-align: center; font-size: 2em;">희망도서 신청</div>
  <form class="form-contact comment_form" action="./add" id="commentForm" method="post" name="RForm" onsubmit="return check()">
  <input type="hidden" value="${r_num} " name="r_num">
+ <input type="hidden" value="${r_id} " name="r_m_id">
+ 
   <input type="hidden" value="0" name="r_result">
    <div class="col-sm-6">
     <div class="form-group">

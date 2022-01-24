@@ -29,4 +29,7 @@ public interface mk_requestBoardDAO {
 	
 	//요청게시판 관리자 팝업수정창
 	public void requestUpdate(mk_requestBoardVO rvo);
+
+	//요청게시판 특정회원의 요청목록
+	public List<mk_requestBoardVO>  onelist(String r_m_id);
 }

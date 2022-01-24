@@ -1,17 +1,14 @@
 package com.markbook.controller;
 
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.markbook.domain.mk_requestBoardVO;
 import com.markbook.domain.Page;
-
+import com.markbook.domain.mk_memberVO;
 import com.markbook.service.mk_requestBoardService;
 
 @Controller
@@ -162,7 +159,20 @@ public class mk_requestBoardController {
 		
   return "/mk_admin/request_nothing";
 	}
-	
+	@RequestMapping(value="/mk_admin/request_memberinfo",method=RequestMethod.GET)
+	public void adminRequestMemberinfoGET(Model model,@RequestParam("r_m_id") String r_m_id)throws Exception{
+		
+//		mk_requestBoardVO detailp= service.requestDetail(r_num);
+//		model.addAttribute("page",detailp);
+//		model.addAttribute("r_num",r_num);
+        mk_memberVO mem= service.profile(r_m_id);
+        
+       List<mk_requestBoardVO> list= service.onelist(r_m_id);
+		model.addAttribute("mem",mem);
+		model.addAttribute("list",list);
+		
+		
+	}
 
 	
 	

@@ -16,7 +16,7 @@
                 <div class="slider-area">
                     <div class="slider-height2 slider-bg5 d-flex align-items-center justify-content-center">
                         <div class="hero-caption hero-caption2">
-                            <h2>Deals Cart</h2>
+                            <h2>Delivery Cart</h2>
                         </div>
                     </div>
                 </div>

@@ -5,8 +5,14 @@ import java.sql.Date;
 public class mk_requestBoardVO {
 
 	private int r_num;
-	private int r_id_num;
 	private String r_title;
+	private String r_m_id;
+	public String getR_m_id() {
+		return r_m_id;
+	}
+	public void setR_m_id(String r_m_id) {
+		this.r_m_id = r_m_id;
+	}
 	private String r_name;
 	private String r_writer;
 	private String r_content;
@@ -30,12 +36,7 @@ public class mk_requestBoardVO {
 	public void setR_num(int r_num) {
 		this.r_num = r_num;
 	}
-	public int getR_id_num() {
-		return r_id_num;
-	}
-	public void setR_id_num(int r_id_num) {
-		this.r_id_num = r_id_num;
-	}
+
 	public String getR_title() {
 		return r_title;
 	}
@@ -93,12 +94,11 @@ public class mk_requestBoardVO {
 	}
 	@Override
 	public String toString() {
-		return "mk_requestBoardVO [r_num=" + r_num + ", r_id_num=" + r_id_num + ", r_title=" + r_title + ", r_name="
+		return "mk_requestBoardVO [r_num=" + r_num + ", r_title=" + r_title + ", r_m_id=" + r_m_id + ", r_name="
 				+ r_name + ", r_writer=" + r_writer + ", r_content=" + r_content + ", r_result=" + r_result
 				+ ", r_upload_date=" + r_upload_date + ", r_publisher=" + r_publisher + ", r_ISBN=" + r_ISBN
 				+ ", r_price=" + r_price + ", r_admin_comment=" + r_admin_comment + "]";
 	}
-	
 
 	
 }

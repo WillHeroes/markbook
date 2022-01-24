@@ -7,8 +7,8 @@
  
 	    <!-- 요청 게시판 글 등록 -->	    	    
 	<insert id="addBoard">
-		insert into book_request(r_num,r_name,r_writer,r_content,r_result,r_title,r_ISBN,r_publisher,r_price,r_upload_date)
-		values(#{r_num},#{r_name},#{r_writer},#{r_content},#{r_result},#{r_title},#{r_ISBN},#{r_publisher},#{r_price},now())
+		insert into book_request(r_num,r_m_id,r_name,r_writer,r_content,r_result,r_title,r_ISBN,r_publisher,r_price,r_upload_date)
+		values(#{r_num},#{r_m_id},#{r_name},#{r_writer},#{r_content},#{r_result},#{r_title},#{r_ISBN},#{r_publisher},#{r_price},now())
 	</insert>
 	
 		<!-- 게시판 총 글 갯수+검색기능 -->	
@@ -80,6 +80,14 @@
 		 where r_num=#{r_num}
 	
 	</update>
+	
+   <!-- 요청게시판 특정회원의 요청목록 -->
+	<select id="onelist" resultType="mk_requestBoardVO">
+	select *
+	from book_request
+	where r_m_id=#{r_m_id}
+	</select>
+	
 	
 	
 	

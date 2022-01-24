@@ -6,9 +6,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
-import com.markbook.domain.Page;
+import com.markbook.domain.mk_memberVO;
+import com.markbook.persistence.mk_memberDAO;
 import com.markbook.persistence.mk_requestBoardDAO;
 
 @Service
@@ -17,6 +17,8 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 	@Inject
 	private mk_requestBoardDAO rbdao;
 	
+	@Inject
+	private mk_memberDAO mdao;
 // 요청게시판 글 등록
 	@Override
 	public void addBoard(mk_requestBoardVO rbvo) {
@@ -59,5 +61,15 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 		rbdao.requestUpdate(rvo);
 		
 	}
+	@Override
+	public mk_memberVO profile(String m_id) throws Exception {
 
+		return mdao.profile(m_id);
+	}
+	//요청게시판 특정회원의 요청목록
+	@Override
+	public List<mk_requestBoardVO>  onelist(String r_m_id) throws Exception {
+	
+		return rbdao.onelist(r_m_id);
+	}
 }
