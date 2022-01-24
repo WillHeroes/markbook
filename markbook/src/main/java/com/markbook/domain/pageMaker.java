@@ -1,6 +1,6 @@
 package com.markbook.domain;
 
-public class PageMaker {
+public class pageMaker {
 	
 	private int totalCount;
 	private int startPage;
