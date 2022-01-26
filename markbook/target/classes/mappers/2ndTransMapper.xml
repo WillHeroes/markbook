@@ -64,8 +64,8 @@
 	<!-- 입찰하기 정보 입력  -->
 	<insert id="insertbid">
 		insert into bid_list 
-		(bid_m_id,bid_price,bid_date,b2_num)
-		values(#{b2_buyer_id}, #{b2_highestprice}, NOW(), #{b2_num})
+		(bid_m_id,bid_price,b2_num)
+		values(#{b2_buyer_id}, #{b2_highestprice}, #{b2_num})
 	</insert>
 
 	<!-- 중고거래 가격 입찰정보 업데이트 -->
@@ -82,7 +82,7 @@
 		select * 
 		from bid_list 
 		where b2_num = #{b2_num} 
-		order by bid_price desc 
+		order by bid_price desc
 		limit 0,10
 	</select>
 
@@ -146,7 +146,7 @@
 				where b2_category = ${b2_category} and 
 					  b2_bookstatus = ${b2_bookstatus} and 
 					  b2_sellstatus = ${b2_sellstatus} 
-				order by b2_startdate
+				order by b2_startdate desc
 			</when>
 			<otherwise>
 			</otherwise>

@@ -23,17 +23,15 @@ public class mk_deliveryController {
 		logger.info("C: cartGET() 호출");
 		
 		String m_id = (String) session.getAttribute("m_id");
-		//임시 아이디 설정
-		m_id = "tempId";
-		
+
 		// 비회원 제어
-		/*
-		 * if (m_id == null) { return "redirect:/login"; }
-		 */
+		if (m_id == null) { return "redirect:/login"; }
 		
 		model.addAttribute("m_id", m_id);
 		
 		return "/mk_delivery/deliverycart";
 	}
+	
+	
 
 }

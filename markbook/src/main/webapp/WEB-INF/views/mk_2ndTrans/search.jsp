@@ -186,32 +186,67 @@
 								</div>
 							</c:forEach>
 						</div>
-						<nav class="blog-pagination justify-content-center d-flex">
-                            <ul class="pagination">
-                            	<!-- 이전  -->
-                                <c:if test="${pm.prev }">
-	                                <li class="page-item">
-	                                    <a href="search?option=${option }&pageNum=${pm.startPage-1 }" class="page-link">
-	                                        <i class="ti-angle-left"></i>
-	                                    </a>
-	                                </li>
-                                </c:if>
-                                <!-- 페이지 번호  -->
-                                <c:forEach begin="${pm.startPage }" end="${pm.endPage }" var="idx">
-                                	<li class="page-item <c:out value="${pm.cri.pageNum == idx? 'class = active ':''}"/>" > 
-				                     	<a class="page-link" href="search?option=${option }&pageNum=${idx }">${idx }</a>
-                                	</li>
-                                </c:forEach>
-                                <!--다음  -->
-                                <c:if test="${pm.next && pm.endPage > 0 }">
-	                                <li class="page-item">
-	                                    <a href="search?option=${option }&pageNum=${pm.endPage + 1}" class="page-link" aria-label="Next">
-	                                        <i class="ti-angle-right"></i>
-	                                    </a>
-	                                </li>
-                                </c:if>
-                            </ul>
-                        </nav>
+						<c:choose>
+							<c:when test="${option ne 'category' }">
+								<nav class="blog-pagination justify-content-center d-flex">
+									<ul class="pagination">
+										<!-- 이전  -->
+										<c:if test="${pm.prev }">
+											<li class="page-item"><a
+												href="search?option=${option }&pageNum=${pm.startPage-1 }"
+												class="page-link"> <i class="ti-angle-left"></i>
+											</a></li>
+										</c:if>
+										<!-- 페이지 번호  -->
+										<c:forEach begin="${pm.startPage }" end="${pm.endPage }"
+											var="idx">
+											<li
+												class="page-item <c:out value="${pm.cri.pageNum == idx? 'class = active ':''}"/>">
+												<a class="page-link"
+												href="search?option=${option }&pageNum=${idx }">${idx }</a>
+											</li>
+										</c:forEach>
+										<!--다음  -->
+										<c:if test="${pm.next && pm.endPage > 0 }">
+											<li class="page-item"><a
+												href="search?option=${option }&pageNum=${pm.endPage + 1}"
+												class="page-link" aria-label="Next"> <i
+													class="ti-angle-right"></i>
+											</a></li>
+										</c:if>
+									</ul>
+								</nav>
+							</c:when>
+							<c:otherwise>
+								<nav class="blog-pagination justify-content-center d-flex">
+									<ul class="pagination">
+										<!-- 이전  -->
+										<c:if test="${pm.prev }">
+											<li class="page-item"><a
+												href="search?option=${option }&b2_category=${b2_category }&b2_bookstatus=${b2_bookstatus }&b2_sellstatus=${b2_sellstatus }&pageNum=${pm.startPage-1 }"
+												class="page-link"> <i class="ti-angle-left"></i>
+											</a></li>
+										</c:if>
+										<!-- 페이지 번호  -->
+										<c:forEach begin="${pm.startPage }" end="${pm.endPage }" var="idx">
+											<li class="page-item 
+												<c:out value="${pm.cri.pageNum == idx? 'class = active ':''}"/>">
+												<a class="page-link"
+													href="search?option=${option }&b2_category=${b2_category }&b2_bookstatus=${b2_bookstatus }&b2_sellstatus=${b2_sellstatus }&pageNum=${idx }">${idx }</a>
+											</li>
+										</c:forEach>
+										<!--다음  -->
+										<c:if test="${pm.next && pm.endPage > 0 }">
+											<li class="page-item"><a
+												href="search?option=${option }&b2_category=${b2_category }&b2_bookstatus=${b2_bookstatus }&b2_sellstatus=${b2_sellstatus }&pageNum=${pm.endPage + 1}"
+												class="page-link" aria-label="Next"> <i
+													class="ti-angle-right"></i>
+											</a></li>
+										</c:if>
+									</ul>
+								</nav>
+							</c:otherwise>
+						</c:choose>
 						<!-- button -->
 						<div class="row">
 							<div class="col-xl-12">

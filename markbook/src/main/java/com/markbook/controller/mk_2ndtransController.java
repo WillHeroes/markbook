@@ -1,32 +1,20 @@
 package com.markbook.controller;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.core.JsonParser;
 import com.markbook.domain.SearchVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
@@ -51,10 +39,6 @@ public class mk_2ndtransController {
 		logger.info(" C: booklistGET() 호출 ");
 		
 		String m_id = (String) session.getAttribute("m_id");
-		
-		//임시 아이디 설정
-		m_id = "tempId";
-		
 		model.addAttribute("m_id", m_id);
 				
 		// 페이징 처리 정보 생성
@@ -76,14 +60,10 @@ public class mk_2ndtransController {
 		logger.info("C: registerGET() 호출");
 		
 		String m_id = (String) session.getAttribute("m_id");
-		//임시 아이디 설정
-		m_id = "tempId";
 		
 		// 비회원 제어
-		/*
-		 * if (m_id == null) { return "redirect:/login"; }
-		 */
-		
+		if (m_id == null) return "redirect:/mk_member/login";
+		 		
 		model.addAttribute("m_id", m_id);
 
 		return "/mk_2ndTrans/bookregister";
@@ -140,9 +120,6 @@ public class mk_2ndtransController {
 		
 		String m_id = (String) session.getAttribute("m_id");
 		
-		//임시 아이디 설정
-		m_id = "tempId";
-		
 		model.addAttribute("bvo", service.getInfo(b2_num));
 		model.addAttribute("bidList", service.getBid(b2_num));
 		model.addAttribute("m_id", m_id);
@@ -158,14 +135,6 @@ public class mk_2ndtransController {
 		
 		String m_id = (String) session.getAttribute("m_id");
 		
-		//임시 아이디 설정
-		m_id = "tempId";
-		
-		// 비회원 제어
-		/*
-		 * if (m_id == null) { return "redirect:/login"; }
-		 */
-
 		model.addAttribute("bvo", service.getInfo(b2_num));
 		model.addAttribute("m_id", m_id);
 		
@@ -177,9 +146,7 @@ public class mk_2ndtransController {
 	public String bookModifyPOST(mk_2ndhand_bookVO bvo) throws Exception {
 
 		logger.info("C: bookModifyPOST() 호출");
-		
-		System.out.println("이미징"+bvo.getB2_image());
-		
+				
 		service.bookModify(bvo);
 
 		return "redirect:/mk_2ndTrans/booklist";
@@ -204,14 +171,10 @@ public class mk_2ndtransController {
 		
 		String m_id = (String) session.getAttribute("m_id");
 		
-		//임시 아이디 설정
-		m_id = "tempId";
-		
 		// 비회원 제어
-		/*
-		 * if (m_id == null) { return "redirect:/login"; }
-		 */
-
+		
+		if (m_id == null) { return "redirect:/mk_member/login"; }
+		 
 		model.addAttribute("bvo", service.getInfo(b2_num));
 		model.addAttribute("m_id", m_id);
 		
@@ -226,7 +189,6 @@ public class mk_2ndtransController {
 		logger.info("C: bookbidPOST() 호출");
 		
 		String m_id = (String) session.getAttribute("m_id");		
-		m_id = "tempId";
 		
 		bvo.setB2_highestprice(Integer.parseInt(bid_price));
 		bvo.setB2_buyer_id(m_id);
@@ -246,12 +208,9 @@ public class mk_2ndtransController {
 		
 		String m_id= (String) session.getAttribute("m_id");
 		
-		m_id = "tempId";
-		
 		// 비회원 제어
-		// if (m_id == null) return "redirect:/login";
+		if (m_id == null) return "redirect:/mk_member/login";
 		 
-				
 		return "/mk_2ndTrans/cart";
 	}
 	
@@ -261,16 +220,12 @@ public class mk_2ndtransController {
 
 		logger.info("C: cartGET() 호출");
 		
-		String b2_buyer_id= (String) session.getAttribute("m_id");
-		
-		b2_buyer_id = "tempId";
-		
+		String m_id= (String) session.getAttribute("m_id");
+			
 		// 비회원 제어
-		/*
-		 * if (m_id == null) { return "redirect:/login"; }
-		 */
+		if (m_id == null) { return "redirect:/mk_member/login"; }
 
-		model.addAttribute("cartList", service.getCart(b2_buyer_id));
+		model.addAttribute("cartList", service.getCart(m_id));
 				
 		return "/mk_2ndTrans/bookcart";
 	}
@@ -281,16 +236,12 @@ public class mk_2ndtransController {
 
 		logger.info("C: checkoutGET() 호출");
 		
-		String b2_buyer_id = (String) session.getAttribute("m_id");
-		
-		b2_buyer_id = "tempId";
+		String m_id = (String) session.getAttribute("m_id");
 		
 		// 비회원 제어
-		/*
-		 * if (b2_buyer_id == null) { return "redirect:/login"; }
-		 */
+		if (m_id == null) { return "redirect:/mk_member/login"; }
 		
-		model.addAttribute("memberInfo", service.getMember(b2_buyer_id));
+		model.addAttribute("memberInfo", service.getMember(m_id));
 		model.addAttribute("OrderInfo", service.getInfo(b2_num));
 				
 		return "/mk_2ndTrans/bookcheckout";
@@ -329,7 +280,6 @@ public class mk_2ndtransController {
 		model.addAttribute("b2_category", svo.getB2_category()); 
 		model.addAttribute("b2_sellstatus", svo.getB2_sellstatus()); 
 		model.addAttribute("count", service.countSearch(svo));
-		
 
 		return "/mk_2ndTrans/search";				
 	}

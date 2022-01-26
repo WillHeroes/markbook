@@ -130,7 +130,7 @@
 											<fmt:formatNumber value="${blvo.bid_price }" type="currency" currencySymbol="￦"/>
 											</div>
 											<div class="percentage ml-80">
-											<fmt:formatDate value="${blvo.bid_date}" pattern="yyyy년 MM월 dd일"/>
+											<fmt:formatDate value="${blvo.bid_date}" pattern="yyyy년 MM월 dd일 hh:mm:ss"/>
 											</div>
 										</div>
 										</c:forEach>

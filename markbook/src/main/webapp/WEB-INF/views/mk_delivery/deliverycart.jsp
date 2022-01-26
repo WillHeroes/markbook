@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
@@ -6,7 +7,9 @@
 
 <!-- 오늘날짜 변수저장  -->
 <jsp:useBean id="now" class="java.util.Date" />
+<c:set var="due" value="<%=new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 21)%>"/>
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
+<fmt:formatDate value="${due}" pattern="yyyy-MM-dd" var="dueday" />
 
 <main>
     <!-- Hero area Start-->
@@ -29,58 +32,36 @@
         <div class="container">
             <div class="cart_inner">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table text-center">
                         <thead>
                             <tr>
                                 <th scope="col">Product</th>
-                                <th scope="col">StartPrice</th>
-                                <th scope="col">CurrentPrice</th>
-                                <th scope="col">Bid-EndDate</th>
-                                <th scope="col">Payment progress</th>
+                                <th scope="col">BorrowDate</th>
+                                <th scope="col">DueDate</th>
+                                <th scope="col">DeliveryPrice</th>
                             </tr>
                         </thead>
-                        <c:forEach var="cvo" items="${cartList }">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="media">
-                                        <div class="d-flex">
-                                            <img src="${pageContext.request.contextPath}/resources/upload/${cvo.b2_image}" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <p>${cvo.b2_title }</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h5>${cvo.b2_startprice }</h5>
-                                </td>
-                                <td>
-                                    <h5>${cvo.b2_highestprice }</h5>
-                                </td>
-                                <td>
-                                	<h5>${cvo.b2_enddate }</h5>
-                                </td>
-                                <c:choose>
-                                	<c:when test="${cvo.b2_enddate < today }">
-                                		<td>
-                                     	<a class="btn checkout_btn" href="/markbook/mk_2ndTrans/bookcheckout?b2_num=${cvo.b2_num }">checkout</a>
-                                		</td>
-                                	</c:when>
-                                	<c:otherwise>
-                     					<td>
-                                     		<h5>경매 마감 전</h5>
-                                		</td>           	
-                                	</c:otherwise>
-                                </c:choose>
-                            </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                    <div class="checkout_btn_inner float-right">
-                        <a class="btn" href="/markbook/mk_2ndTrans/booklist">Continue Shopping</a>
-                    </div>
+						<tbody>
+							<tr>
+								<td>
+									<h5>상품정보</h5>
+								</td>
+								<td>
+									<h5>${today }</h5>
+								</td>
+								<td>
+									<h5>${dueday}</h5>
+								</td>
+								<td>
+									<h5>배송비</h5>
+								</td>
+							</tr>
+						</tbody>
+					</table>
                 </div>
+               <div class="checkout_btn_inner text-center">
+                   <a class="btn" href="#">Checkout</a>
+               </div>
             </div>
         </div>
     </section>

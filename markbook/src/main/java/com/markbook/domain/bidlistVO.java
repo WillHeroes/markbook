@@ -1,13 +1,14 @@
 package com.markbook.domain;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class bidlistVO {
 
 	private int bid_num;
 	private String bid_m_id;
 	private String bid_price;
-	private Date bid_date;
+	private Timestamp bid_date;
 	private int b2_num;
 
 	public int getBid_num() {
@@ -34,11 +35,11 @@ public class bidlistVO {
 		this.bid_price = bid_price;
 	}
 
-	public Date getBid_date() {
+	public Timestamp getBid_date() {
 		return bid_date;
 	}
 
-	public void setBid_date(Date bid_date) {
+	public void setBid_date(Timestamp bid_date) {
 		this.bid_date = bid_date;
 	}
 
@@ -55,7 +56,5 @@ public class bidlistVO {
 		return "bidlistVO [bid_num=" + bid_num + ", bid_m_id=" + bid_m_id + ", bid_price=" + bid_price + ", bid_date="
 				+ bid_date + ", b2_num=" + b2_num + "]";
 	}
-	
-	
 
 }
