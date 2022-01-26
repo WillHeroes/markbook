@@ -99,5 +99,11 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		sqlSession.update(namespace + ".editPro", mvo);
 	}
 
+	@Override
+	public String profileName(String m_id) throws Exception {
+		
+		return sqlSession.selectOne(namespace + ".profileName", m_id);
+	}
+
 
 }

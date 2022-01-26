@@ -50,7 +50,7 @@
 			}
 			reader.readAsDataURL($('#proImg')[0].files[0]);
 			
-			
+			/*
 			let formData = new FormData();
 			
 			formData.append("m_image", $('#proImg')[0].files[0]);
@@ -63,6 +63,7 @@
 				type: 'POST',
 				dataType: 'json'
 			});
+			*/
 			
 		});
 	});

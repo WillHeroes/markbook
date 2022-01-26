@@ -15,6 +15,9 @@ public interface mk_memberService {
 	// 로그인 체크
 	public boolean memberLoginChk(mk_memberVO mvo) throws Exception;
 	
+	// 프로필 이미지 파일명 가져오기
+	public String profileName(String m_id) throws Exception;
+	
 	// 소셜 가입 체크(구글)
 	public boolean socialCheck(mk_memberVO mvo) throws Exception;
 	
@@ -40,4 +43,5 @@ public interface mk_memberService {
 	
 	// 프로필 수정
 	public void editPro(mk_memberVO mvo) throws Exception;
+	
 }

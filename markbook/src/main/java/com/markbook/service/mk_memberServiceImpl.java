@@ -154,5 +154,11 @@ public class mk_memberServiceImpl implements mk_memberService {
 		mdao.editPro(mvo);
 	}
 
+	@Override
+	public String profileName(String m_id) throws Exception {
+		
+		return mdao.profileName(m_id);
+	}
+
 
 }

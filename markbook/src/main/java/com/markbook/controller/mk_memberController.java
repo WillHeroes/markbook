@@ -69,6 +69,7 @@ public class mk_memberController {
 		
 		if (flag) {
 			session.setAttribute("m_id", mvo.getM_id());
+			session.setAttribute("m_image", service.profileName(mvo.getM_id()));
 			
 			out.print("<script>location.href='/markbook/index';</script>");
 			out.flush();
@@ -271,7 +272,7 @@ public class mk_memberController {
 		
 		System.out.println("프로필 수정 진행중 "+mvo);
 		
-		/*
+		
 		String fileName = null;
 		MultipartFile uploadFile = mvo.getUploadFile();
 		
@@ -282,14 +283,14 @@ public class mk_memberController {
 			fileName = uuid+"."+ext;
 			
 			String path = request.getSession().getServletContext().getRealPath("/"); // 절대 경로
-			path += "resources\\upload\\memberProfile";
+			path += "resources\\upload\\memberProfile\\";
 			
 			String testPath = path+fileName;
 			System.out.println("path : "+testPath);
+			uploadFile.transferTo(new File(testPath));
 		}
-		*/
-
-		/*
+		
+		mvo.setM_image(fileName);
 		service.editPro(mvo);
 		
 		response.setContentType("text/html; charset=utf-8");
@@ -297,10 +298,9 @@ public class mk_memberController {
 		
 		out.print("<script>alert('프로필 수정이 완료되었습니다'); location.href='/markbook/index';</script>");
 		out.flush();
-		*/
 
 	}
-	
+	/*
 	@RequestMapping(value="/profileImg", method=RequestMethod.POST)
 	public void uploadProfileImg(MultipartFile m_image, HttpServletRequest request) throws Exception {
 		
@@ -308,12 +308,9 @@ public class mk_memberController {
 
 		ServletContext sc = request.getSession().getServletContext();
 		
-		/*
 		String path = request.getSession().getServletContext().getRealPath("/"); // 절대 경로
 		path += "resources\\upload\\memberProfile";
-		*/
-		
-		String path = sc.getRealPath("./resources/upload");
+
 		
 		File uploadPath = new File(path);
 		
@@ -331,5 +328,6 @@ public class mk_memberController {
 		}
 
 	}
+	*/
 
 }
