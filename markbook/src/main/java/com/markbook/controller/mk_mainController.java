@@ -22,22 +22,12 @@ public class mk_mainController {
 	@RequestMapping(value="index",method=RequestMethod.GET)
 	public void mainGet(Model model) throws Exception{
 		System.out.println("메인도착");
-		String novel = "novel";
-		String unnovel = "unnovel";
-		String essay = "essay";
-		String study = "study";
-		
-		List<mk_bookVO> listall = service.borrBest();
-		List<mk_bookVO> listnovel = service.borrBest(novel);
-		List<mk_bookVO> listunnovel = service.borrBest(unnovel);
-		List<mk_bookVO> listessay = service.borrBest(essay);
-		List<mk_bookVO> liststudy = service.borrBest(study);
 
-		model.addAttribute("listall",listall);
-		model.addAttribute("listnovel",listnovel);
-		model.addAttribute("listunnovel",listunnovel);
-		model.addAttribute("listessay",listessay);
-		model.addAttribute("liststudy",liststudy);
+		model.addAttribute("listall",service.borrBest());
+		model.addAttribute("listnovel",service.borrBest("novel"));
+		model.addAttribute("listunnovel",service.borrBest("unnovel"));
+		model.addAttribute("listessay",service.borrBest("essay"));
+		model.addAttribute("liststudy",service.borrBest("study"));
 		
 		System.out.println("borrBest 실행");
 //		List<mk_bookVO> list1 = service.borrBest1();

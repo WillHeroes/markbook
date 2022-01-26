@@ -31,23 +31,23 @@
                             <div class="js-area-chart chart--points-invisible chart--labels-hidden position-relative"
                                  data-series='[
                              [
-                               {"meta":"Items","value":"700"},
-                               {"meta":"Items","value":"520"},
-                               {"meta":"Items","value":"470"},
-                               {"meta":"Items","value":"580"},
-                               {"meta":"Items","value":"380"},
-                               {"meta":"Items","value":"600"},
-                               {"meta":"Items","value":"707"},
-                               {"meta":"Items","value":"400"},
-                               {"meta":"Items","value":"301"},
-                               {"meta":"Items","value":"530"},
-                               {"meta":"Items","value":"600"},
-                               {"meta":"Items","value":"403"},
-                               {"meta":"Items","value":"550"},
-                               {"meta":"Items","value":"400"},
-                               {"meta":"Items","value":"300"},
-                               {"meta":"Items","value":"700"},
-                               {"meta":"Items","value":"630"}
+                               {"meta":"Item","value":"700"},
+                               {"meta":"Item","value":"520"},
+                               {"meta":"Item","value":"470"},
+                               {"meta":"Item","value":"580"},
+                               {"meta":"Item","value":"380"},
+                               {"meta":"Item","value":"600"},
+                               {"meta":"Item","value":"707"},
+                               {"meta":"Item","value":"400"},
+                               {"meta":"Item","value":"301"},
+                               {"meta":"Item","value":"530"},
+                               {"meta":"Item","value":"600"},
+                               {"meta":"Item","value":"403"},
+                               {"meta":"Item","value":"550"},
+                               {"meta":"Item","value":"400"},
+                               {"meta":"Item","value":"300"},
+                               {"meta":"Item","value":"700"},
+                               {"meta":"Item","value":"630"}
                              ]
                            ]'
                                  data-height="115"

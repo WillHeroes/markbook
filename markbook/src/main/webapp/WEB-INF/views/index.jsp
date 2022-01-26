@@ -452,7 +452,7 @@
             <div class="tab-pane fade" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
                 <!-- Tab 3 -->
                 <div class="row">
-                   <c:forEach items="${listunnovel}" var="listunnovel" >
+                   <c:forEach items="${listunnovel}" var="listunnovel">
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="properties pb-30">
                             <div class="properties-card">

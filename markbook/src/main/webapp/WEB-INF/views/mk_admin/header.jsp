@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <!-- Title -->
-    <title>Dashboard | Graindashboard UI Kit</title>
+    <title>markbook | ADMIN</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -140,7 +140,7 @@
     <aside id="sidebar" class="js-custom-scroll side-nav">
         <ul id="sideNav" class="side-nav-menu side-nav-menu-top-level mb-0">
             <!-- Title -->
-            <li class="sidebar-heading h6">Dashboard</li>
+            <li class="sidebar-heading h6">관리자 관리</li>
             <!-- End Title -->
 
             <!-- Dashboard -->
@@ -149,25 +149,11 @@
               <span class="side-nav-menu-icon d-flex mr-3">
                 <i class="gd-dashboard"></i>
               </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Dashboard</span>
+                    <span class="side-nav-fadeout-on-closed media-body">Main</span>
                 </a>
             </li>
             <!-- End Dashboard -->
 
-            <!-- Documentation -->
-            <li class="side-nav-menu-item">
-                <a class="side-nav-menu-link media align-items-center" href="documentation/" target="_blank">
-              <span class="side-nav-menu-icon d-flex mr-3">
-                <i class="gd-file"></i>
-              </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Documentation</span>
-                </a>
-            </li>
-            <!-- End Documentation -->
-
-            <!-- Title -->
-            <li class="sidebar-heading h6">Examples</li>
-            <!-- End Title -->
 
             <!-- Users -->
             <li class="side-nav-menu-item side-nav-has-menu">
@@ -176,7 +162,7 @@
                   <span class="side-nav-menu-icon d-flex mr-3">
                     <i class="gd-user"></i>
                   </span>
-                    <span class="side-nav-fadeout-on-closed media-body">회원관리</span>
+                    <span class="side-nav-fadeout-on-closed media-body">회원</span>
                     <span class="side-nav-control-icon d-flex">
                 <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
               </span>
@@ -184,12 +170,18 @@
                 </a>
 
                 <!-- Users: subUsers -->
-                <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0">
+                <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="users.html">현존회원</a>
+                        <a class="side-nav-menu-link" href="users.html">회원관리</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="user-edit.html">탈퇴회원</a>
+                        <a class="side-nav-menu-link" href="user-edit.html">주문관리</a>
+                    </li>
+                    <li class="side-nav-menu-item">
+                        <a class="side-nav-menu-link" href="user-edit.html">배송관리</a>
+                    </li>
+                    <li class="side-nav-menu-item">
+                        <a class="side-nav-menu-link" href="user-edit.html">클레임관리</a>
                     </li>
                 </ul>
                 <!-- End Users: subUsers -->
@@ -203,7 +195,7 @@
               <span class="side-nav-menu-icon d-flex mr-3">
                 <i class="gd-lock"></i>
               </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Authentication</span>
+                    <span class="side-nav-fadeout-on-closed media-body">판매자</span>
                     <span class="side-nav-control-icon d-flex">
                 <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
               </span>
@@ -211,21 +203,45 @@
                 </a>
 
                 <!-- Pages: subPages -->
-                <ul id="subPages" class="side-nav-menu side-nav-menu-second-level mb-0">
+                <ul id="subPages" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="login.html">Login</a>
+                        <a class="side-nav-menu-link" href="login.html">판매자 관리</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="register.html">Register</a>
+                        <a class="side-nav-menu-link" href="register.html">상품관리</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="password-reset.html">Forgot Password</a>
+                        <a class="side-nav-menu-link" href="password-reset.html">상품문의 관리</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="password-reset-2.html">Forgot Password 2</a>
+                        <a class="side-nav-menu-link" href="password-reset-2.html">리뷰관리</a>
+                    </li>
+                </ul>
+                <!-- End Pages: subPages -->
+            </li>
+            <!-- End Authentication -->
+            
+            <!-- Authentication -->
+            <li class="side-nav-menu-item side-nav-has-menu">
+                <a class="side-nav-menu-link media align-items-center" href="#"
+                   data-target="#subComponents">
+              <span class="side-nav-menu-icon d-flex mr-3">
+                <i class="gd-settings"></i>
+              </span>
+                    <span class="side-nav-fadeout-on-closed media-body">설정</span>
+                    <span class="side-nav-control-icon d-flex">
+                <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
+              </span>
+                    <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
+                </a>
+
+                <!-- Pages: subPages -->
+                <ul id="#subComponents" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
+                    <li class="side-nav-menu-item">
+                        <a class="side-nav-menu-link" href="login.html">카테고리 관리</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="email-verification.html">Email Verification</a>
+                        <a class="side-nav-menu-link" href="register.html">배송비 관리</a>
                     </li>
                 </ul>
                 <!-- End Pages: subPages -->
@@ -236,23 +252,12 @@
             <li class="side-nav-menu-item">
                 <a class="side-nav-menu-link media align-items-center" href="settings.html">
               <span class="side-nav-menu-icon d-flex mr-3">
-                <i class="gd-settings"></i>
+                <i class="gd-headphone-alt"></i>
               </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Settings</span>
+                    <span class="side-nav-fadeout-on-closed media-body">고객응대</span>
                 </a>
             </li>
             <!-- End Settings -->
-
-            <!-- Static -->
-            <li class="side-nav-menu-item">
-                <a class="side-nav-menu-link media align-items-center" href="static-non-auth.html">
-              <span class="side-nav-menu-icon d-flex mr-3">
-                <i class="gd-file"></i>
-              </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Static page</span>
-                </a>
-            </li>
-            <!-- End Static -->
 
         </ul>
     </aside>
