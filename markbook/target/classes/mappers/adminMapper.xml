@@ -15,13 +15,13 @@
  	</insert>
  	
  	
- 	<!-- 도서 목록 -->
+ 	<!-- 도서 목록 전체 조회 -->
  	<select id="bookList" resultType="mk_bookVO">
  		select * from book
  	</select>
  
  	<!-- 도서 목록 페이징 처리 list -->
- 	<!-- <select id="listPaging" resultMap="bookResultMap">
+ 	<select id="listPaging" resultType="mk_bookVO">
  		<![CDATA[
  		select * 
  		from book 
@@ -31,7 +31,7 @@
  		]]>
  	</select>
  	
- 	<select id="listCriteria" resultMap="bookResultMap">
+ 	<select id="bookListCri" resultType="mk_bookVO">
  		<![CDATA[
  		select * 
  		from book 
@@ -39,7 +39,7 @@
  		order by b_num desc, b_regdate desc 
  		limit #{pageStart}, #{perPageNum}
  		]]>
- 	</select> -->
+ 	</select>
  	
  	
  	<!-- 도서 목록 전체 갯수 조회 -->

@@ -17,7 +17,7 @@ public interface mk_adminService {
 	
 	// 도서 목록 페이징처리 (Cri)
 	//public List<mk_bookVO> bListCri(Criteria cri) throws Exception;
-	List<mk_bookVO> listCriteria(Criteria criteria) throws Exception;
+	List<mk_bookVO> bookListCri(Criteria criteria) throws Exception;
 	
 	// 도서 목록 전체 갯수 조회
 	public int countBook() throws Exception;

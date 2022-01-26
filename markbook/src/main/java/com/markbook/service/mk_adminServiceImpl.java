@@ -47,9 +47,9 @@ public class mk_adminServiceImpl implements mk_adminService {
 
 	// 도서 목록 페이징처리
 	@Override
-	public List<mk_bookVO> listCriteria(Criteria criteria) throws Exception {
+	public List<mk_bookVO> bookListCri(Criteria criteria) throws Exception {
 		
-		return madao.listCriteria(criteria);
+		return madao.bookListCri(criteria);
 	}
 	
 	

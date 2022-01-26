@@ -36,7 +36,7 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	}
 
 
-	// 도서 목록
+	// 도서 목록 전체 조회
 	@Override
 	public List<mk_bookVO> getBookList() throws Exception {
 		
@@ -48,7 +48,7 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	}
 
 	
-	// 도서 목록 페이징 처리
+	// 전체 도서 목록 페이징 처리
 	@Override
 	public List<mk_bookVO> listPaging(int page) throws Exception {
 		
@@ -64,9 +64,9 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	}
 	
 	@Override
-	public List<mk_bookVO> listCriteria(Criteria criteria) throws Exception {
+	public List<mk_bookVO> bookListCri(Criteria criteria) throws Exception {
 		
-		return sqlSession.selectList(namespace+".listCriteria", criteria);
+		return sqlSession.selectList(namespace+".bookListCri", criteria);
 	}
 
 

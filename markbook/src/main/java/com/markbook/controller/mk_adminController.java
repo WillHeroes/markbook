@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
 import com.markbook.domain.mk_memberVO;
+import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_adminService;
 
 @Controller
@@ -71,29 +72,32 @@ public class mk_adminController {
 
 	// 도서 목록 (GET) (페이징 처리)
 	// http://localhost:8088/markbook/mk_admin/bookList
-	/*
-	 * @RequestMapping(value = "/bookList", method = RequestMethod.GET) public
-	 * String bookList(Criteria criteria, Model model) throws Exception {
-	 * 
-	 * System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
-	 * 
-	 * model.addAttribute("bookList", service.listCriteria(criteria));
-	 * 
-	 * return "/mk_admin/listCriteria"; }
-	 */
+	@RequestMapping(value = "/bookList", method = RequestMethod.GET) public
+	String bookListCri(Criteria criteria, Model model) throws Exception {
+  
+		System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
+  
+		model.addAttribute("bookList", service.bookListCri(criteria));
+  
+		return "/mk_admin/bookListCri"; 
+	}
+	 
 	
-	/*
-	 * @RequestMapping(value = "/bookList", method = RequestMethod.GET) public
-	 * String listPaging(Model model, Criteria criteria) throws Exception {
-	 * 
-	 * PageMaker pageMaker = new PageMaker(); pageMaker.setCriteria(criteria);
-	 * pageMaker.setTotalCount(1000);
-	 * 
-	 * model.addAttribute("bookList", service.listCriteria(criteria));
-	 * model.addAttribute("pageMaker", pageMaker);
-	 * 
-	 * return "/mk_admin/bookList"; }
-	 */
+	
+	@RequestMapping(value = "/listPaging", method = RequestMethod.GET) public
+	String listPaging(Model model, Criteria criteria) throws Exception {
+		
+		pageMaker pageMaker = new pageMaker(); 
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(1000);
+	  
+		model.addAttribute("bookList", service.bookListCri(criteria));
+		model.addAttribute("pageMaker", pageMaker);
+	  
+		return "/mk_admin/listPaging"; 
+	}
+	  
+	 
 
 	
 	
