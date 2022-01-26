@@ -1,9 +1,11 @@
 package com.markbook.controller;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -270,21 +272,23 @@ public class mk_memberController {
 		System.out.println("프로필 수정 진행중 "+mvo);
 		
 		/*
-		// 파일 업로드
 		String fileName = null;
 		MultipartFile uploadFile = mvo.getUploadFile();
 		
 		if (!uploadFile.isEmpty()) {
 			String originalFileName = uploadFile.getOriginalFilename();
-			String ext = FilenameUtils.getExtension(originalFileName);
-			UUID uuid = UUID.randomUUID();
+			String ext = FilenameUtils.getExtension(originalFileName); // 확장자 구하기
+			UUID uuid = UUID.randomUUID(); //uuid
+			fileName = uuid+"."+ext;
 			
-			fileName = uuid + "." + ext;
+			String path = request.getSession().getServletContext().getRealPath("/"); // 절대 경로
+			path += "resources\\upload\\memberProfile";
+			
+			String testPath = path+fileName;
+			System.out.println("path : "+testPath);
 		}
 		*/
-		
-		String path = request.getSession().getServletContext().getRealPath("/");
-		System.out.println("path : "+path);
+
 		/*
 		service.editPro(mvo);
 		
@@ -294,6 +298,37 @@ public class mk_memberController {
 		out.print("<script>alert('프로필 수정이 완료되었습니다'); location.href='/markbook/index';</script>");
 		out.flush();
 		*/
+
+	}
+	
+	@RequestMapping(value="/profileImg", method=RequestMethod.POST)
+	public void uploadProfileImg(MultipartFile m_image, HttpServletRequest request) throws Exception {
+		
+		// System.out.print(m_image);
+
+		ServletContext sc = request.getSession().getServletContext();
+		
+		/*
+		String path = request.getSession().getServletContext().getRealPath("/"); // 절대 경로
+		path += "resources\\upload\\memberProfile";
+		*/
+		
+		String path = sc.getRealPath("./resources/upload");
+		
+		File uploadPath = new File(path);
+		
+		if (!uploadPath.exists())
+			uploadPath.mkdir();
+		
+		String fileName = m_image.getOriginalFilename();
+		
+		File saveFile = new File(uploadPath, fileName);
+		
+		try {
+			m_image.transferTo(saveFile);
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 
 	}
 

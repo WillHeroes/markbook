@@ -20,7 +20,7 @@ public class mk_memberVO {
 	private int m_over;
 	private String m_name;
 	private int m_status;
-	//private MultipartFile uploadFile;
+	private MultipartFile uploadFile;
 	
 	public String getM_id() {
 		return m_id;
@@ -106,17 +106,19 @@ public class mk_memberVO {
 	public void setM_status(int m_status) {
 		this.m_status = m_status;
 	}
-
-	/*
-	 * public MultipartFile getUploadFile() { return uploadFile; } public void
-	 * setUploadFile(MultipartFile uploadFile) { this.uploadFile = uploadFile; }
-	 */
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	@Override
 	public String toString() {
 		return "mk_memberVO [m_id=" + m_id + ", m_pw=" + m_pw + ", m_addr1=" + m_addr1 + ", m_addr2=" + m_addr2
 				+ ", m_email=" + m_email + ", m_phone=" + m_phone + ", m_image=" + m_image + ", m_regdate=" + m_regdate
 				+ ", m_idnum1=" + m_idnum1 + ", m_idnum2=" + m_idnum2 + ", m_count=" + m_count + ", m_over=" + m_over
-				+ ", m_name=" + m_name + ", m_status=" + m_status + "]";
+				+ ", m_name=" + m_name + ", m_status=" + m_status + ", uploadFile=" + uploadFile + "]";
 	}
-	
+
+
 }

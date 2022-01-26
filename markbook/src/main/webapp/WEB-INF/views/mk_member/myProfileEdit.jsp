@@ -49,12 +49,26 @@
 				$('#profile').attr('src', e.target.result);
 			}
 			reader.readAsDataURL($('#proImg')[0].files[0]);
-
+			
+			
+			let formData = new FormData();
+			
+			formData.append("m_image", $('#proImg')[0].files[0]);
+			
+			$.ajax({
+				url: '/markbook/mk_member/profileImg',
+				processData : false,
+				contentType: false,
+				data: formData,
+				type: 'POST',
+				dataType: 'json'
+			});
+			
 		});
 	});
 </script>
 
-<form method="post" action="/markbook/mk_member/myProfileEdit" name="editFr" onsubmit="return editChk();">
+<form method="post" action="/markbook/mk_member/myProfileEdit" name="editFr" enctype="multipart/form-data" onsubmit="return editChk();">
 	<input type="hidden" name="realID" value="${memberInfo.m_id }"/>
 	<input type="hidden" name="attrChk" value="0"/>
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
