@@ -75,7 +75,8 @@
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
 		<div class="register-form text-center">
 			<div>
-				<img src="${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png" id="profile" style="width:225px; height:225px; cursor:pointer;"/>
+				<img src="${pageContext.request.contextPath }/resources/upload/memberProfile/${m_image }" id="profile" style="width:225px; height:225px; cursor:pointer;"
+					alt="profile" class="rounded-circle" onerror="this.src='${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png'">
 			</div>
 			<input type="file" id="proImg" name="uploadFile" style="display:none">
 			<span style="color:rgb(180,180,180);">Only jpeg, jpg, png</span>

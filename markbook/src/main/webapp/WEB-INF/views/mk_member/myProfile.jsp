@@ -6,7 +6,8 @@
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
 		<div class="register-form text-center">
 			<div>
-				<img src="${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png" style="width:225px; height:225px;"/>
+				<img src="${pageContext.request.contextPath }/resources/upload/memberProfile/${m_image }" style="width:225px; height:225px;"
+					alt="profile" class="rounded-circle" onerror="this.src='${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png'">
 			</div>
 			<div class="input-box">
 				<div class="single-input-fields">

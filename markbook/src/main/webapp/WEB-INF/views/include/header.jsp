@@ -80,7 +80,7 @@
 															aria-expanded="false"> <img
 															src="${pageContext.request.contextPath }/resources/upload/memberProfile/${m_image }"
 															alt="profile" width="32" height="32"
-															class="rounded-circle" onerror = "this.src='${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png'"> &nbsp;${m_id }님
+															class="rounded-circle" onerror="this.src='${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png'"> &nbsp;${m_id }님
 														</a>
 														<ul class="dropdown-menu text-small"
 															aria-labelledby="dropdownUser1" style="">
