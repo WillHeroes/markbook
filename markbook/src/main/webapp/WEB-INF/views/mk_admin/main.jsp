@@ -469,6 +469,7 @@
                                 </div>
 
                                 <div class="js-area-chart chart chart--axis-x--nowrap chart--points-invisible position-relative mh-15_6 safari-overflow-hidden pt-4 pt-md-5 pb-1"
+                                     id = "chart"
                                      data-series='[
                            [
                              {"meta":"6/01/2019 9:00 PM","value":"1400"},
@@ -558,6 +559,8 @@
                                 </div>
 
                                 <div class="js-area-chart chart chart--axis-x--nowrap chart--points-invisible position-relative mh-15_6 safari-overflow-hidden pt-4 pt-md-5 pb-1"
+                                     id = "chart"
+                                     name= "charttt"
                                      data-series='[
                            [
                              {"meta":"6/01/2019 9:00 PM","value":"2100"},
@@ -1225,6 +1228,29 @@
     $.GDCore.components.GDChartistArea.init('.js-area-chart');
     $.GDCore.components.GDChartistBar.init('.js-bar-chart');
     $.GDCore.components.GDChartistDonut.init('.js-donut-chart');
+</script>
+<script>
+$.ajax({
+    url: "./chart",
+    type: "get",
+    dateType: "json",
+    success: function(data) {                
+        
+        /* obj = {"questList": ["questId": 1, "questTitle": "a"],
+                               ["questId": 2, "questTitle": "b"]
+                 }
+         */       
+        console.log(data);
+        var chart = document.getElementsByName('charttt')[0].dataset.series;
+        var data = data;
+        chart = data;
+        console.log(chart);
+        // 1 출력
+    },
+    error: function(errorThrown) {
+    alert(errorThrown);
+    },
+ });
 </script>
 </body>
 </html>

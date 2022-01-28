@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.markbook.mapper.adminMainMapper">
+  
+  	<!-- 어드민메인 일별 대출수차트 -->
+   	<select id="getBorrow" resultType="mk_adminVO">
+ 		select bor_date as meta, count(*) as value from borrow
+ 		where bor_date between '20220101' and '20220301'
+ 		group by bor_date;
+ 	</select>
+  </mapper>
