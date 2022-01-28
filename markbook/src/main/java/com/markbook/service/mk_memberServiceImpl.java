@@ -43,7 +43,7 @@ public class mk_memberServiceImpl implements mk_memberService {
 	}
 
 	@Override
-	public boolean socialCheck(mk_memberVO mvo) throws Exception {
+	public int socialCheck(mk_memberVO mvo) throws Exception {
 		
 		return mdao.socialCheck(mvo);
 	}
@@ -158,6 +158,18 @@ public class mk_memberServiceImpl implements mk_memberService {
 	public String profileName(String m_id) throws Exception {
 		
 		return mdao.profileName(m_id);
+	}
+
+	@Override
+	public void changePass(mk_memberVO mvo) throws Exception {
+		
+		mdao.changePass(mvo);
+	}
+
+	@Override
+	public void deleteMember(String m_id) throws Exception {
+		
+		mdao.deleteMember(m_id);
 	}
 
 

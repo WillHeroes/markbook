@@ -43,3 +43,15 @@ function chkPass(data) {
 function social(data) {
 	location.href="/markbook/mk_member/myProfileEdit?id="+data;
 }
+
+function cp() {
+	
+	var width = 600;
+	var height = 225;
+	var left = width_calc(width);
+	
+	var specs = "toolbar=no,scrollbars=no,resizable=no,top=50px,left="+left+",width="+width+",height="+height;
+	
+	window.open("/markbook/mk_member/changePass", "_blank", specs);
+	 
+}

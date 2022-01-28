@@ -300,3 +300,38 @@ function chkPass(data) {
 	}
 }
 
+function changePass(data) {
+	
+	var pw1 = document.getElementById('pw').value;
+	var pw2 = document.getElementById('pwConf').value;
+	
+	if (pw1 == "" || pw2 == "") alert("비밀번호를 입력해주세요.");
+	else if (pw1 != pw2) alert("비밀번호가 서로 맞지 않습니다.");
+	else {
+		$.ajax({
+			url: "/markbook/mk_member/changePass",
+			type: "post",
+			data: {"m_pw" : pw1, "m_id" : data}
+		});
+		alert("비밀번호가 변경되었습니다. 새로운 비밀번호로 로그인 해주세요.");
+		opener.parent.location = "/markbook/mk_member/logout";
+		window.close();
+	}
+	
+}
+
+function leave(data) {
+	if(confirm("markbook을 탈퇴하시겠습니까?")) {
+		if (confirm("탈퇴를 하면 사용했던 아이디는 추후 사용 불가능합니다.\n(소셜로그인 : 재가입 불가)")) {
+			$.ajax({
+				url: "/markbook/mk_member/deleteMember",
+				type: "post",
+				data: {"m_id" : data}
+			});
+			alert("markbook을 이용해주셔서 감사합니다.");
+			location.href="/markbook/index";
+		}
+		else return false;
+	}
+	else return false;
+}

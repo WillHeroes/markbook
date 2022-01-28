@@ -19,7 +19,7 @@ public interface mk_memberDAO {
 	public String profileName(String m_id) throws Exception;
 	
 	// 소셜 가입 체크
-	public boolean socialCheck(mk_memberVO mvo) throws Exception;
+	public int socialCheck(mk_memberVO mvo) throws Exception;
 	
 	//소셜 회원가입(네이버)
 	public void naverJoin(mk_memberVO mvo) throws Exception;
@@ -41,4 +41,10 @@ public interface mk_memberDAO {
 	
 	// 프로필 수정
 	public void editPro(mk_memberVO mvo) throws Exception;
+	
+	// 비밀번호 변경
+	public void changePass(mk_memberVO mvo) throws Exception;
+	
+	// 회원 탈퇴
+	public void deleteMember(String m_id) throws Exception;
 }

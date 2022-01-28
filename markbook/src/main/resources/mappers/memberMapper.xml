@@ -23,7 +23,13 @@
 	<!-- 로그인 체크 -->
 	<select id="loginChk" resultType="Boolean">
 		select count(*) from member_info
-		where m_id = #{m_id} and m_pw = #{m_pw}
+		where m_id = #{m_id} and m_pw = #{m_pw} and m_status = 0
+	</select>
+	
+	<!-- 소셜 로그인 : 과거 이력 체크 -->
+	<select id="socialPastChk" resultType="Boolean">
+		select m_status from member_info
+		where m_id = #{m_id}
 	</select>
 	
 	<!-- 소셜 로그인 : 가입 이력 체크 -->
@@ -34,8 +40,8 @@
 	
 	<!-- 네이버 로그인 : 이력없으면 회원가입 -->
 	<insert id="insertNaver">
-		insert into member_info(m_id,m_name,m_email,m_phone) values
-		(#{m_id},#{m_name},#{m_email},#{m_phone})
+		insert into member_info(m_id,m_name,m_email,m_phone,m_status) values
+		(#{m_id},#{m_name},#{m_email},#{m_phone},0)
 	</insert>
 	
 	<!-- 비밀번호 찾기 중 입력한 이메일과 일치하는 아이디 불러오기 -->
@@ -78,6 +84,18 @@
 		update member_info set m_name = #{m_name}, m_email = #{m_email}, 
 		m_addr1 = #{m_addr1}, m_addr2 = #{m_addr2}, m_phone = #{m_phone}, 
 		m_image = #{m_image}, m_idnum1 = #{m_idnum1}, m_idnum2 = #{m_idnum2} 
+		where m_id = #{m_id}
+	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePass">
+		update member_info set m_pw = #{m_pw} 
+		where m_id = #{m_id}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<update id="deleteMember">
+		update member_info set m_status = 1 
 		where m_id = #{m_id}
 	</update>
 	

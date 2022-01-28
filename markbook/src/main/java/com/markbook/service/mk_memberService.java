@@ -19,7 +19,7 @@ public interface mk_memberService {
 	public String profileName(String m_id) throws Exception;
 	
 	// 소셜 가입 체크(구글)
-	public boolean socialCheck(mk_memberVO mvo) throws Exception;
+	public int socialCheck(mk_memberVO mvo) throws Exception;
 	
 	//소셜 가입 체크(네이버-아이디) -> 아이디 중복체크 메소드 활용
 	
@@ -43,5 +43,11 @@ public interface mk_memberService {
 	
 	// 프로필 수정
 	public void editPro(mk_memberVO mvo) throws Exception;
+	
+	// 비밀번호 변경
+	public void changePass(mk_memberVO mvo) throws Exception;
+	
+	// 회원 탈퇴
+	public void deleteMember(String m_id) throws Exception;
 	
 }

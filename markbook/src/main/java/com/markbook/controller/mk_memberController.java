@@ -95,13 +95,15 @@ public class mk_memberController {
 	
 	@ResponseBody
 	@RequestMapping(value="/gg_login", method = { RequestMethod.GET, RequestMethod.POST })
-	public boolean memberGgloginPOST(mk_memberVO mvo, HttpSession session) throws Exception {
+	public int memberGgloginPOST(mk_memberVO mvo, HttpSession session) throws Exception {
 		System.out.println("소셜 로그인 진행중 : " +mvo.getM_id());
 		
-		boolean flag = service.socialCheck(mvo);
-
-		session.setAttribute("m_id", mvo.getM_id());
-		session.setAttribute("social", "google");
+		int flag = service.socialCheck(mvo);
+		
+		if (flag != 2) { // 2이면 과거 가입 이력이 있는 사람
+			session.setAttribute("m_id", mvo.getM_id());
+			session.setAttribute("social", "google");
+		}
 		
 		return flag;
 	}
@@ -300,34 +302,25 @@ public class mk_memberController {
 		out.flush();
 
 	}
-	/*
-	@RequestMapping(value="/profileImg", method=RequestMethod.POST)
-	public void uploadProfileImg(MultipartFile m_image, HttpServletRequest request) throws Exception {
+	@RequestMapping(value="/changePass", method=RequestMethod.GET)
+	public void changePassGET(mk_memberVO mvo) throws Exception {
+		System.out.println("비밀번호 변경 새 창");
+	}
+	
+	@RequestMapping(value="/changePass", method=RequestMethod.POST)
+	public void changePass(mk_memberVO mvo) throws Exception {
 		
-		// System.out.print(m_image);
-
-		ServletContext sc = request.getSession().getServletContext();
-		
-		String path = request.getSession().getServletContext().getRealPath("/"); // 절대 경로
-		path += "resources\\upload\\memberProfile";
-
-		
-		File uploadPath = new File(path);
-		
-		if (!uploadPath.exists())
-			uploadPath.mkdir();
-		
-		String fileName = m_image.getOriginalFilename();
-		
-		File saveFile = new File(uploadPath, fileName);
-		
-		try {
-			m_image.transferTo(saveFile);
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+		System.out.println("비밀번호 변경중");
+		service.changePass(mvo);
 
 	}
-	*/
+	
+	@RequestMapping(value="/deleteMember", method=RequestMethod.POST)
+	public void deleteMember(String m_id, HttpSession session) throws Exception {
+		System.out.println("회원 탈퇴 잔행중");
+		
+		session.invalidate();
+		service.deleteMember(m_id);
+	}
 
 }

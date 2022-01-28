@@ -70,11 +70,17 @@
 				dataType: "json",
 				data: {"m_id" : m_id, "m_name" : m_name, "m_email" : m_email},
 				success: function(data) {
-					if(!data) {
+					if (data == 2) {
+						alert("해당 소셜아이디는 탈퇴 이력이 존재합니다.\n일반 회원가입으로 진행해주세요.");
+						location.href="/markbook/mk_member/joinCheck";
+					}
+					else if(data == 1) {
 						alert("프로필에서 나머지 정보들을 입력해주세요");
 						location.href="/markbook/mk_member/myProfileEdit?id="+m_id;
 					}
-					else location.href="/markbook/index";
+					else if (data == 0) {
+						location.href="/markbook/index";
+					}
 				}
 			})
 			

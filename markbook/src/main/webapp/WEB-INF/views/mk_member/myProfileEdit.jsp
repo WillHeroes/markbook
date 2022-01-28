@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/member.css">
 <script src="${pageContext.request.contextPath }/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
+<script src="${pageContext.request.contextPath }/resources//assets/js/index.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
@@ -49,22 +50,7 @@
 				$('#profile').attr('src', e.target.result);
 			}
 			reader.readAsDataURL($('#proImg')[0].files[0]);
-			
-			/*
-			let formData = new FormData();
-			
-			formData.append("m_image", $('#proImg')[0].files[0]);
-			
-			$.ajax({
-				url: '/markbook/mk_member/profileImg',
-				processData : false,
-				contentType: false,
-				data: formData,
-				type: 'POST',
-				dataType: 'json'
-			});
-			*/
-			
+	
 		});
 	});
 </script>
@@ -147,10 +133,17 @@
 				<div class="register-footer" style="margin-top:30px;">
 				<table style="text-align:left;">
 					<tr>
-						<td><p> Do you want to change your password? <a href="javascript:void(0);" onclick="changePass();">Change</a> here</p></td>
+						<c:choose>
+							<c:when test="${social eq 'google' }">
+								<td>&nbsp;</td>	
+							</c:when>
+							<c:otherwise>
+								<td><p> Do you want to change your password? <a href="javascript:void(0);" onclick="cp();">Change</a> here</p></td>
+							</c:otherwise>
+						</c:choose>
 					</tr>
 					<tr>
-						<td><p> Are you sure you want to leave your account? <a href="#">Click</a> here</p></td>
+						<td><p> Are you sure you want to leave your account? <a href="javascript:void(0);" onclick="leave('${m_id}');">Click</a> here</p></td>
 					</tr>
 				</table>
 				<button class="submit-btn3">Edit</button>
