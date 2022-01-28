@@ -94,7 +94,9 @@ if(id == ""){
    <input class="form-control" id="r_name"name="r_name" type="text" placeholder="도서명" onclick="Popup()" readonly="readonly">
    </td>
    <td>
+   
 <button type="button" class="genric-btn primary-border" onclick="Popup()" value="0" name="booook">책 검색</button>
+
 </td>
 </tr>
 </table>

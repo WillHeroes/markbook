@@ -104,6 +104,7 @@ color: black;
 		 window.opener.RForm.r_ISBN.value = ISBN;
 		 window.opener.RForm.r_writer.value = authors;
 		 window.opener.RForm.r_publisher.value = publisher;
+		 
 		 window.opener.document.RForm.booook.value ="1";
 		 
 		

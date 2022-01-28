@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.markbook.domain.mk_bookVO;
 import com.markbook.service.mk_mainService;
@@ -40,7 +41,15 @@ public class mk_mainController {
 		System.out.println("category:"+category);
 	}
 	
-	
+	//http://localhost:8088/markbook/mk_main/review
+	//별점게시판
+	@RequestMapping(value="/mk_main/review",method=RequestMethod.GET)
+	public void reviewGET(Model model)throws Exception{
+		
+		mk_bookVO book=service.review(1);
+		
+		model.addAttribute("book",book);
+	}
 	
 
 }

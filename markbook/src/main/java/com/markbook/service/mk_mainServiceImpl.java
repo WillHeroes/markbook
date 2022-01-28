@@ -31,5 +31,11 @@ public class mk_mainServiceImpl implements mk_mainService {
 		return list;
 	}
 
+	@Override
+	public mk_bookVO review(int b_num) throws Exception {
+		
+		return  madao.bookreview(b_num);
+	}
+
 
 }

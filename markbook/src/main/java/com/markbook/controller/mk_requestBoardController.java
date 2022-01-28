@@ -149,16 +149,19 @@ public class mk_requestBoardController {
 			)throws Exception{
 		
 		service.reqeustUpdate(rvo);
-		logger.info("수정완료!");
 		
 		model.addAttribute("result",result);
 		model.addAttribute("pgnum",pgnum);
 		model.addAttribute("searchType",searchType);
 		model.addAttribute("keyword",keyword);
 		
+		logger.info("수정완료!");
 		
   return "/mk_admin/request_nothing";
 	}
+	
+	
+	
 	@RequestMapping(value="/mk_admin/request_memberinfo",method=RequestMethod.GET)
 	public void adminRequestMemberinfoGET(Model model,@RequestParam("r_m_id") String r_m_id)throws Exception{
 		

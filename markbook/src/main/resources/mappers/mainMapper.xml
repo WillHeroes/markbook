@@ -19,4 +19,11 @@
    limit 6;
    </select>
    
+   <!-- 별점게시판 -->
+   <select id="bookreview" resultType="mk_bookVO">
+   select *
+   from book
+   where b_num =#{b_num}
+   </select>
+   
    </mapper>

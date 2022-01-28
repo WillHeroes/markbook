@@ -30,5 +30,12 @@ public class mk_mainDAOImpl implements mk_mainDAO {
 		List<mk_bookVO> list = sqlSession.selectList(namespace+".borrbest2",category);
 		return list;
 	}
+    
+	//별점게시판
+	@Override
+	public mk_bookVO bookreview(int b_num) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".bookreview",b_num);
+	}
 
 }
