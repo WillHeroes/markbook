@@ -32,35 +32,44 @@
         <div class="container">
             <div class="cart_inner">
                 <div class="table-responsive">
-                    <table class="table text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Product</th>
-                                <th scope="col">BorrowDate</th>
-                                <th scope="col">DueDate</th>
-                                <th scope="col">DeliveryPrice</th>
-                            </tr>
-                        </thead>
+					<table class="table text-center">
+						<thead>
+							<tr>
+								<th scope="col">Product</th>
+								<th scope="col">BorrowDate</th>
+								<th scope="col">DueDate</th>
+								<th scope="col">DeliveryPrice</th>
+							</tr>
+						</thead>
 						<tbody>
 							<tr>
 								<td>
-									<h5>상품정보</h5>
+									<div class="media">
+										<div class="d-flex">
+											<img
+												src="${pageContext.request.contextPath}/resources/upload/${deliveryInfo.b_image}"
+												alt="">
+										</div>
+										<div class="media-body">
+											<p>${deliveryInfo.b_name }</p>
+										</div>
+									</div>
 								</td>
 								<td>
-									<h5>${today }</h5>
+									<h5>${deliveryInfo.bor_date }</h5>
 								</td>
 								<td>
-									<h5>${dueday}</h5>
+									<h5>${deliveryInfo.bor_redate }</h5>
 								</td>
 								<td>
-									<h5>배송비</h5>
+									<h5>4000원</h5>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-                </div>
+				</div>
                <div class="checkout_btn_inner text-center">
-                   <a class="btn" href="#">Checkout</a>
+                   <a class="btn" href="${pageContext.request.contextPath }/mk_delivery/deliverycheckout">Checkout</a>
                </div>
             </div>
         </div>

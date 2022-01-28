@@ -1,6 +1,5 @@
 package com.markbook.domain;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class bidlistVO {

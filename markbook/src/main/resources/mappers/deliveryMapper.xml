@@ -5,12 +5,13 @@
 
 <mapper namespace="com.markbook.mapper.deliveryMapper">
 
-	<!-- 카트 전체 목록 조회 -->
-	<select id="count" resultType="int">
-		select * 
-		from borrow 
-		where bor_m_id = #{m_id} and bor_goship = 1
+	<!-- 택배 대출 카트 조회 -->
+	<select id="deliveryinfo" resultType="borrowVO">
+		select *
+		from borrow br join book bk on (br.bor_b_num = bk.b_num) 
+		where br.bor_num = #{bor_num}
 	</select>
+	
 
 	
 </mapper>

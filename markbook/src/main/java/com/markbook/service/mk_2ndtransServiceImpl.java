@@ -23,7 +23,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 	@Inject
 	private mk_2ndtransDAO tdao;
 
-	private static final Logger logger = LoggerFactory.getLogger(mk_2ndtransDAOImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(mk_2ndtransServiceImpl.class);
 
 	// 중고 책 리스트 페이징
 	@Override
