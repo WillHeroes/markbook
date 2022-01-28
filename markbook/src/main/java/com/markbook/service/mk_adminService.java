@@ -13,7 +13,7 @@ public interface mk_adminService {
 	public void bookRegister(mk_bookVO bvo) throws Exception;
 	
 	// 도서 목록
-	public List<mk_bookVO> getBookList() throws Exception;
+	//public List<mk_bookVO> getBookList() throws Exception;
 	
 	// 도서 목록 페이징처리 (Cri)
 	//public List<mk_bookVO> bListCri(Criteria cri) throws Exception;
@@ -32,10 +32,10 @@ public interface mk_adminService {
 	public void deleteBook(Integer b_num) throws Exception;
 	
 	// 전체 회원 목록 
-	public List<mk_memberVO> getMList() throws Exception;
+	//public List<mk_memberVO> getMList() throws Exception;
 	
 	// 회원 목록 페이징처리
-	public List<mk_memberVO> mListCri(Criteria cri) throws Exception;
+	public List<mk_memberVO> mListCri(Criteria criteria) throws Exception;
 	
 	// 전체 회원 목록 갯수 조회
 	public int countMember(Criteria cri) throws Exception;

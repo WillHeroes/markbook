@@ -98,16 +98,23 @@
  	</insert>
  
  	<!-- 전체 회원 목록 조회 -->
- 	<select id="memberList" resultType="mk_memberVO">
+ 	<select id="mListCri" resultType="mk_memberVO">
+ 		<![CDATA[
  		select * 
  		from member_info 
+ 		where m_status = 0 
+ 		limit #{pageStart}, #{perPageNum}
+ 		]]>
  	</select>
  	
  	<!-- 전체 회원 목록 페이징 처리 조회 -->
- 	<select id="mListCri" resultType="mk_memberVO">
+ 	<select id="mPaging" resultType="mk_memberVO">
+ 		<![CDATA[
  		select * 
  		from member_info 
- 		limit #{pageStart},#{pageSize}
+ 		where m_status = 0 
+ 		limit #{page}, 10
+ 		]]>
  	</select>
  
  	<!-- 전체 회원 목록 갯수 조회 -->

@@ -84,27 +84,9 @@ public class mk_adminController {
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	// 도서 목록 (GET) (페이징 처리)
-	// http://localhost:8088/markbook/mk_admin/bookList
-	@RequestMapping(value = "/bookListCri", method = RequestMethod.GET) 
-	public String bookListCri(Criteria criteria, Model model) throws Exception {
-  
-		System.out.println(" C : bookListCri() 호출 -> view 페이지 이동 ");
-  
-		model.addAttribute("bookList", service.bookListCri(criteria));
-  
-		return "/mk_admin/bookListCri"; 
-	}
+
 	 
-	
+	// 도서 목록 (GET) 
 	// http://localhost:8088/markbook/mk_admin/listPaging
 	@RequestMapping(value = "/listPaging", method = RequestMethod.GET) 
 	public String listPaging(Model model, Criteria criteria) throws Exception {
@@ -176,13 +158,17 @@ public class mk_adminController {
 	// 전체 회원 목록 조회 (GET)
 	// http://localhost:8088/markbook/mk_admin/memberList
 	@RequestMapping(value = "/memberList", method = RequestMethod.GET)
-	public String memberListAllGET(Model model, String m_id, Criteria cri) throws Exception {
+	public String memberList(Model model, Criteria criteria) throws Exception {
 
-		logger.info("memberListAllGET() 호출");
+		logger.info("memberList() 호출");
 		
-		// 서비스 동작 호출
-		model.addAttribute("memberList", service.getMList());
-
+		pageMaker pageMaker = new pageMaker(); 
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(service.countMember(criteria));
+	  
+		model.addAttribute("memberList", service.mListCri(criteria));
+		model.addAttribute("pageMaker", pageMaker);
+		
 
 		return "/mk_admin/memberList";
 	}

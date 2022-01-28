@@ -64,41 +64,36 @@
 					</table>
 					<br>
 					<br>
-					<div class="card-footer d-block d-md-flex align-items-center d-print-none">
-						<!-- <div class="d-flex mb-2 mb-md-0">Showing 1 to 8 of 24 Entries</div> -->
-
-						<nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
-							<ul class="pagination justify-content-center font-weight-semi-bold">
-								<li class="page-item">
-								
-							<!-- 이전 -->
-							<c:if test="${pm.prev }">
-								<li>
-								<a class="page-link" href="memberList?pageStart=${pm.startPage-1 }" id="datatablePaginationPrev" class="page-link" aria-label="Previous">
-								</a>
-								</li>
-							</c:if>
-
-							<!-- 페이지 번호 -->
-							<c:forEach begin="${pm.startPage }" end="${pm.endPage }" var="idx">
-								<li ${pm.cri.pageStart == idx? 'class = page-item':'' }>
-									<a href="memberList?pageStart=${idx }">${idx }</a>
-								</li>
-							</c:forEach>
-
-							<!-- 다음 -->
-							<c:if test="${pm.next && pm.endPage > 0 }">
-								<li class="page-item">
-								<a class="page-link active" href="./memberList?pageNum=${pm.endPage + 1}" aria-label="Next"> 
-								<i class="gd-angle-right icon-text icon-text-xs d-inline-block"></i>
-								</a>
-								</li>
-							</c:if>
-							
-							</li>
-							</ul>
-						</nav>
-					</div>
+			
+			<div class="card-footer">
+								<nav aria-label="Contacts Page Navigation">
+									<ul class="pagination justify-content-center m-0">
+										<c:if test="${pageMaker.prev}">
+											<li class="page-item"><a class="page-link"
+												href="${path}/mk_admin/memberList?page=${pageMaker.startPage - 1}">이전</a></li>
+										</c:if>
+										<c:forEach begin="${pageMaker.startPage}"
+											end="${pageMaker.endPage}" var="idx">
+											<li class="page-item"
+												<c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>>
+												<a class="page-link"
+												href="${path}/mk_admin/memberList?page=${idx}">${idx}</a>
+											</li>
+										</c:forEach>
+										<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+											<li class="page-item"><a class="page-link"
+												href="${path}/mk_admin/memberList?page=${pageMaker.endPage + 1}">다음</a></li>
+										</c:if>
+									</ul>
+								</nav>
+							</div>
+			
+			
+			
+			
+			
+			
+			
 					</div>
 				</div>
 				<!-- End Users -->

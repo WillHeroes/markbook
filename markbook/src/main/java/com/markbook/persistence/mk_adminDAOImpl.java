@@ -37,18 +37,18 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 
 
 	// 도서 목록 전체 조회
-	@Override
-	public List<mk_bookVO> getBookList() throws Exception {
-		
-		System.out.println( " DAO : getBookList() 호출 ");
-		
-		List<mk_bookVO> bookList = sqlSession.selectList(namespace+".bookList");
-		
-		return bookList;
-	}
+	/*
+	 * @Override public List<mk_bookVO> getBookList() throws Exception {
+	 * 
+	 * System.out.println( " DAO : getBookList() 호출 ");
+	 * 
+	 * List<mk_bookVO> bookList = sqlSession.selectList(namespace+".bookList");
+	 * 
+	 * return bookList; }
+	 */
 
 	
-	// 전체 도서 목록 페이징 처리
+	// 전체 도서 목록 조회 (페이징)
 	@Override
 	public List<mk_bookVO> listPaging(int page) throws Exception {
 		
@@ -121,15 +121,11 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 
 	// 전체 회원 목록
 	@Override
-	public List<mk_memberVO> getMList() throws Exception {
+	public List<mk_memberVO> mListCri(Criteria criteria) throws Exception {
 		
-		logger.info(" DAO : getMList() -> mapper ");
+		logger.info(" DAO : mListCri() -> mapper ");
 		
-		logger.info(" mapper -> S : getMList() ");
-		
-		//List<mk_memberVO> memberList = sqlSession.selectList(namespace+".memberList");
-		
-		return sqlSession.selectList(namespace+".memberList");
+		return sqlSession.selectList(namespace+".mListCri", criteria);
 	}
 
 	// 전체 회원 목록 갯수 조회
@@ -142,9 +138,15 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 
 	// 전체 회원 목록 페이징 처리 조회
 	@Override
-	public List<mk_memberVO> mListCri(Criteria cri) throws Exception {
+	public List<mk_memberVO> memberList(int page) throws Exception {
 		
-		return sqlSession.selectList(namespace+".mListCri", cri);
+		if (page <= 0) { 
+			page = 1; 
+		} 
+		
+		page = (page - 1) * 10;
+
+		return sqlSession.selectList(namespace+".mPaging", page);
 	}
 
 	// 회원 개별 정보 조회
