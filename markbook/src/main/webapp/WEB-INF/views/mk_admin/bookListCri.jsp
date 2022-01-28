@@ -93,26 +93,6 @@ function fun23(num){
 														href="./bookDelete?b_num=${bvo.b_num }"> <i
 														class="gd-trash icon-text"></i>
 													</a>
-
-													<!-- <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
-                                                    <i class="gd-more-alt icon-text"></i>
-                                                </a>
-                                                <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
-                                                    <li class="unfold-item">
-                                                        <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                            <i class="gd-pencil unfold-item-icon mr-3"></i>
-                                                            <span class="media-body">Edit</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="unfold-item">
-                                                        <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                            <i class="gd-close unfold-item-icon mr-3"></i>
-                                                            <span class="media-body">Delete</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>  -->
-
-
 												</div>
 											</td>
 										</tr>
@@ -122,47 +102,9 @@ function fun23(num){
 								</tbody>
 							</table>
 
-							<!--  
-							<div class="card-footer">
-								<nav aria-label="Contacts Page Navigation">
-									<ul class="pagination justify-content-center m-0">
-										<c:if test="${pageMaker.prev}">
-											<li class="page-item"><a class="page-link"
-												href="${path}/mk_admin/bookList?page=${pageMaker.startPage - 1}">이전</a></li>
-										</c:if>
-										<c:forEach begin="${pageMaker.startPage}"
-											end="${pageMaker.endPage}" var="idx">
-											<li class="page-item"
-												<c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>>
-												<a class="page-link"
-												href="${path}/mk_admin/bookList?page=${idx}">${idx}</a>
-											</li>
-										</c:forEach>
-										<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-											<li class="page-item"><a class="page-link"
-												href="${path}/mk_admin/bookList?page=${pageMaker.endPage + 1}">다음</a></li>
-										</c:if>
-									</ul>
-								</nav>
-							</div>
-							-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							<div class="card-footer d-block d-md-flex align-items-center d-print-none">
+							<!-- <div class="card-footer d-block d-md-flex align-items-center d-print-none">
 
 
 								<nav class="d-flex ml-md-auto d-print-none"
@@ -188,19 +130,7 @@ function fun23(num){
 										</li>
 									</ul>
 								</nav>
-							</div>
-
-
-
-
-
-
-
-
-
-
-
-
+							</div> -->
 
 						</div>
 					</div>
@@ -215,7 +145,4 @@ function fun23(num){
 		<%@ include file="footer.jsp"%>
 	</div>
 </div>
-
-
-
 

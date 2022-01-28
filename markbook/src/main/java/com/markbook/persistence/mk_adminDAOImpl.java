@@ -73,9 +73,9 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	
 	// 도서 목록 전체 갯수 조회 
 	@Override
-	public int countBook() throws Exception {
+	public int countBook(Criteria criteria) throws Exception {
 		
-		System.out.println(" DAO : countBook(Criteria cri) 호출 ");
+		System.out.println(" DAO : countBook(Criteria criteria) 호출 ");
 		
 		return sqlSession.selectOne(namespace+".countBook");
 	}

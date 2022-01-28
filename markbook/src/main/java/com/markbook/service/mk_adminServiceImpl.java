@@ -55,9 +55,9 @@ public class mk_adminServiceImpl implements mk_adminService {
 	
 	// 도서 목록 전체 갯수 조회
 	@Override
-	public int countBook() throws Exception {
+	public int countBook(Criteria criteria) throws Exception {
 		
-		return madao.countBook();
+		return madao.countBook(criteria);
 	}
 
 	// 도서 수정

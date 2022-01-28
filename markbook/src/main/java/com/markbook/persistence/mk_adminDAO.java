@@ -22,7 +22,7 @@ public interface mk_adminDAO {
 	List<mk_bookVO> bookListCri(Criteria criteria) throws Exception;
 	
 	// 도서 목록 전체 갯수 조회
-	public int countBook() throws Exception;
+	public int countBook(Criteria criteria) throws Exception;
 	
 	
 	// 도서 목록 개별 정보 조회

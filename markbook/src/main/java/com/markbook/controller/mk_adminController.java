@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
@@ -46,11 +47,11 @@ public class mk_adminController {
 	// 도서 등록 (GET)
 	// http://localhost:8088/markbook/mk_admin/bookRegister
 	@RequestMapping(value = "/bookRegister", method = RequestMethod.GET)
-	public String bookRegisterGET(Model model) throws Exception {
+	public String bookRegisterGET(Model model, Criteria criteria) throws Exception {
 
 		System.out.println(" bookRegisterGET() 호출 ");
 		
-		int count = service.countBook();
+		int count = service.countBook(criteria);
 	
 		count += 1;
 		
@@ -67,15 +68,36 @@ public class mk_adminController {
 
 		service.bookRegister(bvo);
 
-		return "redirect:/mk_admin/bookList";
+		return "redirect:/mk_admin/listPaging";
 	}
 
+	
+	// 도서 등록 사진 업로드
+	public void imgUpload(MultipartFile b_image) throws Exception {
+		
+		logger.info(" imgUpload 실행 ");
+		
+		String uploadFolder = "C:\\upload";
+		
+		// 
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	// 도서 목록 (GET) (페이징 처리)
 	// http://localhost:8088/markbook/mk_admin/bookList
-	@RequestMapping(value = "/bookList", method = RequestMethod.GET) public
-	String bookListCri(Criteria criteria, Model model) throws Exception {
+	@RequestMapping(value = "/bookListCri", method = RequestMethod.GET) 
+	public String bookListCri(Criteria criteria, Model model) throws Exception {
   
-		System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
+		System.out.println(" C : bookListCri() 호출 -> view 페이지 이동 ");
   
 		model.addAttribute("bookList", service.bookListCri(criteria));
   
@@ -83,24 +105,19 @@ public class mk_adminController {
 	}
 	 
 	
-	
-	@RequestMapping(value = "/listPaging", method = RequestMethod.GET) public
-	String listPaging(Model model, Criteria criteria) throws Exception {
+	// http://localhost:8088/markbook/mk_admin/listPaging
+	@RequestMapping(value = "/listPaging", method = RequestMethod.GET) 
+	public String listPaging(Model model, Criteria criteria) throws Exception {
 		
 		pageMaker pageMaker = new pageMaker(); 
 		pageMaker.setCriteria(criteria);
-		pageMaker.setTotalCount(1000);
+		pageMaker.setTotalCount(service.countBook(criteria));
 	  
 		model.addAttribute("bookList", service.bookListCri(criteria));
 		model.addAttribute("pageMaker", pageMaker);
 	  
 		return "/mk_admin/listPaging"; 
 	}
-	  
-	 
-
-	
-	
 	
 
 	// 도서 목록 개별 정보 조회 (GET)
@@ -153,7 +170,7 @@ public class mk_adminController {
 
 		System.out.println(" 삭제 완료 ");
 
-		return "redirect:/mk_admin/bookList";
+		return "redirect:/mk_admin/listPaging";
 	}
 
 	// 전체 회원 목록 조회 (GET)
