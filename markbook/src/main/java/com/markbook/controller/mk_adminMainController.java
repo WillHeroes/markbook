@@ -4,10 +4,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.Gson;
 import com.markbook.domain.mk_adminVO;
+import com.markbook.domain.mk_memberVO;
 import com.markbook.service.mk_adminMainService;
-import com.markbook.service.mk_adminService;
 
 @Controller
 @RequestMapping("/mk_admin/*")
@@ -38,6 +39,15 @@ public class mk_adminMainController {
 		response.getWriter().print(gson.toJson(list));
 	}
 	
-
+	@RequestMapping(value = "/messenger", method = RequestMethod.GET)
+	public void messengertGET(Model model) throws Exception {
+		System.out.println("messenger 도착");
+		
+//		mk_memberVO user = session.get
+//	
+//		logger.info("@ChatController, GET Chat / Username : " + user.getUsername());
+//		
+//		model.addAttribute("userid", user.getUsername());
+	}
 
 }

@@ -23,6 +23,7 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
 		
 		<!-- 파일 업로드 관련 설정 -->
 		<multipart-config>
@@ -52,5 +53,6 @@
 		<filter-name>encoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
 	
 </web-app>
