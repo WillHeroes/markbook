@@ -21,7 +21,7 @@ public class mk_calendarController {
 	@RequestMapping(value="/calendar", method=RequestMethod.GET)
 	public void test(Model model) throws Exception {
 		
-		
+		System.out.println("calendar ");
 
 	}
 	
