@@ -1,6 +1,8 @@
 package com.markbook.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -49,6 +51,17 @@ public class mk_mainController {
 		mk_bookVO book=service.review(1);
 		
 		model.addAttribute("book",book);
+		
+		Map<Integer,String> ratingOptions = new HashMap<Integer,String>();
+		ratingOptions.put(0, "☆☆☆☆☆");
+		ratingOptions.put(1, "★☆☆☆☆");
+		ratingOptions.put(2, "★★☆☆☆");
+		ratingOptions.put(3, "★★★☆☆");
+		ratingOptions.put(4, "★★★★☆");
+		ratingOptions.put(5, "★★★★★");
+		
+		model.addAttribute("ratingOptions", ratingOptions);
+		
 	}
 	
 

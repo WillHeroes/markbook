@@ -1,9 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+   <script src="http://code.jquery.com/jquery-latest.js"></script>
 <%@ include file="../include/header.jsp" %>
+<style>
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
 
+
+출처: https://uidevelop.tistory.com/36 [UI Develop]
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$( ".star_rating a" ).click(function() {
+	    $(this).parent().children("a").removeClass("on");
+	    $(this).addClass("on").prevAll("a").addClass("on");
+	    return false;
+	}); 
+	
+	});
+
+function star(s) {
+	if(s ==1){
+		$(".notice").attr('class','notice ab');
+	}
+}
+
+
+
+
+</script>
 	<!-- Hero area Start-->
 	<div class="container">
 		<div class="row">
@@ -96,16 +133,22 @@
                     <div class="row">
                         <div class="offset-xl-1 col-lg-9">
                         <h2>리뷰</h2>
-                       <c:url var="reviewsPath" value="/reviews" />
-							<form:form modelAttribute="review" action="${ reviewsPath }" method="post">
+							<form action="" name="reviews">
 							    
-							    <form:textarea path="text" cssClass="form-control" rows="5" />
-							    <form:hidden path="b_num" />
-							    <form:hidden path="m_id" />
+							   <textarea rows="" cols=""></textarea>
+						      <p class="star_rating">
+								    <a href="#" onclick="star(1)">★</a>
+								    <a href="#" onclick="star(2)">★</a>
+								    <a href="#" onclick="star(3)">★</a>
+								    <a href="#" onclick="star(4)">★</a>
+								    <a href="#" onclick="star(5)">★</a>
+								</p>
+
+
+                                 <input type="hidden"name="rev_num" value="">
 							    
-							    <button class="btn btn-block btn-primary" type="submit">리뷰 등록</button>
-							</form:form>
-                        
+							    <button class="btn btn-block btn-primary" type="submit" id="reviewbtn">리뷰 등록</button>
+                        </form>
                         </div>
                     </div>
                 </div>
