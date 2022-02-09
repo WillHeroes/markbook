@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/fullcalendar/lib/main.css"/>
 <script src="${pageContext.request.contextPath }/resources/fullcalendar/lib/main.js"></script>   
-
+<script src="${pageContext.request.contextPath }/resources//assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() {
 		var calendarEl = document.getElementById('calendar');
@@ -31,14 +31,23 @@
 			},
 			eventClick: function(arg) {
 				if(confirm('해당 이벤트를 지우시겠습니까?')) {
+					// 해당 이벤트가 개인 이벤트인지 체크
 					arg.event.remove();
 				}
 			},
 			editable: true, 
 			dayMaxEvents: true, // allow "more" link when too many events 
-			events: 
-				
-
+			events: function(info, successCallback, failureCallback) {
+				$.ajax({
+					type: "get",
+					url: "/markbook/mk_calendar/selectCal",
+					dataType: "json",
+					success: function(data) {
+						alert("성공");
+						console.log(data);
+					}
+				})
+			}
 		});
 		calendar.render();
 	});

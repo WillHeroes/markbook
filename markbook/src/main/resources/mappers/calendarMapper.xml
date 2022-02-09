@@ -5,6 +5,20 @@
   
 <mapper namespace="com.markbook.mapper.calendarMapper">
 
-
+	<select id="selectCal" resultType="mk_calendarTempVO">
+		select title,
+		date_format(start, '%Y-%m-%dT%H:%i:%s') start,
+		date_format(end, '%Y-%m-%dT%H:%i:%s') end 
+		from calendar
+		where cal_num in
+		<foreach collection='list' index='index' item='num' open='(' close=')' separator=','>
+			#{num}
+		</foreach>
+	</select>
+	
+	<select id="selectNum" resultType="Integer">
+		select cal_num from calendar
+		where bor_m_id = #{m_id}
+	</select>
 
 </mapper>
