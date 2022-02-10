@@ -27,7 +27,7 @@
 							<div class="tab-pane fade p-4 show active" id="pills-result-2"
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
 
-								<form action="./bookRegister" method="post" name="">
+								<form action="./bookRegister" method="post" name="" enctype="multipart/form-data">
 									<input type="hidden" value="0" name="b_able">
 									<input type="hidden" value="${b_num }" name="b_num">
 									<div class="form-group">
@@ -121,36 +121,19 @@
 											name="b_amount" rows="1"></textarea>
 									</div>
 
-									<!-- <div class="form-group">
-										<strong class="d-block mb-1">대출횟수</strong> <select
-											class="form-control" id="b_count" name="b_count">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
-									</div> -->
-								
 									<div>
 										<strong class="d-block mb-1">대출여부</strong>
 
-										<!-- <select class="form-control" id="b_able" name="b_able">
-                                        		<option>대출여부</option>
-                                        		<option>가능</option>
-                                        		<option>불가</option>
-                                       	</select> -->
-
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes8" name="b_able" value="가능"> <label
+												id="customRadioboxes8" name="b_able" value="0"> <label
 												class="radio radio-xxs form-check-label ml-1"
 												for="customRadioboxes8" data-icon="">가능</label>
 										</div>
 
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes9" name="b_able" value="불가"> <label
+												id="customRadioboxes9" name="b_able" value="1"> <label
 												class="radio radio-xxs form-check-label ml-1"
 												for="customRadioboxes9" data-icon="">불가</label>
 										</div>
@@ -158,7 +141,7 @@
 									</div>
 
 									<button type="submit" class="btn btn-secondary active" style="text-align: center;" 
-											onclick="location.href='./bookList';">
+											onclick="location.href='./listPaging';">
 										<span class="align-middle">등록하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>

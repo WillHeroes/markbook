@@ -57,6 +57,7 @@ function fun23(num){
 								</thead>
 								<tbody>
 									<c:forEach var="bvo" items="${bookList }">
+									<input type="hidden" value="${bvo.b_able }" name="b_able">
 
 
 										<tr>
@@ -77,7 +78,7 @@ function fun23(num){
 													<c:when test="${bvo.b_able == 0}">
 														<span class="badge badge-pill badge-success">가능</span>
 													</c:when>
-													<c:when test="${bvo.b_able == 1 }">
+													<c:when test="${bvo.b_able == 1}">
 														<span class="badge badge-pill badge-info">불가</span>
 													</c:when>
 												</c:choose>

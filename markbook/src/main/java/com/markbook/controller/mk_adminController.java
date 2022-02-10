@@ -1,8 +1,12 @@
 package com.markbook.controller;
 
+import java.io.File;
+import java.util.UUID;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -73,19 +77,30 @@ public class mk_adminController {
 
 	
 	// 도서 등록 사진 업로드
-	public void imgUpload(MultipartFile b_image) throws Exception {
+	@RequestMapping(value = "/imgUpload", method = RequestMethod.POST)
+	public void imgUpload(mk_bookVO bvo) throws Exception {
 		
 		logger.info(" imgUpload 실행 ");
 		
-		String uploadFolder = "C:\\upload";
+		String fileName = null;
+		MultipartFile uploadFile = bvo.getUploadFile();
 		
-		// 
+		if(!uploadFile.isEmpty()) {
+			String originalFileName = uploadFile.getOriginalFilename();
+			String ext = FilenameUtils.getExtension(originalFileName); // 확장자 구하기
+			
+			UUID uuid = UUID.randomUUID(); // uuid 구하기
+			fileName = uuid+"."+ext;
+			uploadFile.transferTo(new File("D:\\upload\\" + fileName));
+		}
 		
-		
+		bvo.setFileName(fileName);
+		service.bookRegister(bvo);
 		
 	}
 
 	 
+	
 	// 도서 목록 (GET) 
 	// http://localhost:8088/markbook/mk_admin/listPaging
 	@RequestMapping(value = "/listPaging", method = RequestMethod.GET) 

@@ -41,12 +41,6 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="pw">비밀번호</label>
-                                    <input type="password" class="form-control" id="m_pw" name="m_pw" value="${mvo.m_pw }">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-12 col-md-6">
                                     <label for="addr1">주소</label>
                                     <input type="text" class="form-control" id="m_addr1" name="m_addr1" value="${mvo.m_addr1 }">
                                 </div>
@@ -68,23 +62,14 @@
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="idnum1">주민등록번호</label>
-                                    <input type="text" class="form-control" id="m_idnum1" name="m_idnum1" value="${mvo.m_idnum1 }">
+                                    <input type="text" class="form-control" id="m_idnum1" name="m_idnum1" value="${mvo.m_idnum1 }" style="width: 250px"> 
                                 </div>
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="idnum2">주민등록번호</label>
-                                    <input type="text" class="form-control" id="m_idnum2" name="m_idnum2" value="${mvo.m_idnum2 }">
+                                <div>
+                                <label for="idnum2">주민등록번호</label>
+                                    <input type="text" class="form-control" id="m_idnum2" name="m_idnum2" value="${mvo.m_idnum2 }" style="width: 250px">
                                 </div>
                             </div>
-                            
-                            <!-- <div class="form-row">
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="image">프로필</label>
-                                    <input type="text" class="form-control" id="m_image" name="m_image" value="${mvo.m_image }" >
-                                </div>
-                            </div>  -->
                           
-                           
-                            <!-- <button type="submit" class="btn btn-primary float-right" onclick="location.href='./memberList';">수정하기</button> -->
                             <button type="submit" class="btn btn-secondary active" onclick="location.href='./memberList';" style="float: right;">
                             	<span class="align-middle">수정하기</span> 
                             	<i class="gd-shopping-cart-full icon-text align-middle ml-3"></i>

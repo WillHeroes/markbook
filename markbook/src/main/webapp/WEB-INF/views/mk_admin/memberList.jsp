@@ -41,7 +41,7 @@
 							<c:forEach var="mvo" items="${memberList }">
 
 								<tr>
-									<td class="py-3">${mvo.m_name }</td>
+									<td class="py-3"><a href="./memberInfo?m_id=${mvo.m_id }">${mvo.m_name }</a></td>
 									<td class="py-3">${mvo.m_email }</td>
 									<td class="py-3">${mvo.m_phone }</td>
 									<td class="py-3">${mvo.m_over }</td>
