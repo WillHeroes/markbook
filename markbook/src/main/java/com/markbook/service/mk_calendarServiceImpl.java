@@ -21,6 +21,13 @@ public class mk_calendarServiceImpl implements mk_calendarService {
 		
 		return cdao.selectCal(m_id);
 	}
+
+	@Override
+	public void insertCal(String m_id) throws Exception {
+		
+		cdao.insertCal(m_id);
+		
+	}
 	
 
 }

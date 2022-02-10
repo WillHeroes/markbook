@@ -4,16 +4,16 @@ import java.sql.Timestamp;
 
 public class mk_calendarVO {
 
-	private int cal_num;
+	private int id;
 	private int bor_num;
 	private String bor_m_id;
 	private int cal_flag;
 	
-	public int getCal_num() {
-		return cal_num;
+	public int getId() {
+		return id;
 	}
-	public void setCal_num(int cal_num) {
-		this.cal_num = cal_num;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public int getBor_num() {
 		return bor_num;
@@ -35,8 +35,8 @@ public class mk_calendarVO {
 	}
 	@Override
 	public String toString() {
-		return "mk_calendarVO [cal_num=" + cal_num + ", bor_num=" + bor_num + ", bor_m_id=" + bor_m_id + ", cal_flag="
-				+ cal_flag + "]";
+		return "mk_calendarVO [id=" + id + ", bor_num=" + bor_num + ", bor_m_id=" + bor_m_id + ", cal_flag=" + cal_flag
+				+ "]";
 	}
 	
 }

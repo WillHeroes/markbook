@@ -5,20 +5,31 @@
   
 <mapper namespace="com.markbook.mapper.calendarMapper">
 
+	<!-- 일정 가져오기 -->
 	<select id="selectCal" resultType="mk_calendarTempVO">
-		select title,
-		date_format(start, '%Y-%m-%dT%H:%i:%s') start,
-		date_format(end, '%Y-%m-%dT%H:%i:%s') end 
-		from calendar
-		where cal_num in
+		select id, title,
+		date_format(start, '%Y-%m-%d %H:%i:%s') start,
+		date_format(end, '%Y-%m-%d %H:%i:%s') end 
+		from calendarTemp
+		where id in
 		<foreach collection='list' index='index' item='num' open='(' close=')' separator=','>
 			#{num}
 		</foreach>
 	</select>
 	
+	<!-- 로그인한 회원의 캘린더 번호 가져오기 -->
 	<select id="selectNum" resultType="Integer">
-		select cal_num from calendar
+		select id from calendar
 		where bor_m_id = #{m_id}
 	</select>
+	
+	<!-- 캘린더 번호 최대값 가져오기 -->
+	<select id="selectMaxNum" resultType="String">
+		select max(id) 
+		from 
+		calendar
+	</select>
+	
+	<!-- 일정 추가 -->
 
 </mapper>

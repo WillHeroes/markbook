@@ -20,12 +20,22 @@
 			select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
 				var title = prompt('추가할 일정을 입력하세요.');
 				if (title) {
-					calendar.addEvent({
-						title: title,
-						start: arg.start,
-						end: arg.end,
-						allDay: arg.allDay
+					/*
+					$.ajax({
+						type: "get",
+						url: "/markbook/mk_calendar/selectCal",
+						dataType: "JSON",
+						contentType: "application/json; charset=utf-8",
+						success: {
+							alert("일정이 추가되었습니다.");
+							calendar.addEvent({
+								title: title,
+								start: arg.start,
+								end: arg.end
+							})
+						}
 					})
+					*/
 				}
 				calendar.unselect()
 			},
@@ -41,10 +51,43 @@
 				$.ajax({
 					type: "get",
 					url: "/markbook/mk_calendar/selectCal",
-					dataType: "json",
+					dataType: "JSON",
+					contentType: "application/json; charset=utf-8",
 					success: function(data) {
-						alert("성공");
-						console.log(data);
+						var events = [];
+					
+						$.each(data, function (idx, item) {
+							var id = data[idx].id;
+							var start = data[idx].start;
+							var end = data[idx].end;
+							var title = data[idx].title;
+							var bgColor = data[idx].backgroundColor;
+							var textColor = data[idx].textColor;
+							
+							if (bgColor == undefined) {
+								events.push({
+									id : id,
+									start : start,
+									end : end,
+									title : title
+								});
+							}
+							else {
+								events.push({
+									id : id,
+									start : start,
+									end : end,
+									title : title,
+									backgroundColor : bgColor,
+									textColor : textColor
+								});
+							}
+						}); // each
+						// var myString = JSON.stringify(data);
+						
+						// alert(myString);
+						console.log(events);
+						successCallback(events);
 					}
 				})
 			}

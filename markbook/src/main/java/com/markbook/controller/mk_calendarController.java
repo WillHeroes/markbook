@@ -1,8 +1,10 @@
 package com.markbook.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -32,15 +34,20 @@ public class mk_calendarController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/selectCal", method=RequestMethod.GET)
-	public String calendarSelect(Model model, HttpSession session) throws Exception {
+	@RequestMapping(value="/selectCal", method=RequestMethod.GET, produces="application/text; charset=UTF-8")
+	public String calendarSelect(Model model, HttpSession session, HttpServletResponse response) throws Exception {
 		
 		String m_id = (String)session.getAttribute("m_id");
 		
-		List<mk_calendarTempVO> cvo = service.selectCal(m_id);
 		Gson gson = new GsonBuilder().create();
 		
-		return gson.toJson(cvo);
+		return gson.toJson(service.selectCal(m_id));
+	}
+	
+	@RequestMapping(value="/insertCal", method=RequestMethod.GET, produces="application/text; charset=UTF-8")
+	public void calendarInsert(HttpSession session) throws Exception {
+		
+		String m_id = (String)session.getAttribute("m_id");
 		
 	}
 }
