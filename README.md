@@ -26,7 +26,7 @@
 > [프로젝트 활동 기록(Notion)](https://extreme-cobbler-417.notion.site/MarkBook_Project-d963bc9053f3464390a26f132f433adb)
 
 ### 산출물 🔎
-> [DB설계]() <br<
+> [DB설계]() <br>
 > [화면구성]() <br>
 
 
