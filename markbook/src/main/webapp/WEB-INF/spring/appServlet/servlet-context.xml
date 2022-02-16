@@ -32,12 +32,6 @@
 	<beans:bean id="multipartResolver" 
 	class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>	
 	
-	<!-- 웹 소켓핸들러 -->
-	<websocket:handlers>
-	<websocket:mapping handler="echoHandler" path="/echo"/>
-	<websocket:sockjs></websocket:sockjs>
-	</websocket:handlers>
-	
-	<beans:bean id="echoHandler" class="com.markbook.controller.EchoHandler"></beans:bean>
+
 	
 </beans:beans>
