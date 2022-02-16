@@ -1,6 +1,5 @@
 package com.markbook.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,11 +35,19 @@ public class mk_adminMainController {
 		Gson gson = new Gson();
 		List<mk_adminVO> list = service.getBorrow();
 		System.out.println(list.toString());
-		List<List<mk_adminVO>> list2 = new ArrayList<List<mk_adminVO>>();
-		list2.add(list);
-		System.out.println(list2.toString());
-		response.getWriter().print(gson.toJson(list2));
+		
+		response.getWriter().print(gson.toJson(list));
 	}
 	
+	@RequestMapping(value = "/messenger", method = RequestMethod.GET)
+	public void messengertGET(Model model) throws Exception {
+		System.out.println("messenger 도착");
+		
+//		mk_memberVO user = session.get
+//	
+//		logger.info("@ChatController, GET Chat / Username : " + user.getUsername());
+//		
+//		model.addAttribute("userid", user.getUsername());
+	}
 
 }
