@@ -109,19 +109,19 @@ function fun23(num){
 									<ul class="pagination justify-content-center m-0">
 										<c:if test="${pageMaker.prev}">
 											<li class="page-item"><a class="page-link"
-												href="${path}/mk_admin/listPaging?page=${pageMaker.startPage - 1}">이전</a></li>
+												href="${path}/listPaging?page=${pageMaker.startPage - 1}">이전</a></li>
 										</c:if>
 										<c:forEach begin="${pageMaker.startPage}"
 											end="${pageMaker.endPage}" var="idx">
 											<li class="page-item"
 												<c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>>
 												<a class="page-link"
-												href="${path}/mk_admin/listPaging?page=${idx}">${idx}</a>
+												href="${path}/listPaging?page=${idx}">${idx}</a>
 											</li>
 										</c:forEach>
 										<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 											<li class="page-item"><a class="page-link"
-												href="${path}/mk_admin/listPaging?page=${pageMaker.endPage + 1}">다음</a></li>
+												href="${path}/listPaging?page=${pageMaker.endPage + 1}">다음</a></li>
 										</c:if>
 									</ul>
 								</nav>

@@ -96,8 +96,8 @@ public class mk_adminController {
 		
 		bvo.setFileName(fileName);
 		service.bookRegister(bvo);
-		
 	}
+	
 
 	 
 	

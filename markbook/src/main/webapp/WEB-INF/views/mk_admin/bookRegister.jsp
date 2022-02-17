@@ -37,12 +37,8 @@
 											placeholder="책이름">
 									</div>
 
-									<!-- <div class="alert alert-primary alert-left-bordered border-primary alert-dismissible d-flex p-3 p-md-4 mb-0 fade show" role="alert">
-    									<i class="gd-info-alt icon-text mr-2 mt-1" style="margin-top: 2px;"></i> -->
-
 									<div>
 										<strong class="d-block mb-1">카테고리</strong>
-										<!-- <form class="mb-3"> -->
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
 												id="customRadioboxes1" name="b_category" value="문학">
@@ -85,20 +81,17 @@
 									</div>
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlFile1">이미지</label> -->
 										<strong class="d-block mb-1">이미지</strong> 
-										<input type="file" id="b_image" name="b_image" class="" >
+										<input type="file" id="image" name="image" class="" >
 									</div>
 
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlTextarea1">책내용</label> -->
 										<strong class="d-block mb-1">책내용</strong>
 										<textarea class="form-control" id="b_content" name="b_content"
 											rows="2" placeholder="책내용"></textarea>
 									</div>
 									<div class="form-group">
-										<!-- <label for="exampleFormControlTextarea1">작가</label> -->
 										<strong class="d-block mb-1">작가</strong>
 										<textarea class="form-control" id="b_writer" name="b_writer"
 											rows="1" placeholder="작가"></textarea>
