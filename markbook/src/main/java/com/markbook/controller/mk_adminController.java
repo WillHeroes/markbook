@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
@@ -66,10 +67,27 @@ public class mk_adminController {
 
 	// 도서 등록 (POST)
 	@RequestMapping(value = "/bookRegister", method = RequestMethod.POST)
-	public String bookRegisterPOST(mk_bookVO bvo) throws Exception {
+	public String bookRegisterPOST(mk_bookVO bvo, HttpServletRequest request) throws Exception {
 
-		System.out.println(" bookRegisterPOST() 호출 ");
+		System.out.println(" bookRegisterPOST() 호출 "+bvo);
+		
+		String fileName = null;
+		
+		MultipartFile uploadFile = bvo.getUploadFile();
+		
+		if(!uploadFile.isEmpty()) {
+			String originalFileName = uploadFile.getOriginalFilename();
+			String ext = FilenameUtils.getExtension(originalFileName); // 확장자 구하기
+			
+			UUID uuid = UUID.randomUUID(); // uuid 구하기
+			fileName = uuid+"."+ext;
+			String ufile = request.getSession().getServletContext().getRealPath("/");
+			ufile+="resources\\upload\\bookImage\\";
+		    logger.info(ufile+"");
+			uploadFile.transferTo(new File(ufile+fileName));
+		}
 
+		bvo.setB_image(fileName);
 		service.bookRegister(bvo);
 
 		return "redirect:/mk_admin/listPaging";
@@ -82,20 +100,8 @@ public class mk_adminController {
 		
 		logger.info(" imgUpload 실행 ");
 		
-		String fileName = null;
-		MultipartFile uploadFile = bvo.getUploadFile();
 		
-		if(!uploadFile.isEmpty()) {
-			String originalFileName = uploadFile.getOriginalFilename();
-			String ext = FilenameUtils.getExtension(originalFileName); // 확장자 구하기
-			
-			UUID uuid = UUID.randomUUID(); // uuid 구하기
-			fileName = uuid+"."+ext;
-			uploadFile.transferTo(new File("D:\\upload\\" + fileName));
-		}
-		
-		bvo.setFileName(fileName);
-		service.bookRegister(bvo);
+
 	}
 	
 

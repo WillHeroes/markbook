@@ -17,7 +17,6 @@ public class mk_bookVO {
 	private Date b_regdate;
 	private int b_able;
 	private int b_amount;
-	private String fileName;
 	private MultipartFile uploadFile;
 	
 	
@@ -88,12 +87,6 @@ public class mk_bookVO {
 	public void setB_amount(int b_amount) {
 		this.b_amount = b_amount;
 	}	
-	public String getFileName() {
-		return fileName;
-	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}
@@ -107,7 +100,7 @@ public class mk_bookVO {
 		return "mk_bookVO [b_num=" + b_num + ", b_name=" + b_name + ", b_category=" + b_category + ", b_image="
 				+ b_image + ", b_content=" + b_content + ", b_count=" + b_count + ", b_writer=" + b_writer
 				+ ", b_publisher=" + b_publisher + ", b_regdate=" + b_regdate + ", b_able=" + b_able + ", b_amount="
-				+ b_amount + ", fileName=" + fileName + ", uploadFile=" + uploadFile + "]";
+				+ b_amount + ", uploadFile=" + uploadFile + "]";
 	}
 	
 

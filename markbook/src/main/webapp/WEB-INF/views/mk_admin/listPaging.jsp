@@ -64,7 +64,7 @@ function fun23(num){
 											<td>
 												<div class="book-img">
 													<img
-														src="${pageContext.request.contextPath }/resources/upload/${bvo.b_image}"
+														src="${pageContext.request.contextPath }/resources/upload/bookImage/${bvo.b_image}"
 														alt="" style="width: 70px; height: 90px;">
 												</div>
 											</td>

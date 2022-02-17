@@ -82,7 +82,7 @@
 
 									<div class="form-group">
 										<strong class="d-block mb-1">이미지</strong> 
-										<input type="file" id="image" name="image" class="" >
+										<input type="file" id="b_image" name="uploadFile" class="" >
 									</div>
 
 
@@ -133,8 +133,7 @@
 
 									</div>
 
-									<button type="submit" class="btn btn-secondary active" style="text-align: center;" 
-											onclick="location.href='./listPaging';">
+									<button type="submit" class="btn btn-secondary active" style="text-align: center;" >
 										<span class="align-middle">등록하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>

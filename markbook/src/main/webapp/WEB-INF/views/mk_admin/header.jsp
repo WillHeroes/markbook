@@ -145,7 +145,7 @@
 
             <!-- Dashboard -->
             <li class="side-nav-menu-item active">
-                <a class="side-nav-menu-link media align-items-center" href="/">
+                <a class="side-nav-menu-link media align-items-center" href="./main">
               <span class="side-nav-menu-icon d-flex mr-3">
                 <i class="gd-dashboard"></i>
               </span>
@@ -172,7 +172,7 @@
                 <!-- Users: subUsers -->
                 <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="users.html">회원관리</a>
+                        <a class="side-nav-menu-link" href="./memberList">회원관리</a>
                     </li>
                     <li class="side-nav-menu-item">
                         <a class="side-nav-menu-link" href="user-edit.html">주문관리</a>
@@ -208,7 +208,7 @@
                         <a class="side-nav-menu-link" href="login.html">판매자 관리</a>
                     </li>
                     <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="register.html">상품관리</a>
+                        <a class="side-nav-menu-link" href="./listPaging">상품관리</a>
                     </li>
                     <li class="side-nav-menu-item">
                         <a class="side-nav-menu-link" href="password-reset.html">상품문의 관리</a>
