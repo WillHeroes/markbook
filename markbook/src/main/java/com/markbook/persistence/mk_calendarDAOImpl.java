@@ -1,5 +1,6 @@
 package com.markbook.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,13 +29,21 @@ public class mk_calendarDAOImpl implements mk_calendarDAO {
 	}
 
 	@Override
-	public void insertCal(String m_id) throws Exception {
+	public void insertCal(mk_calendarTempVO ctvo, String m_id) throws Exception {
 		
 		String tmp = sqlSession.selectOne(namespace + ".selectMaxNum");
+		int num = 0; // 1부터 시작
 		
-		if (tmp != null) {
-			
-		}
+		if (tmp != null) num = Integer.parseInt(tmp);
+		
+		ctvo.setId(++num);
+		sqlSession.insert(namespace + ".insertCaltmp", ctvo);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", ctvo.getId());
+		map.put("m_id", m_id);
+		
+		sqlSession.insert(namespace + ".insertCal", map);
 	}
 
 

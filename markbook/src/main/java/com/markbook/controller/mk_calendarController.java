@@ -44,10 +44,14 @@ public class mk_calendarController {
 		return gson.toJson(service.selectCal(m_id));
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/insertCal", method=RequestMethod.GET, produces="application/text; charset=UTF-8")
-	public void calendarInsert(HttpSession session) throws Exception {
+	public void calendarInsert(HttpSession session, mk_calendarTempVO ctvo) throws Exception {
 		
+		System.out.println("insert calendar");
+		// System.out.println(""+ctvo);
 		String m_id = (String)session.getAttribute("m_id");
 		
+		service.insertCal(ctvo, m_id);
 	}
 }

@@ -11,5 +11,5 @@ public interface mk_calendarService {
 	public List<mk_calendarTempVO> selectCal(String m_id) throws Exception;
 	
 	// 캘린더 일정 추가 (개인)
-	public void insertCal(String m_id) throws Exception;
+	public void insertCal(mk_calendarTempVO ctvo, String m_id) throws Exception;
 }

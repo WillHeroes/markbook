@@ -23,9 +23,9 @@ public class mk_calendarServiceImpl implements mk_calendarService {
 	}
 
 	@Override
-	public void insertCal(String m_id) throws Exception {
+	public void insertCal(mk_calendarTempVO ctvo, String m_id) throws Exception {
 		
-		cdao.insertCal(m_id);
+		cdao.insertCal(ctvo, m_id);
 		
 	}
 	

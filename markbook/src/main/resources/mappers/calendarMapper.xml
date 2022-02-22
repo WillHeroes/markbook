@@ -30,6 +30,17 @@
 		calendar
 	</select>
 	
-	<!-- 일정 추가 -->
-
+	<!-- 개인 일정 추가1 (tmp) -->
+	<insert id="insertCaltmp">
+		insert into 
+		calendarTemp(id, title, start, end) 
+		values(#{id}, #{title}, #{start}, #{end})
+	</insert>
+	
+	<!-- 개인 일정 추가2 (cal) -->
+	<insert id="insertCal" parameterType="Map">
+		insert into
+		calendar(id, bor_m_id, cal_flag)
+		values(#{id}, #{m_id}, 1)
+	</insert>
 </mapper>

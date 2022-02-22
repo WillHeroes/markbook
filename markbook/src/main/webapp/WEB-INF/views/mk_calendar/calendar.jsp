@@ -18,24 +18,29 @@
 			selectable: true, 
 			selectMirror: true,
 			select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
+				
 				var title = prompt('추가할 일정을 입력하세요.');
 				if (title) {
-					/*
+					var c_start = arg.start.getFullYear()+"-"+(arg.start.getMonth() + 1)+"-"+arg.start.getDate();
+					var c_end = arg.end.getFullYear()+"-"+(arg.end.getMonth() + 1)+"-"+arg.end.getDate();
 					$.ajax({
 						type: "get",
-						url: "/markbook/mk_calendar/selectCal",
-						dataType: "JSON",
+						url: "/markbook/mk_calendar/insertCal",
 						contentType: "application/json; charset=utf-8",
-						success: {
+						data : {"title" : title,  "start" : c_start, "end" : c_end},
+						success: function() {
 							alert("일정이 추가되었습니다.");
 							calendar.addEvent({
 								title: title,
 								start: arg.start,
-								end: arg.end
+								end: arg.end,
+								allDay : true
 							})
+						},
+						error: function(data) {
+							console.log(data);
 						}
 					})
-					*/
 				}
 				calendar.unselect()
 			},
@@ -69,7 +74,8 @@
 									id : id,
 									start : start,
 									end : end,
-									title : title
+									title : title,
+									allDay : true
 								});
 							}
 							else {
@@ -79,13 +85,12 @@
 									end : end,
 									title : title,
 									backgroundColor : bgColor,
-									textColor : textColor
+									textColor : textColor,
+									allDay : true
 								});
 							}
 						}); // each
-						// var myString = JSON.stringify(data);
 						
-						// alert(myString);
 						console.log(events);
 						successCallback(events);
 					}
