@@ -1235,24 +1235,8 @@ $.ajax({
     type: "get",
     dateType: "json",
     success: function(data) {                
-        
-        /* obj = {"questList": ["meta": "1", "value": "a"],
-                               ["meta": "2", "value": "b"]
-                 }
-         */       
-        console.log(data);
-//         var chart = document.getElementsByName('charttt')[0].dataset.series;
-//         chart = data;
-//         console.log(chart);
-//            var chart = document.getElementsByName('charttt')[0].dataset.series;
-//            for(var i=0; i<data.length;i++){
-//         	   chart[i] = data[i];
-//         	   console.log(data[i]);
-//         	   }
-//            }
-
-        
-        $('#areaCharts2').attr('data-series','['+data+']');
+        console.log(data);        
+        $('#areaCharts2').attr('data-series',JSON.stringify(data).replaceAll('\\"','"'));
         
         // 1 출력
     },
