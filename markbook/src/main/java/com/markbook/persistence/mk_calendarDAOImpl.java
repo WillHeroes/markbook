@@ -46,6 +46,17 @@ public class mk_calendarDAOImpl implements mk_calendarDAO {
 		sqlSession.insert(namespace + ".insertCal", map);
 	}
 
+	@Override
+	public boolean deleteCal(String id) throws Exception {
+		boolean checkId = sqlSession.selectOne(namespace + ".selectId", id);
+		
+		if (checkId) { // 개인 일정
+			sqlSession.delete(namespace + ".deleteCal", id);
+			return true;
+		}
+		else return false;
+	}
+
 
 	
 }

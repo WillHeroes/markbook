@@ -43,4 +43,19 @@
 		calendar(id, bor_m_id, cal_flag)
 		values(#{id}, #{m_id}, 1)
 	</insert>
+	
+	<!-- 개인 일정인지 아닌지 -->
+	<select id="selectId" resultType="Boolean">
+		select cal_flag 
+		from calendar
+		where id = #{id}
+	</select>
+	
+	<!-- 개인 일정 삭제 -->
+	<delete id="deleteCal">
+		delete from
+		calendar
+		where id = #{id}
+	</delete>
+
 </mapper>

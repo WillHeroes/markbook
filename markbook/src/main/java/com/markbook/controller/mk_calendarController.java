@@ -34,7 +34,7 @@ public class mk_calendarController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/selectCal", method=RequestMethod.GET, produces="application/text; charset=UTF-8")
+	@RequestMapping(value="/selectCal", method=RequestMethod.POST, produces="application/text; charset=UTF-8")
 	public String calendarSelect(Model model, HttpSession session, HttpServletResponse response) throws Exception {
 		
 		String m_id = (String)session.getAttribute("m_id");
@@ -45,7 +45,7 @@ public class mk_calendarController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/insertCal", method=RequestMethod.GET, produces="application/text; charset=UTF-8")
+	@RequestMapping(value="/insertCal", method=RequestMethod.POST, produces="application/text; charset=UTF-8")
 	public void calendarInsert(HttpSession session, mk_calendarTempVO ctvo) throws Exception {
 		
 		System.out.println("insert calendar");
@@ -53,5 +53,14 @@ public class mk_calendarController {
 		String m_id = (String)session.getAttribute("m_id");
 		
 		service.insertCal(ctvo, m_id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/deleteCal", method=RequestMethod.POST)
+	public boolean checkPublicId(String id) throws Exception {
+		System.out.println("delete calendar");
+		
+		return service.deleteCal(id);
+		
 	}
 }

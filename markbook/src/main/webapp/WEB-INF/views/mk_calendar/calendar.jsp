@@ -24,7 +24,7 @@
 					var c_start = arg.start.getFullYear()+"-"+(arg.start.getMonth() + 1)+"-"+arg.start.getDate();
 					var c_end = arg.end.getFullYear()+"-"+(arg.end.getMonth() + 1)+"-"+arg.end.getDate();
 					$.ajax({
-						type: "get",
+						type: "post",
 						url: "/markbook/mk_calendar/insertCal",
 						contentType: "application/json; charset=utf-8",
 						data : {"title" : title,  "start" : c_start, "end" : c_end},
@@ -47,14 +47,28 @@
 			eventClick: function(arg) {
 				if(confirm('해당 이벤트를 지우시겠습니까?')) {
 					// 해당 이벤트가 개인 이벤트인지 체크
-					arg.event.remove();
+					var id = arg.event._def.publicId;
+					$.ajax({
+						type: "post",
+						url: "/markbook/mk_calendar/deleteCal",
+						data : {"id" : id},
+						success: function(flag) {
+							if (flag) {
+								alert("일정이 삭제되었습니다.")
+								arg.event.remove();
+							}
+							else {
+								alert("개인 일정만 삭제 가능합니다.");
+							}
+						}
+					})
 				}
 			},
 			editable: true, 
 			dayMaxEvents: true, // allow "more" link when too many events 
 			events: function(info, successCallback, failureCallback) {
 				$.ajax({
-					type: "get",
+					type: "post",
 					url: "/markbook/mk_calendar/selectCal",
 					dataType: "JSON",
 					contentType: "application/json; charset=utf-8",

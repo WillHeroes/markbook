@@ -28,6 +28,12 @@ public class mk_calendarServiceImpl implements mk_calendarService {
 		cdao.insertCal(ctvo, m_id);
 		
 	}
+
+	@Override
+	public boolean deleteCal(String id) throws Exception {
+		
+		return cdao.deleteCal(id);
+	}
 	
 
 }

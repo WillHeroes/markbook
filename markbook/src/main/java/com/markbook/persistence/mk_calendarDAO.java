@@ -12,4 +12,7 @@ public interface mk_calendarDAO {
 	
 	// 캘린더 일정 추가 (개인)
 	public void insertCal(mk_calendarTempVO ctvo, String m_id) throws Exception;
+	
+	// 캘린더 삭제
+	public boolean deleteCal(String id) throws Exception;
 }
