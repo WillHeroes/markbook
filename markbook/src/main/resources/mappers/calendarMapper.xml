@@ -11,16 +11,11 @@
 		date_format(start, '%Y-%m-%d %H:%i:%s') start,
 		date_format(end, '%Y-%m-%d %H:%i:%s') end 
 		from calendarTemp
-		where id in
-		<foreach collection='list' index='index' item='num' open='(' close=')' separator=','>
-			#{num}
-		</foreach>
-	</select>
-	
-	<!-- 로그인한 회원의 캘린더 번호 가져오기 -->
-	<select id="selectNum" resultType="Integer">
-		select id from calendar
-		where bor_m_id = #{m_id}
+		where id in (
+			select id 
+			from calendar 
+			where bor_m_id = #{m_id}
+			)
 	</select>
 	
 	<!-- 캘린더 번호 최대값 가져오기 -->

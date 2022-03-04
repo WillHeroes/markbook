@@ -23,9 +23,7 @@ public class mk_calendarDAOImpl implements mk_calendarDAO {
 	@Override
 	public List<mk_calendarTempVO> selectCal(String m_id) throws Exception {
 		
-		List<Integer> list = sqlSession.selectList(namespace + ".selectNum", m_id);
-		
-		return sqlSession.selectList(namespace + ".selectCal", list);
+		return sqlSession.selectList(namespace + ".selectCal", m_id);
 	}
 
 	@Override
