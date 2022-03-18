@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                           
-                            <button type="submit" class="btn btn-secondary active" onclick="location.href='./memberList';" style="float: right;">
+                            <button type="submit" class="btn btn-secondary active" style="float: right;">
                             	<span class="align-middle">수정하기</span> 
                             	<i class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
                             </button>

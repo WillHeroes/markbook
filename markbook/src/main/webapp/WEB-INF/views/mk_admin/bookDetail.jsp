@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jsp"%>
 
 <div class="content">
@@ -17,28 +17,32 @@
 
 								<table>
 									<thead>
-									<tr>
-										<th class="font-weight-semi-bold border-top-0 py-2">${bvo.b_name }</th>
-									</tr>
+										<tr>
+											<th class="font-weight-semi-bold border-top-0 py-2">${bvo.b_name }</th>
+										</tr>
 									</thead>
 
-								
-								
+
+
 								</table>
 								<form action="" method="post" id="bookDetail" name="bookDetail">
 
-									<div class="form-group">
-									
-										<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/${bvo.b_image}" alt="Graindashboard" style="width: 180px; height: 230px;">
+										<div class="form-group">
+											<img
+											src="${pageContext.request.contextPath }/resources/upload/bookImage/${bvo.b_image}"
+											alt="" style="width: 70px; height: 90px;">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputEmail1">책 내용</label> <input
+												type="text" class="form-control"
+												id="b_content" name="b_content" value="${bvo.b_content }">
+										</div>
+									</form>
 
-									</div>
-
-								</form>
-						
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>

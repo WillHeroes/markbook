@@ -67,7 +67,9 @@
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="m_image">이미지</label>
-                                    <input type="text" class="form-control" value="${mvo.m_image }">
+                                    <img
+											src="${pageContext.request.contextPath }"
+											alt="" style="width: 70px; height: 90px;">
                                 </div>
                             </div>
                         </form>

@@ -36,6 +36,7 @@
 								<th class="font-weight-semi-bold border-top-0 py-2">Phone</th>
 								<th class="font-weight-semi-bold border-top-0 py-2">연체일</th>
 								<th class="font-weight-semi-bold border-top-0 py-2">대출도서권수</th>
+								<th class="font-weight-semi-bold border-top-0 py-2">상태</th>
 								<th class="font-weight-semi-bold border-top-0 py-2">Edit</th>
 							</tr>
 						</thead>
@@ -48,10 +49,9 @@
 									<td class="py-3">${mvo.m_phone }</td>
 									<td class="py-3">${mvo.m_over }</td>
 									<td class="py-3">${mvo.m_count }</td>
+									<td class="py-3">${mvo.m_status }</td>
 									<td class="py-3">
 										<div class="position-relative">
-											<!-- <i class="gd-eraser text-primary"></i> -->
-											<!-- <i class="gd-trash"></i> -->
 											<a class="link-dark d-inline-block"
 												href="./memberUpdate?m_id=${mvo.m_id }"> <i
 												class="gd-pencil icon-text"></i>
@@ -89,11 +89,6 @@
 									</ul>
 								</nav>
 							</div>
-			
-			
-			
-			
-			
 			
 			
 					</div>

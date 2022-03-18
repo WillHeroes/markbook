@@ -35,7 +35,7 @@
                          <h4>WillHeroes</h4>
                          <ul>  
                              <li><a href="https://github.com/Jiyeon287">Jiyeon.Kim</a></li>
-                             <li><a href="https://github.com/ayoung36">Ayoung.No</a></li>
+                             <li><a href="https://github.com/ayoung36">Ayoung.Noh</a></li>
                              <li><a href="https://github.com/growthlee0125">Sojeong.Lee</a></li>
                              <li><a href="https://github.com/GU0GU99">Minkyeong.Lee</a></li>
                              <li><a href="https://github.com/ha2js">JongSeo.Ha</a></li>

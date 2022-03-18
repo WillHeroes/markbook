@@ -39,7 +39,6 @@
 
 									<div>
 										<strong class="d-block mb-1">카테고리</strong>
-										<!-- <form class="mb-3"> -->
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
 												id="customRadioboxes1" name="b_category" value="문학">
@@ -77,18 +76,15 @@
 											<label class="radio radio-xxs form-check-label ml-1"
 												for="customRadioboxes6" data-icon="">기타</label>
 										</div>
-
-										<!-- </form> -->
 									</div>
 
 									<div class="form-group">
-										<strong class="d-block mb-1">이미지</strong> <input type="file"
-											class="" id="exampleFormControlFile1">
+										<strong class="d-block mb-1">이미지</strong>
+										<input type="file" id="b_image" name="uploadFile" class="" > 
 									</div>
 
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlTextarea1">책내용</label> -->
 										<strong class="d-block mb-1">책내용</strong>
 										<textarea class="form-control" id="b_content" name="b_content"
 											rows="2">${bvo.b_content }</textarea>
@@ -120,14 +116,14 @@
 										<strong class="d-block mb-1">대출여부</strong>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes8" name="b_able" value="가능"> <label
+												id="customRadioboxes8" name="b_able" value="0"> <label
 												class="radio radio-xxs form-check-label ml-1"
 												for="customRadioboxes8" data-icon="">가능</label>
 										</div>
 
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes9" name="b_able" value="불가"> <label
+												id="customRadioboxes9" name="b_able" value="1"> <label
 												class="radio radio-xxs form-check-label ml-1"
 												for="customRadioboxes9" data-icon="">불가</label>
 										</div>
@@ -136,8 +132,7 @@
 
 
 
-									<button type="submit" class="btn btn-secondary active"
-										onclick="location.href='./bookList';">
+									<button type="submit" class="btn btn-secondary active">
 										<span class="align-middle">수정하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>

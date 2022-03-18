@@ -160,7 +160,7 @@ public class mk_adminController {
 
 		System.out.println(" 도서 정보 수정 완료 ");
 
-		return "redirect:/mk_admin/bookList";
+		return "redirect:/mk_admin/listPaging";
 	}
 
 	// 도서 삭제 (GET)
@@ -227,13 +227,6 @@ public class mk_adminController {
 		return "redirect:/mk_admin/memberList";
 	}
 
-	// 회원 개별 정보 삭제 (GET)
-	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
-	public String memberDeleteGET(String m_id) throws Exception {
 
-		service.deleteMember(m_id);
-
-		return "redirect:/mk_admin/memberList";
-	}
 
 }

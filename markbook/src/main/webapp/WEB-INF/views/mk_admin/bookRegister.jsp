@@ -133,7 +133,7 @@
 
 									</div>
 
-									<button type="submit" class="btn btn-secondary active" style="text-align: center;" >
+									<button type="submit" class="btn btn-secondary active" style="text-align: center;">
 										<span class="align-middle">등록하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>
